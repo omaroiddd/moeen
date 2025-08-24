@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+:root {
+  --linear-gradient: linear-gradient(
+    156deg,
+    rgb(255 255 255) 0%,
+    rgba(237, 254, 236, 1) 53%,
+    rgb(245 255 245) 100%
+  );
+}
+body {
+  font-family: "Tajawal", sans-serif;
+}
+
+@theme {
+  --color-primary: #184f4d;
+  --color-secondary: #edfeec;
+  --color-third: #bdfbbc;
+  --radius-3xl: 3rem;
+}
+
+.switch-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-toggle-label {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  width: 285px;
+  height: 65px;
+  border-radius: 999px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #bdfbbc;
+  color: #184f4d;
+  font-weight: 600;
+  user-select: none;
+}
+
+.switch-toggle-label span {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* Sliding highlight (starts on the right) */
+.switch-toggle-label::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  right: 6px;
+  left: auto;
+  width: calc(50% - 6px);
+  border-radius: 999px;
+  background: #184f4d;
+  transform: translateX(0);
+  transition: transform 0.25s ease;
+}
+.switch-input:checked + .switch-toggle-label::before {
+  transform: translateX(-100%);
+}
+
+/* Active text color */
+.switch-input:not(:checked) + .switch-toggle-label span:first-child {
+  color: #bdfbbc;
+}
+.switch-input:checked + .switch-toggle-label span:last-child {
+  color: #bdfbbc;
+}
+
+@media (max-width: 767px) {
+  .switch-toggle-label {
+    width: 224px;
+    height: 48px;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  background: #184f4d !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #bdfbbc !important;
+  background-color: #184f4d;
+  padding: 7px;
+  border-radius: 50%;
+  width: 35px !important;
+  height: 35px !important;
+  margin-top: -17px !important;
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 16px !important;
+  font-weight: bold;
+}
+.candidateSwiper .swiper-pagination {
+  bottom: -3px !important;
+}
+.candidateSwiper .swiper-slide {
+  padding-block: 17px;
+}
+.candidate-card {
+  transition: all 0.3s ease;
+}
+.candidate-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/** animated words  ****/
+
+.word {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.word.active {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.word.exit {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+.word.enter {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+}
+
+.field-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  min-width: 0;
+  background: #bdfbbc;
+  overflow: hidden;
+  flex: 0.7;
+}
+
+.field-card:hover {
+  flex: 1;
+  z-index: 10;
+  background-color: #184f4d;
+}
+.field-card:hover h4 {
+  color: #bdfbbc;
+}
+
+.field-card p,
+.field-card a {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.field-card:hover p,
+.field-card:hover a {
+  opacity: 1;
+  transform: translateY(0);
+}
+.field-card:hover p {
+  color: #bdfbbc;
+}
+.field-card:hover a {
+  color: #184f4d;
+  background-color: #bdfbbc;
+}
+
+.field-card svg {
+  transition: all 0.4s ease-in-out;
+  transform: translateY(20px);
+}
+.field-card:hover svg {
+  transform: translateY(20px) scale(1.2);
+  background-color: #bdfbbc;
+  color: #184f4d;
+}

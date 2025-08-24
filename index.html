@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <title>Vite App</title>
+</head>
+
+<body>
+    <header class="!bg-(image:--linear-gradient) bg-cover bg-no-repeat">
+        <div class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
+            <a class="block" href="#">
+                <img src="/public/assets/لوجو.png" class="h-20 w-auto md:h-24 lg:h-32" alt="logo">
+            </a>
+
+            <div class="flex flex-1 items-center justify-end md:justify-between">
+                <nav aria-label="Global" class="hidden md:block">
+                    <ul class="flex items-center gap-6 text-sm">
+                        <li>
+                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> الرئيسية </a>
+                        </li>
+
+                        <li>
+                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> الرئيسية </a>
+                        </li>
+
+                        <li>
+                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> الرئيسية </a>
+                        </li>
+
+                        <li>
+                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> الرئيسية </a>
+                        </li>
+
+                        <li>
+                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> الرئيسية </a>
+                        </li>
+
+                        <li>
+                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> الرئيسية </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <button
+                        class="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
+                        <span class="sr-only">Toggle menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section !bg-(image:--linear-gradient) bg-cover bg-no-repeat">
+        <div class="mx-auto container px-6 py-6 md:py-16">
+            <div class="flex flex-col md:flex-row flex-wrap items-center justify-between gap-6">
+
+                <div class="max-w-2xl text-center md:text-right space-y-6 basis-2/3">
+                    <h1
+                        class="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-6xl leading-[1.3] text-primary">
+                        توظيف الكفاءات <br>
+                        التقنية عن بعد
+                    </h1>
+                    <p class="mt-4 text-lg md:text-2xl text-primary text-balance w-fit">
+                        نوفر للشركات السعودية موظفين محترفين يعملون عن بعد, بجودة عالية وتكلفة مناسبة
+                    </p>
+                    <a href="#"
+                        class="inline-flex text-lg md:text-xl items-center justify-center rounded-3xl bg-third px-5 py-3 gap-4">
+                        خلينا نوظف فريقك عن بعد
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd"
+                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-4.28 9.22a.75.75 0 0 0 0 1.06l3 3a.75.75 0 1 0 1.06-1.06l-1.72-1.72h5.69a.75.75 0 0 0 0-1.5h-5.69l1.72-1.72a.75.75 0 0 0-1.06-1.06l-3 3Z"
+                                clip-rule="evenodd" />
+                        </svg>
+
+                    </a>
+                </div>
+
+                <div class="basis-1/3">
+                    <input id="moeen-switch" type="checkbox" class="switch-input">
+                    <label class="switch-toggle-label" for="moeen-switch">
+                        <span>للشركات</span>
+                        <span>للموظف</span>
+                    </label>
+                </div>
+            </div>
+            <div class="mt-16">
+                <h2 class="text-2xl font-bold mb-2 md:mb-4 text-center text-primary">شركات تثق فينا</h2>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="/public/assets/16.png" class="h-48 w-auto" alt="">
+                        </div>
+                        <div class="swiper-slide"><img src="/public/assets/17.png" class="h-48 w-auto" alt="">
+                        </div>
+                        <div class="swiper-slide"><img src="/public/assets/18.png" class="h-48 w-auto" alt="">
+                        </div>
+                        <div class="swiper-slide"><img src="/public/assets/19.png" class="h-48 w-auto" alt="">
+                        </div>
+                        <div class="swiper-slide"><img src="/public/assets/20.png" class="h-48 w-auto" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section>
+        <div class="mx-auto container px-6 py-6 md:py-16">
+            <div
+                class="flex flex-col md:flex-row flex-wrap md:flex-nowrap items-center justify-center gap-6 py-6 md:py-16 bg-secondary rounded-3xl">
+                <div class="basis-1/2 text-center md:text-right">
+                    <h3 class="text-2xl md:text-4xl leading-[1.6] font-semibold text-primary">
+                        نساعدك في توفير
+                        <div class="animated-word relative inline-block h-16 min-w-[50px] md:min-w-[70px] align-top">
+                            <span class="word active">وقت</span>
+                            <span class="word">جهد</span>
+                            <span class="word">عناء</span>
+                        </div>
+                        <br>
+                        التوظيف عن بعد!
+                    </h3>
+                    <p class="text-xl md:4xl font-medium text-primary text-balance leading-[1.6]">
+                        تواصل مع فريق معين وإحصل على الموظف<br>
+                        المناسب مع احتياجات شركتك
+                    </p>
+                </div>
+                <div>
+                    <div class="img-with-icons relative">
+                        <a href="">
+                            <img src="/public/assets/11.png" class="w-64 md:w-72 h-auto" alt="">
+                        </a>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="size-12 absolute -top-4 -left-4 m-4 text-third bg-primary rounded-lg p-1 shadow-xl">
+                            <path fill-rule="evenodd"
+                                d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="size-12 absolute -bottom-4 -left-6 m-4 text-third bg-primary rounded-lg p-1 shadow-xl">
+                            <path
+                                d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375Z" />
+                            <path fill-rule="evenodd"
+                                d="m3.087 9 .54 9.176A3 3 0 0 0 6.62 21h10.757a3 3 0 0 0 2.995-2.824L20.913 9H3.087ZM12 10.5a.75.75 0 0 1 .75.75v4.94l1.72-1.72a.75.75 0 1 1 1.06 1.06l-3 3a.75.75 0 0 1-1.06 0l-3-3a.75.75 0 1 1 1.06-1.06l1.72 1.72v-4.94a.75.75 0 0 1 .75-.75Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="size-12 absolute -top-2 -right-6 m-4 text-third bg-primary rounded-lg p-1 shadow-xl">
+                            <path
+                                d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="size-12 absolute -bottom-4 -right-4 m-4 text-third bg-primary rounded-lg p-1 shadow-xl">
+                            <path fill-rule="evenodd"
+                                d="M12 5.25c1.213 0 2.415.046 3.605.135a3.256 3.256 0 0 1 3.01 3.01c.044.583.077 1.17.1 1.759L17.03 8.47a.75.75 0 1 0-1.06 1.06l3 3a.75.75 0 0 0 1.06 0l3-3a.75.75 0 0 0-1.06-1.06l-1.752 1.751c-.023-.65-.06-1.296-.108-1.939a4.756 4.756 0 0 0-4.392-4.392 49.422 49.422 0 0 0-7.436 0A4.756 4.756 0 0 0 3.89 8.282c-.017.224-.033.447-.046.672a.75.75 0 1 0 1.497.092c.013-.217.028-.434.044-.651a3.256 3.256 0 0 1 3.01-3.01c1.19-.09 2.392-.135 3.605-.135Zm-6.97 6.22a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.752-1.751c.023.65.06 1.296.108 1.939a4.756 4.756 0 0 0 4.392 4.392 49.413 49.413 0 0 0 7.436 0 4.756 4.756 0 0 0 4.392-4.392c.017-.223.032-.447.046-.672a.75.75 0 0 0-1.497-.092c-.013.217-.028.434-.044.651a3.256 3.256 0 0 1-3.01 3.01 47.953 47.953 0 0 1-7.21 0 3.256 3.256 0 0 1-3.01-3.01 47.759 47.759 0 0 1-.1-1.759L6.97 15.53a.75.75 0 0 0 1.06-1.06l-3-3Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container mx-auto py-6 md:py-16 px-6">
+            <h3 class="text-2xl md:text-6xl mb-3 md:mb-6 font-bold text-primary w-full text-center md:text-right">إكتشف مترشحينا المميزين</h3>
+            
+            <!-- Tabs Navigation -->
+            <!--<div class="text-lg font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400">
+                <ul class="flex justify-center flex-wrap -mb-px" id="tabsList">
+                    <li class="me-2">
+                        <button class="tab-button inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 transition-all duration-300" data-tab="developer">Developer</button>
+                    </li>
+                    <li class="me-2">
+                        <button class="tab-button inline-block p-4 text-primary border-b-2 border-primary rounded-t-lg active transition-all duration-300" data-tab="sales">Sales</button>
+                    </li>
+                    <li class="me-2">
+                        <button class="tab-button inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 transition-all duration-300" data-tab="marketer">Marketer</button>
+                    </li>
+                    <li class="me-2">
+                        <button class="tab-button inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 transition-all duration-300" data-tab="motion">Motion Graphic</button>
+                    </li>
+                    <li class="me-2">
+                        <button class="tab-button inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 transition-all duration-300" data-tab="graphic">Graphic Designer</button>
+                    </li>
+                    <li>
+                        <button class="tab-button inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 transition-all duration-300" data-tab="manager">Manager</button>
+                    </li>
+                </ul>
+            </div> -->
+
+                       <!-- Tabs Navigation Slider -->
+            <div class="text-lg font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700 relative">
+                <div class="swiper tabsSwiper">
+                    <div class="swiper-wrapper -mb-px">
+                        <div class="swiper-slide">
+                            <button class="tab-button w-full inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 transition-all duration-300" data-tab="developer">Developer</button>
+                        </div>
+                        <div class="swiper-slide">
+                            <button class="tab-button w-full inline-block p-4 text-primary border-b-2 border-primary rounded-t-lg active transition-all duration-300" data-tab="sales">Sales</button>
+                        </div>
+                        <div class="swiper-slide">
+                            <button class="tab-button w-full inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 transition-all duration-300" data-tab="marketer">Marketer</button>
+                        </div>
+                        <div class="swiper-slide">
+                            <button class="tab-button w-full inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 transition-all duration-300" data-tab="motion">Motion Graphic</button>
+                        </div>
+                        <div class="swiper-slide">
+                            <button class="tab-button w-full inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 transition-all duration-300" data-tab="graphic">Graphic Designer</button>
+                        </div>
+                        <div class="swiper-slide">
+                            <button class="tab-button w-full inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 transition-all duration-300" data-tab="manager">Manager</button>
+                        </div>
+                        <div class="swiper-slide">
+                            <button class="tab-button w-full inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 transition-all duration-300" data-tab="telesales">telesales</button>
+                        </div>
+                    </div>
+                    <div class="tabs-button-next absolute top-1/2 -translate-y-1/2 left-0 z-10 w-8 h-8 bg-primary text-secondary shadow-lg rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-50 hover:text-primary transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="tabs-button-prev absolute top-1/2 -translate-y-1/2 right-0 z-10 w-8 h-8 bg-primary text-secondary shadow-lg rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-50 hover:text-primary transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <!-- Tab Contents -->
+            <div class="mt-8">
+                <!-- Developer Tab -->
+                <div class="tab-content hidden" id="developer">
+                    <div class="swiper candidateSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">AH</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">أحمد حسام</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Full Stack Developer</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">5 سنوات خبرة في React و Node.js</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">React</span>
+                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Node.js</span>
+                                        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">MongoDB</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-teal-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">SM</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">Mohamed</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Frontend Developer</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">3 سنوات خبرة في Vue.js و Angular</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Vue.js</span>
+                                        <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Angular</span>
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">JavaScript</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">KA</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">خالد علي</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Backend Developer</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">7 سنوات خبرة في Python و Django</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Python</span>
+                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Django</span>
+                                        <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">PostgreSQL</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">LH</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">ليلى حسن</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Mobile Developer</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">4 سنوات خبرة في React Native و Flutter</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">React Native</span>
+                                        <span class="bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded">Flutter</span>
+                                        <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Dart</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <!-- Sales Tab -->
+                <div class="tab-content" id="sales">
+                    <div class="swiper candidateSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-emerald-500 to-cyan-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">MR</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">محمد رشيد</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Sales Manager</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">8 سنوات خبرة في المبيعات التقنية</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">B2B Sales</span>
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">CRM</span>
+                                        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Lead Generation</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-pink-500 to-rose-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">FA</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">Fatma</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Sales Representative</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">5 سنوات خبرة في مبيعات التجزئة</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">Retail Sales</span>
+                                        <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Customer Service</span>
+                                        <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Negotiation</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-violet-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">AS</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">Amr</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Business Development</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">6 سنوات خبرة في تطوير الأعمال</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-violet-100 text-violet-800 text-xs px-2 py-1 rounded">Business Strategy</span>
+                                        <span class="bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded">Market Analysis</span>
+                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Partnership</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <!-- Marketer Tab -->
+                <div class="tab-content hidden" id="marketer">
+                    <div class="swiper candidateSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">NM</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">نور محمود</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Digital Marketer</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">4 سنوات خبرة في التسويق الرقمي</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">SEO/SEM</span>
+                                        <span class="bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">Social Media</span>
+                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Google Ads</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">HA</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">هالة أمين</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Content Marketing</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">5 سنوات خبرة في تسويق المحتوى</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Content Strategy</span>
+                                        <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Copywriting</span>
+                                        <span class="bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded">Analytics</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-red-500 to-pink-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">TR</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">طارق راشد</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Email Marketing</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">3 سنوات خبرة في التسويق عبر البريد</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Email Campaigns</span>
+                                        <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Automation</span>
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">A/B Testing</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <!-- Motion Graphic Tab -->
+                <div class="tab-content hidden" id="motion">
+                    <div class="swiper candidateSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">YS</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">يوسف سليم</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Motion Graphics Designer</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">6 سنوات خبرة في الموشن جرافيك</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">After Effects</span>
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Cinema 4D</span>
+                                        <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Premiere</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">RK</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">رنا خالد</h4>
+                                    <p class="text-gray-600 mb-3 text-center">3D Animator</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">4 سنوات خبرة في الرسوم المتحركة</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded">Blender</span>
+                                        <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Maya</span>
+                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">3ds Max</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <!-- Graphic Designer Tab -->
+                <div class="tab-content hidden" id="graphic">
+                    <div class="swiper candidateSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-rose-500 to-pink-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">DH</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">دينا حسام</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Brand Designer</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">5 سنوات خبرة في تصميم الهوية البصرية</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">Photoshop</span>
+                                        <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Illustrator</span>
+                                        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">InDesign</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">OS</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">عمر صلاح</h4>
+                                    <p class="text-gray-600 mb-3 text-center">UI/UX Designer</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">4 سنوات خبرة في تصميم واجهات المستخدم</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Figma</span>
+                                        <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Sketch</span>
+                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Prototyping</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <!-- Manager Tab -->
+                <div class="tab-content hidden" id="manager">
+                    <div class="swiper candidateSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-slate-500 to-gray-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">AI</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">Ali</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Project Manager</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">10 سنوات خبرة في إدارة المشاريع</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Agile</span>
+                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Scrum</span>
+                                        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Leadership</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">MM</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">Mariam</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Operations Manager</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">8 سنوات خبرة في إدارة العمليات</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Operations</span>
+                                        <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Process Improvement</span>
+                                        <span class="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded">Team Management</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">MM</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">Mariam</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Operations Manager</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">8 سنوات خبرة في إدارة العمليات</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Operations</span>
+                                        <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Process Improvement</span>
+                                        <span class="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded">Team Management</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">MM</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">Mariam</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Operations Manager</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">8 سنوات خبرة في إدارة العمليات</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Operations</span>
+                                        <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Process Improvement</span>
+                                        <span class="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded">Team Management</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">MM</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">Mariam</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Operations Manager</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">8 سنوات خبرة في إدارة العمليات</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Operations</span>
+                                        <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Process Improvement</span>
+                                        <span class="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded">Team Management</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+
+
+                                <!-- telesales Tab -->
+                <div class="tab-content hidden" id="telesales">
+                    <div class="swiper candidateSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-slate-500 to-gray-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">AI</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">Ali</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Project Manager</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">10 سنوات خبرة في إدارة المشاريع</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Agile</span>
+                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Scrum</span>
+                                        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Leadership</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">MM</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">Mariam</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Operations Manager</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">8 سنوات خبرة في إدارة العمليات</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Operations</span>
+                                        <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Process Improvement</span>
+                                        <span class="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded">Team Management</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">MM</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">Mariam</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Operations Manager</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">8 سنوات خبرة في إدارة العمليات</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Operations</span>
+                                        <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Process Improvement</span>
+                                        <span class="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded">Team Management</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">MM</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">Mariam</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Operations Manager</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">8 سنوات خبرة في إدارة العمليات</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Operations</span>
+                                        <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Process Improvement</span>
+                                        <span class="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded">Team Management</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="candidate-card bg-white rounded-xl shadow-lg p-6 mx-2">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">MM</div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">Mariam</h4>
+                                    <p class="text-gray-600 mb-3 text-center">Operations Manager</p>
+                                    <p class="text-sm text-gray-500 mb-4 text-center">8 سنوات خبرة في إدارة العمليات</p>
+                                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Operations</span>
+                                        <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Process Improvement</span>
+                                        <span class="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded">Team Management</span>
+                                    </div>
+                                    <button class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Download Cv</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <div class="container mx-auto py-6 px-6">
+            <h3 class="text-2xl md:text-6xl mb-3 md:mb-6 font-bold text-primary w-full text-center md:text-right">تصفح مجالات التوظيف</h3>
+        </div>
+        <div class="fields-card h-[70vh] md:h-[80vh]">
+        <div class="flex gap-0 h-full">
+            <div class="field-card flex flex-col justify-around items-center h-full gap-5">
+                <div class="flex flex-col flexwrap gap-2 justify-center mb-4">
+                    <h4 class="text-2xl font-bold text-primary mb-2 text-center">مبيعات خدمة عملاء</h4>
+                    <p class="text-gray-600 mb-3 text-center text-balance text-xl">تواصل مع فريق معين إحصل الموظف
+                    المناسب مع احتياجات شركتك
+                    </p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                    class="size-24 m-4 text-third bg-primary rounded-xl p-1 shadow-xl">
+                    <path
+                        d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375Z" />
+                    <path fill-rule="evenodd"
+                        d="m3.087 9 .54 9.176A3 3 0 0 0 6.62 21h10.757a3 3 0 0 0 2.995-2.824L20.913 9H3.087ZM12 10.5a.75.75 0 0 1 .75.75v4.94l1.72-1.72a.75.75 0 1 1 1.06 1.06l-3 3a.75.75 0 0 1-1.06 0l-3-3a.75.75 0 1 1 1.06-1.06l1.72 1.72v-4.94a.75.75 0 0 1 .75-.75Z"
+                        clip-rule="evenodd" />
+                </svg>
+                <div class="flex flex-wrap gap-2 justify-center mb-4">
+                    <a href="#" class="bg-primary text-secondary text-md px-3 py-3 rounded">اعرف المزيد</a>
+                    <a href="#" class="bg-primary text-secondary text-md px-3 py-3 rounded">اعرف المزيد</a>
+                    <a href="#" class="bg-primary text-secondary text-md px-3 py-3 rounded">اعرف المزيد</a>
+                </div>
+            </div>
+            
+            <div class="field-card flex flex-col justify-around items-center h-full gap-5">
+                <div class="flex flex-col flexwrap gap-2 justify-center mb-4">
+                    <h4 class="text-2xl font-bold text-primary mb-2 text-center">التسويق الرقمي</h4>
+                    <p class="text-gray-600 mb-3 text-center text-balance text-xl">خدمات تسويق متكاملة لزيادة انتشار
+                    علامتك التجارية رقمياً
+                    </p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                    class="size-24 m-4 text-third bg-primary rounded-xl p-1 shadow-xl">
+                    <path fill-rule="evenodd"
+                        d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
+                        clip-rule="evenodd" />
+                    <path fill-rule="evenodd"
+                        d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5V3z"
+                        clip-rule="evenodd" />
+                </svg>
+                <div class="flex flex-wrap gap-2 justify-center mb-4">
+                    <a href="#" class="bg-primary text-secondary text-md px-3 py-3 rounded">اعرف المزيد</a>
+                    <a href="#" class="bg-primary text-secondary text-md px-3 py-3 rounded">اعرف المزيد</a>
+                    <a href="#" class="bg-primary text-secondary text-md px-3 py-3 rounded">اعرف المزيد</a>
+                </div>
+            </div>
+            
+            <div class="field-card flex flex-col justify-around items-center h-full gap-5">
+                <div class="flex flex-col flexwrap gap-2 justify-center mb-4">
+                    <h4 class="text-2xl font-bold text-primary mb-2 text-center">تطوير التطبيقات</h4>
+                    <p class="text-gray-600 mb-3 text-center text-balance text-xl">حلول تقنية متطورة لتطبيقات
+                    الجوال والويب
+                    </p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                    class="size-24 m-4 text-third bg-primary rounded-xl p-1 shadow-xl">
+                    <path fill-rule="evenodd"
+                        d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm14.25 6a.75.75 0 01-.22.53l-2.25 2.25a.75.75 0 11-1.06-1.06L15.44 12l-1.72-1.72a.75.75 0 111.06-1.06l2.25 2.25c.141.14.22.331.22.53zm-10.28-.53a.75.75 0 000 1.06l2.25 2.25a.75.75 0 101.06-1.06L8.56 12l1.72-1.72a.75.75 0 10-1.06-1.06l-2.25 2.25z"
+                        clip-rule="evenodd" />
+                </svg>
+                <div class="flex flex-wrap gap-2 justify-center mb-4">
+                    <a href="#" class="bg-primary text-secondary text-md px-3 py-3 rounded">اعرف المزيد</a>
+                    <a href="#" class="bg-primary text-secondary text-md px-3 py-3 rounded">اعرف المزيد</a>
+                    <a href="#" class="bg-primary text-secondary text-md px-3 py-3 rounded">اعرف المزيد</a>
+                </div>
+            </div>
+            
+            <div class="field-card flex flex-col justify-around items-center h-full gap-5">
+                <div class="flex flex-col flexwrap gap-2 justify-center mb-4">
+                    <h4 class="text-2xl font-bold text-primary mb-2 text-center">الاستشارات المالية</h4>
+                    <p class="text-gray-600 mb-3 text-center text-balance text-xl">خدمات مالية ومحاسبية شاملة
+                    لنمو أعمالك
+                    </p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                    class="size-24 m-4 text-third bg-primary rounded-xl p-1 shadow-xl">
+                    <path
+                        d="M12 7.5a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z" />
+                    <path fill-rule="evenodd"
+                        d="M1.5 4.875C1.5 3.839 2.34 3 3.375 3h17.25c1.035 0 1.875.84 1.875 1.875v9.75c0 1.036-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 011.5 14.625v-9.75zM8.25 9.75a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0zM18.75 9a.75.75 0 00-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 00.75-.75V9.75a.75.75 0 00-.75-.75h-.008zM4.5 9.75A.75.75 0 015.25 9h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H5.25a.75.75 0 01-.75-.75V9.75z"
+                        clip-rule="evenodd" />
+                    <path
+                        d="M2.25 18a.75.75 0 000 1.5c5.4 0 10.63.722 15.6 2.075 1.19.324 2.4-.558 2.4-1.82V18.75a.75.75 0 00-.75-.75H2.25z" />
+                </svg>
+                <div class="flex flex-wrap gap-2 justify-center mb-4">
+                    <a href="#" class="bg-primary text-secondary text-md px-3 py-3 rounded">اعرف المزيد</a>
+                    <a href="#" class="bg-primary text-secondary text-md px-3 py-3 rounded">اعرف المزيد</a>
+                    <a href="#" class="bg-primary text-secondary text-md px-3 py-3 rounded">اعرف المزيد</a>
+                </div>
+            </div>
+            
+            <div class="field-card flex flex-col justify-around items-center h-full gap-5">
+                <div class="flex flex-col flexwrap gap-2 justify-center mb-4">
+                    <h4 class="text-2xl font-bold text-primary mb-2 text-center">التدريب والتطوير</h4>
+                    <p class="text-gray-600 mb-3 text-center text-balance text-xl">برامج تدريبية متخصصة لتطوير
+                    مهارات فريق العمل
+                    </p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                    class="size-24 m-4 text-third bg-primary rounded-xl p-1 shadow-xl">
+                    <path fill-rule="evenodd"
+                        d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
+                        clip-rule="evenodd" />
+                </svg>
+                <div class="flex flex-wrap gap-2 justify-center mb-4">
+                    <a href="#" class="bg-primary text-secondary text-md px-3 py-3 rounded">اعرف المزيد</a>
+                    <a href="#" class="bg-primary text-secondary text-md px-3 py-3 rounded">اعرف المزيد</a>
+                    <a href="#" class="bg-primary text-secondary text-md px-3 py-3 rounded">اعرف المزيد</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        
+    </section>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
