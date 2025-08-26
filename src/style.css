@@ -63,11 +63,11 @@ body {
   transform: translateX(0);
   transition: transform 0.25s ease;
 }
-.switch-input:checked + .switch-toggle-label::before {
+
+/* .switch-input:checked + .switch-toggle-label::before {
   transform: translateX(-100%);
 }
 
-/* Active text color */
 .switch-input:not(:checked) + .switch-toggle-label span:first-child {
   color: #bdfbbc;
 }
@@ -80,7 +80,7 @@ body {
     width: 224px;
     height: 48px;
   }
-}
+}   */
 
 .swiper-pagination-bullet-active {
   background: #184f4d !important;
