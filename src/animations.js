@@ -1,12 +1,12 @@
 import AOS from "aos";
-import "aos/dist/aos.css"; // You can also use <link> for styles
+import "aos/dist/aos.css";
 
 AOS.init({
   duration: 1000,
   easing: "ease-in-out",
   offset: 200,
-  once: false, // 👈 animate every time (scroll down & up)
-  mirror: true, // 👈 replay animation in reverse when leaving viewport
+  once: false,
+  mirror: true,
 });
 
 import { gsap } from "gsap";
@@ -14,13 +14,33 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 
+// Loader animation
+
+window.addEventListener("load", function () {
+  const loader = document.getElementById("loader-wrapper");
+  if (!loader) return;
+
+  gsap.delayedCall(1, () => {
+    gsap.to(loader, {
+      duration: 0.6,
+      autoAlpha: 0,
+      ease: "power2.out",
+      onComplete: () => (loader.style.display = "none"),
+    });
+  });
+});
+
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
+// Smooth scrolling
+
 ScrollSmoother.create({
-  smooth: 3, // how long (in seconds) it takes to "catch up" to the native scroll position
-  effects: true, // looks for data-speed and data-lag attributes on elements
-  smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+  smooth: 3,
+  effects: true,
+  smoothTouch: 0.1,
 });
+
+// Mobile menu
 
 const btn = document.getElementById("menuButton");
 const panel = document.getElementById("mobileMenu");
@@ -78,6 +98,7 @@ if (btn && panel) {
   });
 }
 
+// Animate icons in section two
 
 const imgWithIcons = document.querySelectorAll(".img-with-icons");
 
@@ -115,3 +136,15 @@ if (imgWithIcons.length > 0) {
     }
   });
 }
+
+// Title animation
+gsap.to(".title", {
+  xPercent: 250,
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".title",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: 2,
+  },
+});

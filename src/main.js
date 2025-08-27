@@ -1,7 +1,4 @@
-
-
 // words animation
-
 const words = document.querySelectorAll(".word");
 let currentIndex = 0;
 
@@ -33,7 +30,6 @@ function rotateWords() {
 
 // Start rotation after initial display
 setInterval(rotateWords, 2000);
-
 
 // Field cards hover effect
 
@@ -85,6 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
   counters.forEach((counter) => observer.observe(counter));
 });
 
+// --- Field cards interactive ---
+
 document.addEventListener("DOMContentLoaded", function () {
   const tabs = document.querySelectorAll(".tab-banner");
   const contents = document.querySelectorAll(".tab-content-banner");
@@ -92,68 +90,147 @@ document.addEventListener("DOMContentLoaded", function () {
   tabs.forEach((tab, index) => {
     tab.addEventListener("click", (e) => {
       e.preventDefault();
-
-      // Check if the content exists before trying to access it
       if (contents[index]) {
-        // Remove active class from all tabs
         tabs.forEach((t) => t.classList.remove("active"));
-
-        // Hide all contents
         contents.forEach((c) => c.classList.remove("active"));
-
-        // Activate clicked tab
         tab.classList.add("active");
-
-        // Show corresponding content
         contents[index].classList.add("active");
       }
     });
   });
+
+  const cards = document.querySelectorAll(".field-card");
+  const isDesktop = () => window.matchMedia("(min-width: 768px)").matches;
+
+  function activateCard(card) {
+    cards.forEach((c) => c.classList.remove("active"));
+    card.classList.add("active");
+    if (!isDesktop()) {
+      card.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "nearest",
+      });
+    }
+  }
+
+  cards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      if (isDesktop()) activateCard(card);
+    });
+    card.addEventListener("click", () => activateCard(card));
+  });
+
+  if (![...cards].some((c) => c.classList.contains("active")) && cards[0]) {
+    cards[0].classList.add("active");
+  }
 });
 
+// --- Draggable falling chips ---
 const field = document.getElementById("chip-field");
 const chips = [...field.querySelectorAll(".chip")];
 
 const MARGIN = 16; // هوامش أمان لعدم خروج أي جزء خارج الحاوية
 
-// Assign labels/colors and initial positions (centered + drop from top fast)
+// Scroll trigger variables
+let hasDropped = false;
+let observer;
+
+// Initialize chips function
+function initChips() {
+  chips.forEach((chip, i) => {
+    chip.dataset.color = colors[i % colors.length];
+    chip.textContent = chip.dataset.label || "عنصر";
+
+    const rect = field.getBoundingClientRect();
+    const w = 120,
+      h = 44; // تقريب مبدئي لحجم الشيب
+    const cx = rect.width / 2;
+
+    // ابدأ قريب من مركز الحاوية أفقيًا، وفوق الحاوية رأسيًا
+    const x = clamp(
+      cx - w / 2 + rand(-80, 80),
+      MARGIN,
+      rect.width - w - MARGIN
+    );
+    const y = -h - rand(20, 80);
+
+    const tilt = parseFloat(chip.dataset.tilt || 0);
+    chip.__state = {
+      x,
+      y,
+      // سرعات ابتدائية للنزول السريع من الأعلى
+      vx: rand(-0.5, 0.5),
+      vy: rand(7, 12),
+      r: tilt,
+      vr: 0,
+      dragging: false,
+      lastX: 0,
+      lastY: 0,
+      lastT: 0,
+      width: w,
+      height: h,
+      measured: false,
+    };
+    place(chip);
+    chip.style.opacity = "1";
+  });
+}
+
+// Setup scroll trigger using Intersection Observer
+function setupScrollTrigger() {
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !hasDropped) {
+          hasDropped = true;
+          triggerDrop();
+        }
+      });
+    },
+    {
+      threshold: 0.3, // Trigger when 30% of the container is visible
+      rootMargin: "0px 0px -100px 0px", // Trigger 100px before it comes into view
+    }
+  );
+
+  observer.observe(field);
+}
+
+// Trigger the drop animation
+function triggerDrop() {
+  initChips();
+}
+
+// Assign labels/colors and initial positions (but don't drop until scroll)
 const colors = [1, 2, 3, 4, 5];
 chips.forEach((chip, i) => {
   chip.dataset.color = colors[i % colors.length];
   chip.textContent = chip.dataset.label || "عنصر";
-
-  const rect = field.getBoundingClientRect();
-  const w = 120,
-    h = 44; // تقريب مبدئي لحجم الشيب
-  const cx = rect.width / 2;
-
-  // ابدأ قريب من مركز الحاوية أفقيًا، وفوق الحاوية رأسيًا
-  const x = clamp(cx - w / 2 + rand(-80, 80), MARGIN, rect.width - w - MARGIN);
-  const y = -h - rand(20, 80);
-
-  const tilt = parseFloat(chip.dataset.tilt || 0);
+  chip.style.opacity = "0"; // Hide initially
   chip.__state = {
-    x,
-    y,
-    // سرعات ابتدائية للنزول السريع من الأعلى
-    vx: rand(-0.5, 0.5),
-    vy: rand(7, 12),
-    r: tilt,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
+    r: 0,
     vr: 0,
     dragging: false,
     lastX: 0,
     lastY: 0,
     lastT: 0,
-    width: w,
-    height: h,
+    width: 120,
+    height: 44,
     measured: false,
   };
-  place(chip);
-  chip.style.opacity = "1";
 });
+
+// Initialize scroll trigger
+setupScrollTrigger();
 
 // Resize handling (re-clamp positions)
 window.addEventListener("resize", () => {
+  if (!hasDropped) return; // Don't reposition before drop
   const rect = field.getBoundingClientRect();
   chips.forEach((chip) => {
     const s = chip.__state;
@@ -163,14 +240,32 @@ window.addEventListener("resize", () => {
   });
 });
 
+function resetOnScrollUp() {
+  const rect = field.getBoundingClientRect();
+  const isAboveViewport = rect.bottom < 0;
+
+  if (isAboveViewport && hasDropped) {
+    hasDropped = false;
+    chips.forEach((chip) => {
+      chip.style.opacity = "0";
+      chip.__state.x = 0;
+      chip.__state.y = 0;
+    });
+  }
+}
+window.addEventListener("scroll", resetOnScrollUp);
+
 // Pointer events
 chips.forEach((chip, i) => {
   chip.addEventListener("pointerdown", (ev) => {
     ev.preventDefault();
+    ev.stopPropagation(); // منع التداخل مع أحداث أخرى
     chip.setPointerCapture(ev.pointerId);
     const s = chip.__state;
     s.dragging = true;
     s.vx = s.vy = s.vr = 0;
+
+    // تأكد من قياس الحاوية في الوقت الحالي
     const rect = field.getBoundingClientRect();
     s.offsetX = ev.clientX - (rect.left + s.x);
     s.offsetY = ev.clientY - (rect.top + s.y);
@@ -183,6 +278,8 @@ chips.forEach((chip, i) => {
   chip.addEventListener("pointermove", (ev) => {
     const s = chip.__state;
     if (!s.dragging) return;
+
+    // تأكد من قياس الحاوية الحالي
     const rect = field.getBoundingClientRect();
 
     // Position
@@ -246,28 +343,42 @@ function tick() {
     s.y += s.vy;
     s.r += s.vr;
 
-    // Collisions with bounds (مع هوامش ثابتة)
-    const minX = MARGIN,
-      maxX = W - s.width - MARGIN;
-    const minY = MARGIN,
-      maxY = H - s.height - MARGIN;
+    // قياس الحجم الفعلي للشيب إذا لم يتم قياسه بعد
+    if (!s.measured) {
+      const chipRect = chip.getBoundingClientRect();
+      s.width = chipRect.width;
+      s.height = chipRect.height;
+      s.measured = true;
+    }
 
-    if (s.x <= minX) {
+    // Collisions with bounds (مع هوامش ثابتة) - استخدم الأحجام الفعلية
+    const minX = MARGIN;
+    const maxX = W - s.width - MARGIN;
+    const minY = MARGIN;
+    const maxY = H - s.height - MARGIN;
+
+    // تأكد أن الحدود صحيحة
+    if (maxX < minX) {
+      // إذا كانت الحاوية صغيرة جداً، استخدم المنتصف
+      s.x = W / 2 - s.width / 2;
+    } else if (s.x <= minX) {
       s.x = minX;
       s.vx = -s.vx * bounce;
       s.vr = -s.vr * bounce;
-    }
-    if (s.x >= maxX) {
+    } else if (s.x >= maxX) {
       s.x = maxX;
       s.vx = -s.vx * bounce;
       s.vr = -s.vr * bounce;
     }
-    if (s.y <= minY) {
+
+    if (maxY < minY) {
+      // إذا كانت الحاوية صغيرة جداً، استخدم المنتصف
+      s.y = H / 2 - s.height / 2;
+    } else if (s.y <= minY) {
       s.y = minY;
       s.vy = -s.vy * bounce;
       s.vr = -s.vr * bounce;
-    }
-    if (s.y >= maxY) {
+    } else if (s.y >= maxY) {
       s.y = maxY;
       s.vy = -s.vy * bounce;
       s.vr = -s.vr * bounce;
@@ -292,19 +403,23 @@ requestAnimationFrame(tick);
 // Helpers
 function place(el) {
   const s = el.__state;
-  el.style.transform = `translate3d(${s.x}px, ${s.y}px, 0) rotate(${s.r}deg)`;
-  // Measure size once (after layout) for better collisions
-  if (!s.measured) {
-    const rect = el.getBoundingClientRect();
-    s.width = rect.width;
-    s.height = rect.height;
-    s.measured = true;
-  }
+  // تأكد من أن القيم رقمية صحيحة
+  const x = isNaN(s.x) ? 0 : s.x;
+  const y = isNaN(s.y) ? 0 : s.y;
+  const r = isNaN(s.r) ? 0 : s.r;
+
+  el.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${r}deg)`;
 }
+
 function clamp(v, min, max) {
+  // تأكد من أن القيم رقمية
+  if (isNaN(v)) return min;
+  if (isNaN(min)) min = 0;
+  if (isNaN(max)) max = 0;
+
   return Math.max(min, Math.min(max, v));
 }
+
 function rand(min, max) {
   return Math.random() * (max - min) + min;
 }
-

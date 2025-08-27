@@ -1,8 +1,6 @@
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 
-
-
 // logos slider
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 2,
@@ -29,15 +27,6 @@ var swiper = new Swiper(".mySwiper", {
     },
   },
 });
-
-
-
-
-
-
-
-
-
 
 // Initialize Tabs Swiper
 const tabsSwiper = new Swiper(".tabsSwiper", {

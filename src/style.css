@@ -20,6 +20,81 @@ body {
   --radius-3xl: 3rem;
 }
 
+/* Loader styles */
+
+#loader-wrapper {
+  position: fixed;
+  inset: 0;
+  background: #edfeec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  position: relative;
+}
+
+.loader:before {
+  content: "";
+  width: 48px;
+  height: 5px;
+  background: #bdfbbc;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  border-radius: 50%;
+  animation: shadow324 0.5s linear infinite;
+}
+
+.loader:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: url("/public/assets/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 8px; /* اختياري: شكل أنعم */
+  animation: jump7456 0.5s linear infinite;
+}
+
+@keyframes jump7456 {
+  15% {
+    border-bottom-right-radius: 3px;
+  }
+  25% {
+    transform: translateY(9px) rotate(22.5deg);
+  }
+  50% {
+    transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+    border-bottom-right-radius: 40px;
+  }
+  75% {
+    transform: translateY(9px) rotate(67.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
+}
+
+@keyframes shadow324 {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1);
+  }
+}
+
 .switch-input {
   position: absolute;
   opacity: 0;
@@ -143,7 +218,7 @@ body {
 }
 
 /*** Field cards ****/
-
+/*** Field cards ****/
 .field-card {
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -168,7 +243,6 @@ body {
   transform: translateY(-20px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .field-card.active p,
 .field-card.active a {
   opacity: 1;
@@ -188,14 +262,61 @@ body {
   color: #184f4d;
 }
 
+/* Tabs (لو هتستخدمها في جزء تاني) */
 .tab-banner.active {
   border-bottom: 2px solid #bdfbbc !important;
 }
-
 .tab-content-banner {
   display: none;
 }
-
 .tab-content-banner.active {
   display: flex;
+}
+
+/* ===== Mobile responsiveness ===== */
+@media (max-width: 767px) {
+  .fields-card {
+    height: auto;
+    padding-inline: 1rem;
+  }
+  .fields-card .flex {
+    flex-direction: column;
+    gap: 12px;
+    height: auto;
+  }
+
+  .field-card {
+    flex: none;
+    width: 100%;
+    min-height: auto;
+    border-radius: 16px;
+    padding: 16px 14px;
+  }
+
+  .field-card svg {
+    transform: none;
+  }
+  .field-card.active svg {
+    transform: scale(1.05);
+  }
+
+  .field-card h4 {
+    font-size: 1.25rem;
+    line-height: 1.6;
+  }
+  .field-card p {
+    font-size: 1rem;
+  }
+
+  .field-card .flex.flex-wrap.gap-2.justify-center.mb-4 {
+    justify-content: flex-start;
+    gap: 8px;
+    flex-direction: row;
+  }
+
+  .field-card p,
+  .field-card a,
+  .field-card svg {
+    transition-duration: 0.25s;
+  }
 }

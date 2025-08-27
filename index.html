@@ -16,13 +16,16 @@
   </head>
 
   <body>
+    <div id="loader-wrapper">
+      <div class="loader"></div>
+    </div>
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <header
           class="relative sticky top-0 z-50 !bg-[image:var(--linear-gradient)] bg-cover bg-no-repeat backdrop-blur supports-[backdrop-filter]:bg-white/60"
         >
           <div
-            class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8 transition-[height,background] duration-300"
+            class="mx-auto flex h-16 sm:h-24 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8 transition-[height,background] duration-300"
           >
             <!-- Logo -->
             <a class="block shrink-0" href="#" aria-label="الرئيسية">
@@ -36,7 +39,9 @@
             <div class="flex flex-1 items-center justify-end sm:justify-around">
               <!-- Desktop Nav -->
               <nav aria-label="التنقل الرئيسي" class="hidden md:block">
-                <ul class="flex items-center gap-6 text-sm">
+                <ul
+                  class="flex items-center gap-6 text-sm md:text-base lg:text-lg"
+                >
                   <li>
                     <a
                       class="text-gray-700 hover:text-gray-900 transition"
@@ -86,10 +91,10 @@
               <div class="flex items-center gap-3">
                 <a
                   id="ctaBtn"
-                  href="#contact"
-                  class="hidden sm:inline-flex items-center rounded-md bg-gray-900 px-3.5 py-2 text-sm font-medium text-white hover:bg-gray-800 focus-visible:outline-offset-2 focus-visible:outline-gray-900 transition"
+                  href="#"
+                  class="hidden sm:inline-flex text-sm md:text-lg items-center justify-center rounded-3xl bg-primary text-secondary px-10 py-3 gap-4"
                 >
-                  احجز استشارة
+                  احجز استشارتك الآن
                 </a>
 
                 <!-- Mobile menu button -->
@@ -179,10 +184,10 @@
 
               <div class="mt-4">
                 <a
-                  class="mm-item inline-flex w-full items-center justify-center rounded-md bg-gray-900 px-3.5 py-2.5 text-sm font-medium text-white hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 transition"
+                  class="mm-item inline-flex w-full items-center justify-center rounded-full bg-primary px-3.5 py-2.5 text-sm font-medium text-secondary hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 transition"
                   href="#contact"
                 >
-                  احجز استشارة
+                  احجز استشارتك الآن
                 </a>
               </div>
             </div>
@@ -216,7 +221,7 @@
                 </p>
                 <a
                   href="#"
-                  class="inline-flex text-lg md:text-xl items-center justify-center rounded-3xl bg-third px-5 py-3 gap-4"
+                  class="inline-flex text-lg md:text-xl items-center justify-center rounded-3xl bg-third text-primary duration-500 ease-in-out transition-colors hover:bg-primary hover:text-third px-5 py-3 gap-4"
                   data-aos="fade-up"
                 >
                   خلينا نوظف فريقك عن بعد
@@ -246,7 +251,6 @@
             <div class="mt-16">
               <h2
                 class="text-2xl font-bold mb-2 md:mb-4 text-center text-primary"
-                data-aos="fade-up"
               >
                 شركات تثق فينا
               </h2>
@@ -400,7 +404,7 @@
 
             <!-- Tabs Navigation Slider -->
             <div
-              class="text-lg font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700 relative"
+              class="text-lg font-medium text-center text-gray-500 border-b border-gray-200 relative shadow-lg rounded-xl px-5"
             >
               <div class="swiper tabsSwiper">
                 <div class="swiper-wrapper -mb-px">
@@ -1605,18 +1609,18 @@
                 <div class="flex flex-wrap gap-2 justify-center mb-4">
                   <a
                     href="#"
-                    class="bg-secondary text-primary text-md px-3 py-3 rounded-full"
-                    >اعرف المزيد</a
+                    class="bg-secondary text-primary text-sm px-4 py-3 rounded-full"
+                    >اكتشف أكثر</a
                   >
                   <a
                     href="#"
-                    class="bg-secondary text-primary text-md px-3 py-3 rounded-full"
-                    >اعرف المزيد</a
+                    class="bg-secondary text-primary text-sm px-4 py-3 rounded-full"
+                    >اكتشف أكثر</a
                   >
                   <a
                     href="#"
-                    class="bg-secondary text-primary text-md px-3 py-3 rounded-full"
-                    >اعرف المزيد</a
+                    class="bg-secondary text-primary text-sm px-4 py-3 rounded-full"
+                    >اكتشف أكثر</a
                   >
                 </div>
               </div>
@@ -1654,18 +1658,18 @@
                 <div class="flex flex-wrap gap-2 justify-center mb-4">
                   <a
                     href="#"
-                    class="bg-secondary text-primary text-md px-3 py-3 rounded-full"
-                    >اعرف المزيد</a
+                    class="bg-secondary text-primary text-sm px-4 py-3 rounded-full"
+                    >اكتشف أكثر</a
                   >
                   <a
                     href="#"
-                    class="bg-secondary text-primary text-md px-3 py-3 rounded-full"
-                    >اعرف المزيد</a
+                    class="bg-secondary text-primary text-sm px-4 py-3 rounded-full"
+                    >اكتشف أكثر</a
                   >
                   <a
                     href="#"
-                    class="bg-secondary text-primary text-md px-3 py-3 rounded-full"
-                    >اعرف المزيد</a
+                    class="bg-secondary text-primary text-sm px-4 py-3 rounded-full"
+                    >اكتشف أكثر</a
                   >
                 </div>
               </div>
@@ -1698,18 +1702,18 @@
                 <div class="flex flex-wrap gap-2 justify-center mb-4">
                   <a
                     href="#"
-                    class="bg-secondary text-primary text-md px-3 py-3 rounded-full"
-                    >اعرف المزيد</a
+                    class="bg-secondary text-primary text-sm px-4 py-3 rounded-full"
+                    >اكتشف أكثر</a
                   >
                   <a
                     href="#"
-                    class="bg-secondary text-primary text-md px-3 py-3 rounded-full"
-                    >اعرف المزيد</a
+                    class="bg-secondary text-primary text-sm px-4 py-3 rounded-full"
+                    >اكتشف أكثر</a
                   >
                   <a
                     href="#"
-                    class="bg-secondary text-primary text-md px-3 py-3 rounded-full"
-                    >اعرف المزيد</a
+                    class="bg-secondary text-primary text-sm px-4 py-3 rounded-full"
+                    >اكتشف أكثر</a
                   >
                 </div>
               </div>
@@ -1746,18 +1750,18 @@
                 <div class="flex flex-wrap gap-2 justify-center mb-4">
                   <a
                     href="#"
-                    class="bg-secondary text-primary text-md px-3 py-3 rounded-full"
-                    >اعرف المزيد</a
+                    class="bg-secondary text-primary text-sm px-4 py-3 rounded-full"
+                    >اكتشف أكثر</a
                   >
                   <a
                     href="#"
-                    class="bg-secondary text-primary text-md px-3 py-3 rounded-full"
-                    >اعرف المزيد</a
+                    class="bg-secondary text-primary text-sm px-4 py-3 rounded-full"
+                    >اكتشف أكثر</a
                   >
                   <a
                     href="#"
-                    class="bg-secondary text-primary text-md px-3 py-3 rounded-full"
-                    >اعرف المزيد</a
+                    class="bg-secondary text-primary text-sm px-4 py-3 rounded-full"
+                    >اكتشف أكثر</a
                   >
                 </div>
               </div>
@@ -1790,25 +1794,24 @@
                 <div class="flex flex-wrap gap-2 justify-center mb-4">
                   <a
                     href="#"
-                    class="bg-secondary text-primary text-md px-3 py-3 rounded-full"
-                    >اعرف المزيد</a
+                    class="bg-secondary text-primary text-sm px-4 py-3 rounded-full"
+                    >اكتشف أكثر</a
                   >
                   <a
                     href="#"
-                    class="bg-secondary text-primary text-md px-3 py-3 rounded-full"
-                    >اعرف المزيد</a
+                    class="bg-secondary text-primary text-sm px-4 py-3 rounded-full"
+                    >اكتشف أكثر</a
                   >
                   <a
                     href="#"
-                    class="bg-secondary text-primary text-md px-3 py-3 rounded-full"
-                    >اعرف المزيد</a
+                    class="bg-secondary text-primary text-sm px-4 py-3 rounded-full"
+                    >اكتشف أكثر</a
                   >
                 </div>
               </div>
             </div>
           </div>
         </section>
-
         <section>
           <div
             class="container mx-auto sm:px-6 lg:px-16 md:px-24 py-10 md:py-20"
@@ -1986,7 +1989,7 @@
                     href="#"
                     class="bg-transparent text-white border border-white w-fit text-md px-6 md:px-16 py-3 rounded-full"
                     data-aos="fade-up"
-                    >اكتشف المزيد</a
+                    >تواصل معنا الآن!</a
                   >
                 </div>
 
@@ -2006,7 +2009,7 @@
                     href="#"
                     class="bg-transparent text-white border border-white w-fit text-md px-6 md:px-16 py-3 rounded-full"
                     data-aos="fade-up"
-                    >ابدأ مشروعك</a
+                    >تواصل معنا الآن!</a
                   >
                 </div>
               </div>
@@ -2322,7 +2325,7 @@
           <!-- chips field -->
           <div
             id="chip-field"
-            class="relative mx-auto mt-10 h-[260px] w-full max-w-2xl overflow-hidden"
+            class="relative mx-auto mt-10 h-[260px] w-full max-w-2xl bg-secondary rounded-2xl overflow-hidden"
           >
             <!-- chips -->
             <button
@@ -2374,26 +2377,39 @@
         </section>
 
         <section
-          class="relative isolate min-h-[60vh] flex items-center overflow-hidden bg-gradient-to-b from-[#f2fbf7] to-[#e7f7ee]"
+          class="relative isolate min-h-[55vh] flex flex-col items-center justify-evenly overflow-hidden bg-gradient-to-b from-[#f2fbf7] to-[#e7f7ee]"
         >
           <div
             class="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_600px_at_90%_0%,#e7f7ee_0%,transparent_60%)]"
           ></div>
 
           <span
-            class="hidden md:block absolute start-[60vw] top-1/2 -translate-y-1/2 font-extrabold leading-none opacity-10 text-brand select-none whitespace-nowrap text-[10rem] md:text-[22vw]"
+            class="block absolute start-[60vw] top-1/2 -translate-y-1/2 font-extrabold leading-none opacity-10 text-brand select-none whitespace-nowrap text-[10rem] md:text-[22vw]"
           >
             تواصل
           </span>
 
-          <div class="w-full max-w-[1200px] mx-auto px-6 sm:px-10 py-16">
-            <h1
-              class="m-0 text-primary font-extrabold tracking-tight text-brand text-4xl sm:text-5xl lg:text-7xl"
-              data-aos="fade-up"
+          <div
+            class="w-full gap-52 whitespace-nowrap m-0 pt-10 sm:pt-20 pb-5 flex flex-nowrap flex-row justify-between overflow-hidden"
+          >
+            <h2
+              class="title m-0 text-primary font-extrabold tracking-tight text-brand text-4xl sm:text-7xl lg:text-9xl"
             >
               تواصل معنا
-            </h1>
+            </h2>
+            <h2
+              class="title m-0 text-primary font-extrabold tracking-tight text-brand text-4xl sm:text-7xl lg:text-9xl"
+            >
+              تواصل معنا
+            </h2>
+            <h2
+              class="title m-0 text-primary font-extrabold tracking-tight text-brand text-4xl sm:text-7xl lg:text-9xl"
+            >
+              تواصل معنا
+            </h2>
+          </div>
 
+          <div class="w-full max-w-[1200px] mx-auto px-6 sm:px-10 py-16">
             <p
               class="mt-3 max-w-[60ch] text-lg sm:text-xl leading-9"
               data-aos="fade-up"
@@ -2424,7 +2440,7 @@
           </div>
         </section>
 
-        <footer class="bg-white dark:bg-gray-900">
+        <footer class="bg-white">
           <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-evenly">
               <div class="mb-6 md:mb-0">
@@ -2458,12 +2474,12 @@
                 </div>
                 <div class="sm:border-l-[1px] sm:border-gray-200 pl-6">
                   <h2
-                    class="mb-6 text-m lg:text-xl font-semibold text-primary uppercase dark:text-white"
+                    class="mb-6 text-m lg:text-xl font-semibold text-primary uppercase"
                     data-aos="fade-up"
                   >
                     البريد الالكتروني
                   </h2>
-                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                  <ul class="text-gray-500 font-medium">
                     <li class="mb-4" data-aos="fade-up">
                       <a href="#">moeen@moeen.co</a>
                     </li>
@@ -2471,12 +2487,12 @@
                 </div>
                 <div>
                   <h2
-                    class="mb-6 text-m lg:text-xl font-semibold text-primary uppercase dark:text-white"
+                    class="mb-6 text-m lg:text-xl font-semibold text-primary uppercase"
                     data-aos="fade-up"
                   >
                     واتساب
                   </h2>
-                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                  <ul class="text-gray-500 font-medium">
                     <li class="mb-4" data-aos="fade-up">
                       <a href="#">+966 55 222 3746</a>
                     </li>
@@ -2484,20 +2500,14 @@
                 </div>
               </div>
             </div>
-            <hr
-              class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
-            />
+            <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
             <div class="sm:flex sm:items-center sm:justify-between">
-              <span
-                class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
+              <span class="text-sm text-gray-500 sm:text-center"
                 >© 2025 <a href="" class="hover:underline">Moeen</a>. All Rights
                 Reserved.
               </span>
               <div class="flex mt-4 sm:justify-center sm:mt-0">
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-                >
+                <a href="#" class="text-gray-500 hover:text-gray-900">
                   <svg
                     class="w-4 h-4"
                     aria-hidden="true"
@@ -2513,10 +2523,7 @@
                   </svg>
                   <span class="sr-only">Facebook page</span>
                 </a>
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
-                >
+                <a href="#" class="text-gray-500 hover:text-gray-900 ms-5">
                   <svg
                     class="w-4 h-4"
                     aria-hidden="true"
@@ -2530,10 +2537,7 @@
                   </svg>
                   <span class="sr-only">Discord community</span>
                 </a>
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
-                >
+                <a href="#" class="text-gray-500 hover:text-gray-900 ms-5">
                   <svg
                     class="w-4 h-4"
                     aria-hidden="true"
@@ -2549,10 +2553,7 @@
                   </svg>
                   <span class="sr-only">Twitter page</span>
                 </a>
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
-                >
+                <a href="#" class="text-gray-500 hover:text-gray-900 ms-5">
                   <svg
                     class="w-4 h-4"
                     aria-hidden="true"
@@ -2568,10 +2569,7 @@
                   </svg>
                   <span class="sr-only">GitHub account</span>
                 </a>
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
-                >
+                <a href="#" class="text-gray-500 hover:text-gray-900 ms-5">
                   <svg
                     class="w-4 h-4"
                     aria-hidden="true"
