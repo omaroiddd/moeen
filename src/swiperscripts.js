@@ -83,7 +83,7 @@ function initializeSwiper(tabId) {
           spaceBetween: 30,
         },
         1024: {
-          slidesPerView: 4,
+          slidesPerView: 3,
           spaceBetween: 30,
         },
       },
@@ -144,7 +144,7 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.style.opacity = "0";
-      entry.target.style.transform = "translateY(30px)";
+      entry.target.style.transform = "translateY(-30px)";
 
       setTimeout(() => {
         entry.target.style.transition = "all 0.6s ease-out";
@@ -157,4 +157,72 @@ const observer = new IntersectionObserver((entries) => {
 
 cards.forEach((card) => {
   observer.observe(card);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const swiper = new Swiper("#fieldsSwiper", {
+    slidesPerView: 1.05,
+    centeredSlides: true,
+    // 👇 start from the middle slide
+    initialSlide: Math.floor(
+      document.querySelectorAll("#fieldsSwiper .swiper-slide").length / 2
+    ),
+    spaceBetween: 16,
+    loop: true,
+    grabCursor: true,
+    watchSlidesProgress: true,
+    pagination: { enabled: false },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      640: { slidesPerView: 1.2, spaceBetween: 16, centeredSlides: true },
+      768: { slidesPerView: 2.2, spaceBetween: 20, centeredSlides: true },
+      1024: { slidesPerView: 3, spaceBetween: 24, centeredSlides: true },
+    },
+    on: {
+      init() {
+        // clear all
+        document
+          .querySelectorAll(".field-card")
+          .forEach((c) => c.classList.remove("active"));
+        // activate the starting (centered) one
+        const startCard =
+          this.slides[this.activeIndex]?.querySelector(".field-card");
+        if (startCard) startCard.classList.add("active");
+      },
+      slideChange() {
+        // update active on slide change
+        document
+          .querySelectorAll(".field-card")
+          .forEach((c) => c.classList.remove("active"));
+        const card =
+          this.slides[this.activeIndex]?.querySelector(".field-card");
+        if (card) card.classList.add("active");
+      },
+    },
+  });
+
+  // hover / click handlers for manual activation
+  document
+    .querySelectorAll(".swiper-slide .field-card")
+    .forEach((card, index) => {
+      const slide = card.closest(".swiper-slide");
+
+      card.addEventListener("click", () => {
+        activateCard(card);
+        const slideIndex = Array.from(slide.parentElement.children).indexOf(
+          slide
+        );
+        swiper.slideTo(slideIndex, 300);
+      });
+    });
+
+  function activateCard(cardEl) {
+    document
+      .querySelectorAll(".field-card")
+      .forEach((c) => c.classList.remove("active"));
+    if (cardEl) cardEl.classList.add("active");
+  }
 });
