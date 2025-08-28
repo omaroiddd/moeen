@@ -34,68 +34,68 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 // Smooth scrolling
 
 ScrollSmoother.create({
-  smooth: 3,
+  smooth: 2,
   effects: true,
   smoothTouch: 0.1,
 });
 
 // Mobile menu
 
-const btn = document.getElementById("menuButton");
-const panel = document.getElementById("mobileMenu");
+// const btn = document.getElementById("menuButton");
+// const panel = document.getElementById("mobileMenu");
 
-if (btn && panel) {
-  const items = () => panel.querySelectorAll(".mm-item, .space-y-2 a, .mt-4 a");
+// if (btn && panel) {
+//   const items = () => panel.querySelectorAll(".mm-item, .space-y-2 a, .mt-4 a");
 
-  const tl = gsap.timeline({
-    paused: true,
-    defaults: { ease: "power2.out" },
-    onStart() {
-      panel.classList.remove("hidden");
-      panel.setAttribute("aria-hidden", "false");
-    },
-    onComplete() {},
-    onReverseComplete() {
-      panel.classList.add("hidden");
-      panel.setAttribute("aria-hidden", "true");
-    },
-  });
+//   const tl = gsap.timeline({
+//     paused: true,
+//     defaults: { ease: "power2.out" },
+//     onStart() {
+//       panel.classList.remove("hidden");
+//       panel.setAttribute("aria-hidden", "false");
+//     },
+//     onComplete() {},
+//     onReverseComplete() {
+//       panel.classList.add("hidden");
+//       panel.setAttribute("aria-hidden", "true");
+//     },
+//   });
 
-  tl.from(panel, {
-    height: 0,
-    y: -8,
-    autoAlpha: 0,
-    duration: 0.28,
-    clearProps: "height",
-  });
+//   tl.from(panel, {
+//     height: 0,
+//     y: -8,
+//     autoAlpha: 0,
+//     duration: 0.28,
+//     clearProps: "height",
+//   });
 
-  tl.from(
-    items(),
-    {
-      y: 8,
-      autoAlpha: 0,
-      duration: 0.18,
-      stagger: 0.05,
-      onComplete: function () {
-        items().forEach((item) => {
-          gsap.set(item, { autoAlpha: 1, y: 0 });
-        });
-      },
-    },
-    "-=0.12"
-  );
+//   tl.from(
+//     items(),
+//     {
+//       y: 8,
+//       autoAlpha: 0,
+//       duration: 0.18,
+//       stagger: 0.05,
+//       onComplete: function () {
+//         items().forEach((item) => {
+//           gsap.set(item, { autoAlpha: 1, y: 0 });
+//         });
+//       },
+//     },
+//     "-=0.12"
+//   );
 
-  let open = false;
+//   let open = false;
 
-  btn.addEventListener("click", () => {
-    if (tl.isActive()) {
-      return;
-    }
-    open ? tl.reverse() : tl.play(0);
-    open = !open;
-    btn.setAttribute("aria-expanded", String(open));
-  });
-}
+//   btn.addEventListener("click", () => {
+//     if (tl.isActive()) {
+//       return;
+//     }
+//     open ? tl.reverse() : tl.play(0);
+//     open = !open;
+//     btn.setAttribute("aria-expanded", String(open));
+//   });
+// }
 
 // Animate icons in section two
 

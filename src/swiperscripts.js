@@ -1,30 +1,33 @@
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 
+/**
+ * Respect reduced motion users
+ */
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+
 // logos slider
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 2,
   spaceBetween: 30,
   loop: true, // ✅ infinite loop
-  autoplay: {
-    delay: 2500, // ✅ autoplay delay (ms)
-    disableOnInteraction: false, // keep autoplay after user interaction
-    reverseDirection: false, // ✅ set true if you want reverse direction
-  },
+  autoplay: prefersReducedMotion
+    ? false
+    : {
+        delay: 1500,
+        disableOnInteraction: false,
+        reverseDirection: false,
+      },
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
   },
   breakpoints: {
-    640: {
-      slidesPerView: 2,
-    },
-    768: {
-      slidesPerView: 3,
-    },
-    1024: {
-      slidesPerView: 4,
-    },
+    640: { slidesPerView: 2 },
+    768: { slidesPerView: 3 },
+    1024: { slidesPerView: 5 },
   },
 });
 
@@ -38,22 +41,10 @@ const tabsSwiper = new Swiper(".tabsSwiper", {
     prevEl: ".tabs-button-prev",
   },
   breakpoints: {
-    480: {
-      slidesPerView: 3,
-      spaceBetween: 15,
-    },
-    640: {
-      slidesPerView: 4,
-      spaceBetween: 20,
-    },
-    768: {
-      slidesPerView: 5,
-      spaceBetween: 20,
-    },
-    1024: {
-      slidesPerView: 6,
-      spaceBetween: 0,
-    },
+    480: { slidesPerView: 3, spaceBetween: 15 },
+    640: { slidesPerView: 4, spaceBetween: 20 },
+    768: { slidesPerView: 5, spaceBetween: 20 },
+    1024: { slidesPerView: 6, spaceBetween: 0 },
   },
   watchOverflow: false,
 });
@@ -70,31 +61,19 @@ function initializeSwiper(tabId) {
     swipers[tabId] = new Swiper(`#${tabId} .candidateSwiper`, {
       slidesPerView: 1,
       spaceBetween: 20,
-      navigation: {
-        enabled: false,
-      },
+      navigation: { enabled: false },
       breakpoints: {
-        640: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 30,
-        },
-        1024: {
-          slidesPerView: 3,
-          spaceBetween: 30,
-        },
+        640: { slidesPerView: 2, spaceBetween: 20 },
+        768: { slidesPerView: 3, spaceBetween: 30 },
+        1024: { slidesPerView: 3, spaceBetween: 30 },
       },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
+      pagination: { el: ".swiper-pagination", clickable: true },
+      autoplay: prefersReducedMotion
+        ? false
+        : {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
       loop: false,
     });
   }
@@ -107,25 +86,22 @@ tabButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const targetTab = button.getAttribute("data-tab");
 
-    // Remove active class from all buttons and contents
+    // Remove active state
     tabButtons.forEach((btn) => {
       btn.classList.remove("active", "text-primary", "border-primary");
       btn.classList.add("border-transparent");
     });
+    tabContents.forEach((content) => content.classList.add("hidden"));
 
-    tabContents.forEach((content) => {
-      content.classList.add("hidden");
-    });
-
-    // Add active class to clicked button
+    // Add active to clicked
     button.classList.add("active", "text-primary", "border-primary");
     button.classList.remove("border-transparent");
 
-    // Show target content
+    // Show content
     const targetContent = document.getElementById(targetTab);
     targetContent.classList.remove("hidden");
 
-    // Initialize swiper for the active tab
+    // Init swiper
     setTimeout(() => {
       initializeSwiper(targetTab);
     }, 100);
@@ -134,36 +110,32 @@ tabButtons.forEach((button) => {
 
 // Add smooth scroll animation to cards
 const cards = document.querySelectorAll(".candidate-card");
+const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -100px 0px" };
 
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -100px 0px",
-};
+if (!prefersReducedMotion) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "0";
+        entry.target.style.transform = "translateY(-30px)";
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = "0";
-      entry.target.style.transform = "translateY(-30px)";
+        setTimeout(() => {
+          entry.target.style.transition = "all 0.6s ease-out";
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        }, 100);
+      }
+    });
+  }, observerOptions);
 
-      setTimeout(() => {
-        entry.target.style.transition = "all 0.6s ease-out";
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
-      }, 100);
-    }
-  });
-}, observerOptions);
+  cards.forEach((card) => observer.observe(card));
+}
 
-cards.forEach((card) => {
-  observer.observe(card);
-});
-
+// Fields Swiper
 document.addEventListener("DOMContentLoaded", function () {
   const swiper = new Swiper("#fieldsSwiper", {
     slidesPerView: 1.05,
     centeredSlides: true,
-    // 👇 start from the middle slide
     initialSlide: Math.floor(
       document.querySelectorAll("#fieldsSwiper .swiper-slide").length / 2
     ),
@@ -183,17 +155,14 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     on: {
       init() {
-        // clear all
         document
           .querySelectorAll(".field-card")
           .forEach((c) => c.classList.remove("active"));
-        // activate the starting (centered) one
         const startCard =
           this.slides[this.activeIndex]?.querySelector(".field-card");
         if (startCard) startCard.classList.add("active");
       },
       slideChange() {
-        // update active on slide change
         document
           .querySelectorAll(".field-card")
           .forEach((c) => c.classList.remove("active"));
@@ -204,12 +173,10 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
-  // hover / click handlers for manual activation
   document
     .querySelectorAll(".swiper-slide .field-card")
     .forEach((card, index) => {
       const slide = card.closest(".swiper-slide");
-
       card.addEventListener("click", () => {
         activateCard(card);
         const slideIndex = Array.from(slide.parentElement.children).indexOf(

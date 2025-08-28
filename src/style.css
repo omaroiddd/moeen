@@ -9,8 +9,71 @@
   );
   --linear-gradient-2: linear-gradient(to bottom, #ddfbdc 0%, #ffffff);
 }
-body {
-  font-family: "Tajawal", sans-serif;
+
+
+
+
+/* Tajawal Regular */
+@font-face {
+  font-family: "Tajawal";
+  src: url("/assets/Tajawal-Font/Tajawal-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Tajawal Medium */
+@font-face {
+  font-family: "Tajawal";
+  src: url("/assets/Tajawal-Font/Tajawal-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Tajawal Light */
+@font-face {
+  font-family: "Tajawal";
+  src: url("/assets/Tajawal-Font/Tajawal-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Tajawal ExtraLight */
+@font-face {
+  font-family: "Tajawal";
+  src: url("/assets/Tajawal-Font/Tajawal-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Tajawal Bold */
+@font-face {
+  font-family: "Tajawal";
+  src: url("/assets/Tajawal-Font/Tajawal-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Tajawal ExtraBold */
+@font-face {
+  font-family: "Tajawal";
+  src: url("/assets/Tajawal-Font/Tajawal-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Tajawal Black */
+@font-face {
+  font-family: "Tajawal";
+  src: url("/assets/Tajawal-Font/Tajawal-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme {
@@ -18,7 +81,9 @@ body {
   --color-secondary: #edfeec;
   --color-third: #bdfbbc;
   --radius-3xl: 3rem;
+  --font-tajawal: "Tajawal", sans-serif;
 }
+
 
 /* Loader styles */
 

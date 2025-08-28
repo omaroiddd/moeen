@@ -7,15 +7,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0 user-scalable=no"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="/src/style.css" />
     <title>Moeen</title>
   </head>
 
-  <body>
+  <body class="font-tajawal">
     <div id="loader-wrapper">
       <div class="loader"></div>
     </div>
@@ -25,7 +21,7 @@
           class="relative sticky top-0 z-50 !bg-[image:var(--linear-gradient)] bg-cover bg-no-repeat backdrop-blur supports-[backdrop-filter]:bg-white/60"
         >
           <div
-            class="mx-auto flex h-16 sm:h-24 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8 transition-[height,background] duration-300"
+            class="mx-auto flex h-16 sm:h-24 max-w-screen-xl items-center justify-between gap-8 px-4 sm:px-6 lg:px-8 transition-[height,background] duration-300"
           >
             <!-- Logo -->
             <a class="block shrink-0" href="#" aria-label="الرئيسية">
@@ -36,8 +32,17 @@
               />
             </a>
 
-            <div class="flex flex-1 items-center justify-end sm:justify-around">
-              <!-- Desktop Nav -->
+                            <a
+                  id="ctaBtn"
+                  href="https://api.whatsapp.com/send/?phone=966552223746"
+                  class="inline-flex text-sm md:text-lg items-center justify-center rounded-3xl bg-primary text-secondary px-6 sm:px-10 py-3"
+                >
+                  احجز استشارتك الآن
+                </a>
+                <!--
+                
+                            <div class="menu-desktop flex flex-1 items-center justify-end sm:justify-end">
+             
               <nav aria-label="التنقل الرئيسي" class="hidden md:block">
                 <ul
                   class="flex items-center gap-6 text-sm md:text-base lg:text-lg"
@@ -45,59 +50,45 @@
                   <li>
                     <a
                       class="text-gray-700 hover:text-gray-900 transition"
-                      href="#"
-                      >الرئيسية</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="text-gray-700 hover:text-gray-900 transition"
-                      href="#"
+                      href="#who-us"
                       >من نحن</a
                     >
                   </li>
                   <li>
                     <a
                       class="text-gray-700 hover:text-gray-900 transition"
-                      href="#"
+                      href="#ourservices"
                       >خدماتنا</a
                     >
                   </li>
                   <li>
                     <a
                       class="text-gray-700 hover:text-gray-900 transition"
-                      href="#"
-                      >الأعمال</a
+                      href="#ourvision"
+                      >رؤيتنا</a
                     >
                   </li>
                   <li>
                     <a
                       class="text-gray-700 hover:text-gray-900 transition"
-                      href="#"
-                      >المدونة</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="text-gray-700 hover:text-gray-900 transition"
-                      href="#"
-                      >تواصل معنا</a
+                      href="#ourmessage"
+                      >رسالتنا</a
                     >
                   </li>
                 </ul>
               </nav>
 
-              <!-- Right side (CTA + Burger) -->
+             
               <div class="flex items-center gap-3">
                 <a
                   id="ctaBtn"
-                  href="#"
+                  href="https://api.whatsapp.com/send/?phone=966552223746"
                   class="hidden sm:inline-flex text-sm md:text-lg items-center justify-center rounded-3xl bg-primary text-secondary px-10 py-3 gap-4"
                 >
                   احجز استشارتك الآن
                 </a>
 
-                <!-- Mobile menu button -->
+          
                 <button
                   id="menuButton"
                   class="md:hidden inline-flex items-center justify-center rounded-full bg-primary p-2.5 text-gray-700 hover:text-gray-900 focus-visible:outline-offset-2 focus-visible:outline-gray-900 transition"
@@ -121,11 +112,14 @@
                     ></span>
                   </span>
                 </button>
+                
               </div>
             </div>
+                
+                -->
           </div>
 
-          <!-- Mobile Menu Panel -->
+          <!-- Mobile Menu Panel 
           <div
             id="mobileMenu"
             class="md:hidden hidden overflow-hidden border-t border-gray-200 bg-secondary backdrop-blur"
@@ -140,43 +134,29 @@
                   <li>
                     <a
                       class="mm-item block rounded-md px-3 py-2 hover:bg-gray-50 focus:bg-gray-50"
-                      href="#"
-                      >الرئيسية</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="mm-item block rounded-md px-3 py-2 hover:bg-gray-50 focus:bg-gray-50"
-                      href="#"
+                      href="#who-us"
                       >من نحن</a
                     >
                   </li>
                   <li>
                     <a
                       class="mm-item block rounded-md px-3 py-2 hover:bg-gray-50 focus:bg-gray-50"
-                      href="#"
+                      href="#ourservices"
                       >خدماتنا</a
                     >
                   </li>
                   <li>
                     <a
                       class="mm-item block rounded-md px-3 py-2 hover:bg-gray-50 focus:bg-gray-50"
-                      href="#"
-                      >الأعمال</a
+                      href="#ourvision"
+                      >رؤيتنا</a
                     >
                   </li>
                   <li>
                     <a
                       class="mm-item block rounded-md px-3 py-2 hover:bg-gray-50 focus:bg-gray-50"
-                      href="#"
-                      >المدونة</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="mm-item block rounded-md px-3 py-2 hover:bg-gray-50 focus:bg-gray-50"
-                      href="#contact"
-                      >تواصل معنا</a
+                      href="#ourmessage"
+                      >رسالتنا</a
                     >
                   </li>
                 </ul>
@@ -185,13 +165,14 @@
               <div class="mt-4">
                 <a
                   class="mm-item inline-flex w-full items-center justify-center rounded-full bg-primary px-3.5 py-2.5 text-sm font-medium text-secondary hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 transition"
-                  href="#contact"
+                  href="#https://api.whatsapp.com/send/?phone=966552223746"
                 >
                   احجز استشارتك الآن
                 </a>
               </div>
             </div>
           </div>
+          -->
         </header>
         <section
           class="hero-section !bg-(image:--linear-gradient) bg-cover bg-no-repeat"
@@ -258,35 +239,91 @@
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
                     <img
-                      src="/public/assets/16.png"
+                      src="/public/assets/Client-Logo-1.png"
                       class="h-48 w-auto"
                       alt=""
                     />
                   </div>
                   <div class="swiper-slide">
                     <img
-                      src="/public/assets/17.png"
+                      src="/public/assets/Client-Logo-10.png"
                       class="h-48 w-auto"
                       alt=""
                     />
                   </div>
                   <div class="swiper-slide">
                     <img
-                      src="/public/assets/18.png"
+                      src="/public/assets/Client-Logo-11.png"
                       class="h-48 w-auto"
                       alt=""
                     />
                   </div>
                   <div class="swiper-slide">
                     <img
-                      src="/public/assets/19.png"
+                      src="/public/assets/Client-Logo-12.png"
                       class="h-48 w-auto"
                       alt=""
                     />
                   </div>
                   <div class="swiper-slide">
                     <img
-                      src="/public/assets/20.png"
+                      src="/public/assets/Client-Logo-13.png"
+                      class="h-48 w-auto"
+                      alt=""
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="/public/assets/Client-Logo-2.png"
+                      class="h-48 w-auto"
+                      alt=""
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="/public/assets/Client-Logo-3.png"
+                      class="h-48 w-auto"
+                      alt=""
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="/public/assets/Client-Logo-4.png"
+                      class="h-48 w-auto"
+                      alt=""
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="/public/assets/Client-Logo-5.png"
+                      class="h-48 w-auto"
+                      alt=""
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="/public/assets/Client-Logo-6.png"
+                      class="h-48 w-auto"
+                      alt=""
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="/public/assets/Client-Logo-7.png"
+                      class="h-48 w-auto"
+                      alt=""
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="/public/assets/Client-Logo-8.png"
+                      class="h-48 w-auto"
+                      alt=""
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="/public/assets/Client-Logo-9.png"
                       class="h-48 w-auto"
                       alt=""
                     />
@@ -299,9 +336,10 @@
         </section>
         <section>
           <div
-            class="container mx-auto sm:px-6 lg:px-16 md:px-24 py-6 md:py-16"
+            class="container mx-auto px-2 md:px-24 py-6 md:py-16"
           >
             <div
+             id="ourservices"
               class="flex flex-col md:flex-row flex-wrap md:flex-nowrap items-center justify-center gap-6 py-6 md:py-16 bg-secondary rounded-3xl sec-sec"
             >
               <div class="basis-1/2 text-center md:text-right">
@@ -393,7 +431,7 @@
         </section>
         <section>
           <div
-            class="container mx-auto sm:px-6 lg:px-16 md:px-24 md:py-16 px-6"
+            class="container mx-auto px-4 md:px-24 lg:px-16 py-10"
           >
             <h3
               class="text-2xl md:text-6xl mb-3 md:mb-6 font-bold text-primary w-full text-center md:text-right"
@@ -502,12 +540,12 @@
               </div>
             </div>
             <!-- Tab Contents -->
-            <div class="mt-8 md:mt-16">
+            <div class="mt-4 md:mt-16">
               <!-- Developer Tab -->
               <div class="tab-content hidden" id="developer">
                 <div class="swiper candidateSwiper">
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -544,12 +582,9 @@
                             >CS</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -586,12 +621,9 @@
                             >حل المشكلات</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -628,12 +660,9 @@
                             >تطوير واجهات</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -674,12 +703,9 @@
                             >تحسين الأداء</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -716,9 +742,6 @@
                             >تطوير APIs</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
                   </div>
@@ -730,7 +753,7 @@
               <div class="tab-content" id="sales">
                 <div class="swiper candidateSwiper">
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -741,13 +764,13 @@
                           <h4
                           class="text-lg font-bold text-gray-800 mb-2"
                         >
-                          راشد   
+                          عبد الجليل  
                         </h4>
                         <p class="text-gray-600 mb-2">
-                          مطوّر أنظمة
+                          مسؤول مبيعات
                         </p>
                         <p class="text-sm text-gray-500 mb-2">
-                         9 سنوات
+                         7 سنوات
                         </p>
                       </div>
                       </div>
@@ -756,23 +779,20 @@
                         <div class="grid grid-cols-3 gap-2 mb-4 text-center">
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >Python</span
+                            >الإقناع</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >قواعد البيانات</span
+                            >التواصل الفعال</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >تطوير APIs</span
+                            >حل المشكلات</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -783,13 +803,13 @@
                           <h4
                           class="text-lg font-bold text-gray-800 mb-2"
                         >
-                          راشد   
+                          سامي  
                         </h4>
                         <p class="text-gray-600 mb-2">
-                          مطوّر أنظمة
+                          مسؤول مبيعات B2B
                         </p>
                         <p class="text-sm text-gray-500 mb-2">
-                         9 سنوات
+                         8 سنوات
                         </p>
                       </div>
                       </div>
@@ -798,23 +818,20 @@
                         <div class="grid grid-cols-3 gap-2 mb-4 text-center">
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >Python</span
+                            >التفاوض</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >قواعد البيانات</span
+                            >إقناع الشركات</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >تطوير APIs</span
+                            >بناء شبكات</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -825,13 +842,13 @@
                           <h4
                           class="text-lg font-bold text-gray-800 mb-2"
                         >
-                          راشد   
+                          عبدالإله
                         </h4>
                         <p class="text-gray-600 mb-2">
-                          مطوّر أنظمة
+                          مسؤول مبيعات دولية
                         </p>
                         <p class="text-sm text-gray-500 mb-2">
-                         9 سنوات
+                        6 سنوات
                         </p>
                       </div>
                       </div>
@@ -840,20 +857,17 @@
                         <div class="grid grid-cols-3 gap-2 mb-4 text-center">
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >Python</span
+                            >اللغة الإنجليزية</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >قواعد البيانات</span
+                            >التفاوض</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >تطوير APIs</span
+                            >إدارة الحسابات</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
                   </div>
@@ -865,7 +879,7 @@
               <div class="tab-content hidden" id="marketer">
                 <div class="swiper candidateSwiper">
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -876,13 +890,13 @@
                           <h4
                           class="text-lg font-bold text-gray-800 mb-2"
                         >
-                          راشد   
+                          سارة   
                         </h4>
                         <p class="text-gray-600 mb-2">
-                          مطوّر أنظمة
+                           أخصائية تسويق رقمي
                         </p>
                         <p class="text-sm text-gray-500 mb-2">
-                         9 سنوات
+                         5 سنوات
                         </p>
                       </div>
                       </div>
@@ -891,23 +905,20 @@
                         <div class="grid grid-cols-3 gap-2 mb-4 text-center">
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >Python</span
+                            >إدارة الحملات</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >قواعد البيانات</span
+                            >تحليل البيانات</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >تطوير APIs</span
+                            >كتابة المحتوى</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -918,13 +929,13 @@
                           <h4
                           class="text-lg font-bold text-gray-800 mb-2"
                         >
-                          راشد   
+                          هناء   
                         </h4>
                         <p class="text-gray-600 mb-2">
-                          مطوّر أنظمة
+                          مسؤولة تسويق محتوى
                         </p>
                         <p class="text-sm text-gray-500 mb-2">
-                         9 سنوات
+                         4 سنوات
                         </p>
                       </div>
                       </div>
@@ -933,23 +944,20 @@
                         <div class="grid grid-cols-3 gap-2 mb-4 text-center">
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >Python</span
+                            >كتابة </span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >قواعد البيانات</span
+                            >استراتيجية محتوى</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >تطوير APIs</span
+                            >إدارة حسابات سوشال</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -960,13 +968,13 @@
                           <h4
                           class="text-lg font-bold text-gray-800 mb-2"
                         >
-                          راشد   
+                          عهود    
                         </h4>
                         <p class="text-gray-600 mb-2">
-                          مطوّر أنظمة
+                          مسؤولة حملات إعلانية
                         </p>
                         <p class="text-sm text-gray-500 mb-2">
-                         9 سنوات
+                         5 سنوات
                         </p>
                       </div>
                       </div>
@@ -975,22 +983,20 @@
                         <div class="grid grid-cols-3 gap-2 mb-4 text-center">
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >Python</span
+                            >Facebook Ads</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >قواعد البيانات</span
+                            >Google Ads</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >تطوير APIs</span
+                            >تحليل النتائج</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
+
                   </div>
                   <div class="swiper-pagination"></div>
                 </div>
@@ -1000,7 +1006,7 @@
               <div class="tab-content hidden" id="motion">
                 <div class="swiper candidateSwiper">
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -1011,13 +1017,13 @@
                           <h4
                           class="text-lg font-bold text-gray-800 mb-2"
                         >
-                          راشد   
+                          خلود    
                         </h4>
                         <p class="text-gray-600 mb-2">
-                          مطوّر أنظمة
+                          مصممة موشن جرافيك
                         </p>
                         <p class="text-sm text-gray-500 mb-2">
-                         9 سنوات
+                         4 سنوات
                         </p>
                       </div>
                       </div>
@@ -1026,62 +1032,17 @@
                         <div class="grid grid-cols-3 gap-2 mb-4 text-center">
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >Python</span
+                            >After Effects</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >قواعد البيانات</span
+                            >الإبداع</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >تطوير APIs</span
+                            >storytelling</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
-                      </div>
-                    </div>
-                    <div class="swiper-slide h-[350px]!">
-                      <div
-                        class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
-                      >
-                  <div class="flex flex-row justify-center items-center gap-6">
-                      <div class="flex flex-row gap-4 items-center justify-between">
-                        <img src="/public/assets/12.png" alt="" class="w-15 h-15 rounded-full mx-auto mb-4" />
-                        <div class="text-right flex-1 mt-6">
-                          <h4
-                          class="text-lg font-bold text-gray-800 mb-2"
-                        >
-                          راشد   
-                        </h4>
-                        <p class="text-gray-600 mb-2">
-                          مطوّر أنظمة
-                        </p>
-                        <p class="text-sm text-gray-500 mb-2">
-                         9 سنوات
-                        </p>
-                      </div>
-                      </div>
-                      <img src="/public/assets/egypt.png" alt="" class="w-8 h-8 rounded-full mr-auto" />
-                  </div>
-                        <div class="grid grid-cols-3 gap-2 mb-4 text-center">
-                          <span
-                            class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >Python</span
-                          >
-                          <span
-                            class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >قواعد البيانات</span
-                          >
-                          <span
-                            class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >تطوير APIs</span
-                          >
-                        </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
                   </div>
@@ -1093,7 +1054,7 @@
               <div class="tab-content hidden" id="graphic">
                 <div class="swiper candidateSwiper">
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -1104,13 +1065,13 @@
                           <h4
                           class="text-lg font-bold text-gray-800 mb-2"
                         >
-                          راشد   
+                          فراس   
                         </h4>
                         <p class="text-gray-600 mb-2">
-                          مطوّر أنظمة
+                          مصمم جرافيك
                         </p>
                         <p class="text-sm text-gray-500 mb-2">
-                         9 سنوات
+                         4 سنوات
                         </p>
                       </div>
                       </div>
@@ -1119,23 +1080,20 @@
                         <div class="grid grid-cols-3 gap-2 mb-4 text-center">
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >Python</span
+                            >إدارة الوقت والالتزام بالمواعيد</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >قواعد البيانات</span
+                            >الإبداع </span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >تطوير APIs</span
+                            >اتقان برامج التصميم</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div> 
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -1146,13 +1104,13 @@
                           <h4
                           class="text-lg font-bold text-gray-800 mb-2"
                         >
-                          راشد   
+                          ليان    
                         </h4>
                         <p class="text-gray-600 mb-2">
-                          مطوّر أنظمة
+                          مصممة جرافيك
                         </p>
                         <p class="text-sm text-gray-500 mb-2">
-                         9 سنوات
+                         6 سنوات
                         </p>
                       </div>
                       </div>
@@ -1161,20 +1119,17 @@
                         <div class="grid grid-cols-3 gap-2 mb-4 text-center">
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >Python</span
+                            >برامج التصميم</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >قواعد البيانات</span
+                            >إبداع بصري</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >تطوير APIs</span
+                            >دقة عالية</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div> 
                   </div>
@@ -1186,7 +1141,7 @@
               <div class="tab-content hidden" id="manager">
                 <div class="swiper candidateSwiper">
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -1197,13 +1152,13 @@
                           <h4
                           class="text-lg font-bold text-gray-800 mb-2"
                         >
-                          راشد   
+                          فهد    
                         </h4>
                         <p class="text-gray-600 mb-2">
-                          مطوّر أنظمة
+                          مدير مشاريع
                         </p>
                         <p class="text-sm text-gray-500 mb-2">
-                         9 سنوات
+                        9 سنوات
                         </p>
                       </div>
                       </div>
@@ -1212,23 +1167,20 @@
                         <div class="grid grid-cols-3 gap-2 mb-4 text-center">
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >Python</span
+                            >التخطيط</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >قواعد البيانات</span
+                            >إدارة الوقت</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >تطوير APIs</span
+                            >إدارة الفرق</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
-                    <div class="swiper-slide h-[350px]!">
+                      <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -1239,13 +1191,13 @@
                           <h4
                           class="text-lg font-bold text-gray-800 mb-2"
                         >
-                          راشد   
+                          طلال    
                         </h4>
                         <p class="text-gray-600 mb-2">
-                          مطوّر أنظمة
+                        مدير تسويق
                         </p>
                         <p class="text-sm text-gray-500 mb-2">
-                         9 سنوات
+                         8 سنوات
                         </p>
                       </div>
                       </div>
@@ -1254,23 +1206,20 @@
                         <div class="grid grid-cols-3 gap-2 mb-4 text-center">
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >Python</span
+                            >استراتيجيات تسويقية</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >قواعد البيانات</span
+                            >قيادة فرق</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >تطوير APIs</span
+                            >تحليل بيانات</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
-                    <div class="swiper-slide h-[350px]!">
+                                        <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -1281,13 +1230,13 @@
                           <h4
                           class="text-lg font-bold text-gray-800 mb-2"
                         >
-                          راشد   
+                          بدر   
                         </h4>
                         <p class="text-gray-600 mb-2">
-                          مطوّر أنظمة
+                          مدير مبيعات
                         </p>
                         <p class="text-sm text-gray-500 mb-2">
-                         9 سنوات
+                         10 سنوات
                         </p>
                       </div>
                       </div>
@@ -1296,62 +1245,17 @@
                         <div class="grid grid-cols-3 gap-2 mb-4 text-center">
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >Python</span
+                            >بناء العلاقات</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >قواعد البيانات</span
+                            >إغلاق الصفقات</span
                           >
                           <span
                             class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >تطوير APIs</span
+                            >تحليل السوق</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
-                      </div>
-                    </div>
-                    <div class="swiper-slide h-[350px]!">
-                      <div
-                        class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
-                      >
-                  <div class="flex flex-row justify-center items-center gap-6">
-                      <div class="flex flex-row gap-4 items-center justify-between">
-                        <img src="/public/assets/12.png" alt="" class="w-15 h-15 rounded-full mx-auto mb-4" />
-                        <div class="text-right flex-1 mt-6">
-                          <h4
-                          class="text-lg font-bold text-gray-800 mb-2"
-                        >
-                          راشد   
-                        </h4>
-                        <p class="text-gray-600 mb-2">
-                          مطوّر أنظمة
-                        </p>
-                        <p class="text-sm text-gray-500 mb-2">
-                         9 سنوات
-                        </p>
-                      </div>
-                      </div>
-                      <img src="/public/assets/egypt.png" alt="" class="w-8 h-8 rounded-full mr-auto" />
-                  </div>
-                        <div class="grid grid-cols-3 gap-2 mb-4 text-center">
-                          <span
-                            class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >Python</span
-                          >
-                          <span
-                            class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >قواعد البيانات</span
-                          >
-                          <span
-                            class="text-primary bg-secondary text-xs px-2 py-2 rounded-full"
-                            >تطوير APIs</span
-                          >
-                        </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
                   </div>
@@ -1363,7 +1267,7 @@
               <div class="tab-content hidden" id="telesales">
                 <div class="swiper candidateSwiper">
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -1400,12 +1304,9 @@
                             >تطوير APIs</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -1442,12 +1343,9 @@
                             >تطوير APIs</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -1484,12 +1382,9 @@
                             >تطوير APIs</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -1526,12 +1421,9 @@
                             >تطوير APIs</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
-                    <div class="swiper-slide h-[350px]!">
+                    <div class="swiper-slide h-[300px]!">
                       <div
                         class="candidate-card h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-103 transition-all duration-300 ease-in-out px-6 py-4 mx-2 flex flex-col justify-evenly gap-4"
                       >
@@ -1568,9 +1460,6 @@
                             >تطوير APIs</span
                           >
                         </div>
-                        <a href="" class="w-full bg-primary text-white text-center py-2 px-4 rounded-full hover:bg-black transition-colors">
-                          حمل الملف الشخصي
-                        </a>
                       </div>
                     </div>
                   </div>
@@ -2266,18 +2155,21 @@
               <div class="tabs-banner flex flex-row gap-2 md:gap-12">
                 <a
                   href="#"
+                  id="who-us"
                   class="tab-banner active text-white text-lg md:text-xl font-normal px-3 py-3"
                   data-tab="about"
                   >من نحن</a
                 >
                 <a
                   href="#"
+                  id="ourvision"
                   class="tab-banner text-white text-lg md:text-xl font-normal px-3 py-3"
                   data-tab="vision"
                   >رؤيتنا</a
                 >
                 <a
                   href="#"
+                  id="ourmission"
                   class="tab-banner text-white text-lg md:text-xl font-normal px-3 py-3"
                   data-tab="mission"
                   >رسالتنا</a
@@ -2312,7 +2204,8 @@
                   class="tab-content-banner pb-5 sm:pb-0 flex-col gap-5 sm:gap-7 text-white text-balance"
                 >
                   <h3 class="text-lg md:text-4xl font-bold" data-aos="fade-up">
-                    رؤيتنا
+                    روؤيتنا
+نحو مستقبل مهني أفضل
                   </h3>
                   <p
                     class="text-m md:text-lg text-balance sm:pl-10"
@@ -2338,6 +2231,7 @@
                 >
                   <h3 class="text-lg md:text-4xl font-bold" data-aos="fade-up">
                     رسالتنا
+تمكين الكفاءات وتطويرها
                   </h3>
                   <p
                     class="text-m md:text-lg text-balance sm:pl-10"
@@ -2828,7 +2722,7 @@
                   </h2>
                   <ul class="text-gray-500 font-medium">
                     <li class="mb-4" data-aos="fade-up">
-                      <a href="#">moeen@moeen.co</a>
+                      <a href="mailto:moeen@moeen.co">moeen@moeen.co</a>
                     </li>
                   </ul>
                 </div>
@@ -2841,7 +2735,7 @@
                   </h2>
                   <ul class="text-gray-500 font-medium">
                     <li class="mb-4" data-aos="fade-up">
-                      <a href="#" dir="ltr">+966 55 222 3746</a>
+                      <a href="https://api.whatsapp.com/send/?phone=966552223746" dir="ltr">+966 55 222 3746</a>
                     </li>
                   </ul>
                 </div>
@@ -2853,7 +2747,8 @@
                 >© 2025 <a href="" class="hover:underline">Moeen</a>. جميع الحقوق محفوظة.
               </span>
               <div class="flex mt-4 sm:justify-center sm:mt-0">
-                <a href="#" class="text-gray-500 hover:text-gray-900">
+                <a href="https://www.linkedin.com/company/moeen-%D9%85%D8%B9%D9%8A%D9%86
+" class="text-gray-500 hover:text-gray-900">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="w-4 h-4"
@@ -2866,7 +2761,8 @@
                   </svg>
                   <span class="sr-only">Linkdin</span>
                 </a>
-                <a href="#" class="text-gray-500 hover:text-gray-900 ms-5">
+                <a href="https://x.com/MoeenTalents
+" class="text-gray-500 hover:text-gray-900 ms-5">
   <svg
     xmlns="http://www.w3.org/2000/svg"
                         class="w-4 h-4"
