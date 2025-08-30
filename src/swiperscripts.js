@@ -33,7 +33,7 @@ var swiper = new Swiper(".mySwiper", {
 
 // Initialize Tabs Swiper
 const tabsSwiper = new Swiper(".tabsSwiper", {
-  slidesPerView: 2,
+  slidesPerView: 1,
   spaceBetween: 10,
   centeredSlides: false,
   navigation: {

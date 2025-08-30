@@ -237,9 +237,13 @@
   font-size: 16px !important;
   font-weight: bold;
 }
-.candidateSwiper .swiper-pagination {
-  bottom: -3px !important;
+.candidateSwiper {
+  overflow: visible !important;
 }
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: -17px !important;
+}
+
 .candidateSwiper .swiper-slide {
   padding-block: 17px;
 }
