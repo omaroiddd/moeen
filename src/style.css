@@ -240,7 +240,8 @@
 .candidateSwiper {
   overflow: visible !important;
 }
-.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+.candidateSwiper
+  .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: -17px !important;
 }
 
