@@ -29,7 +29,7 @@ export function mountFooter(el) {
                   </h2>
                   <ul class="text-gray-500 text-m lg:text-xl font-medium">
                     <li class="mb-4" data-aos="fade-up">
-                      <a href="/contact">تقدم كموهبة</a>
+                      <a href="/contact.html">تقدم كموهبة</a>
                     </li>
                   </ul>
                 </div>

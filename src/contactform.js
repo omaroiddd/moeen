@@ -8,7 +8,7 @@ const successEl = $("#form-success");
 // ======= عدّل دول =======
 const SHEET_ENDPOINT =
   "https://script.google.com/macros/s/AKfycbwKOGiLkrgaias2ea6PtpVW3BSTRgOVjNTmRikYe6au3sKmSHszcfiEciuRpZQd5Agk/exec";
-const THANK_YOU_URL = "/thank-you"; // أو "/thank-you" حسب مشروعك
+const THANK_YOU_URL = "/thank-you.html"; // أو "/thank-you" حسب مشروعك
 // ========================
 
 // تفعيل أزرار الخيارات (متعددة/أحادية)
