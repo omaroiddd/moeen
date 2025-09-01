@@ -270,7 +270,8 @@ window.addEventListener("resize", () => {
       const tl = gsap.timeline();
       cards.forEach((card, i) => {
         const b = getBoundsFor(card);
-        const finalX = snap(gsap.getProperty(card, "x"));
+        // every card drops randomly withing the stage horizontally
+        const finalX = gsap.utils.random(b.minX, b.maxX);
         const finalY = b.maxY; // <-- bottom of the block
 
         // Start above the stage
