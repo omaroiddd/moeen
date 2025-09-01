@@ -11,7 +11,7 @@ export function mountFooter(el) {
                   data-aos="fade-up"
                 >
                   <img
-                    src="/public/assets/لوجو.png"
+                    src="/assets/لوجو.png"
                     class="h-32 me-3"
                     alt="Moeen Logo"
                   />
