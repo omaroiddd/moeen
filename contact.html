@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/public/assets/لوجو.png" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>Contact</title>
+  </head>
+
+  <body class="font-tajawal !bg-[image:var(--linear-gradient-3)]">
+    <div id="loader-wrapper"><div class="loader"></div></div>
+
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <header id="site-header"></header>
+
+        <main>
+          <section class="contact-section">
+            <div class="container mx-auto px-4 sm:px-6 md:px-16 py-6 md:py-16">
+              <h2 class="section-title text-center">تواصل معنا</h2>
+              <p class="section-subtitle text-center text-lg sm:text-xl">
+                يسعدني تلقي رسائلكم واستفساراتكم. لا تترددوا في التواصل معي عبر
+                النموذج أدناه.
+              </p>
+
+              <!-- الفورم بعد التعديل (id + novalidate) -->
+              <form id="contact-form" class="space-y-8" novalidate>
+                <!-- اختر نوع الخدمة (مطلوب: واحد أو أكثر) -->
+                <div class="field" data-field="services" aria-invalid="false">
+                  <label class="text-lg font-semibold text-primary"
+                    >اختر نوع الخدمة *</label
+                  >
+                  <div
+                    class="options-grid"
+                    role="group"
+                    aria-label="نوع الخدمة"
+                    data-group="services"
+                    data-required="true"
+                    data-multiple="true"
+                  >
+                    <!-- ضيف class="option-btn" + data-value -->
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="تطوير المواقع والتطبيقات"
+                      aria-pressed="false"
+                    >
+                      تطوير المواقع والتطبيقات
+                    </button>
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="التصميم الجرافيكي"
+                      aria-pressed="false"
+                    >
+                      التصميم الجرافيكي
+                    </button>
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="إدارة وسائل التواصل الاجتماعي"
+                      aria-pressed="false"
+                    >
+                      إدارة وسائل التواصل الاجتماعي
+                    </button>
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="كتابة المحتوى والترجمة"
+                      aria-pressed="false"
+                    >
+                      كتابة المحتوى والترجمة
+                    </button>
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="إدخال البيانات والأرشفة"
+                      aria-pressed="false"
+                    >
+                      إدخال البيانات والأرشفة
+                    </button>
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="خدمة العملاء والدعم الفني"
+                      aria-pressed="false"
+                    >
+                      خدمة العملاء والدعم الفني
+                    </button>
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="المبيعات والتسويق"
+                      aria-pressed="false"
+                    >
+                      المبيعات والتسويق
+                    </button>
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="المحاسبة والإدارة المالية"
+                      aria-pressed="false"
+                    >
+                      المحاسبة والإدارة المالية
+                    </button>
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="الموارد البشرية"
+                      aria-pressed="false"
+                    >
+                      الموارد البشرية
+                    </button>
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="أخرى"
+                      aria-pressed="false"
+                    >
+                      أخرى
+                    </button>
+                  </div>
+                  <div class="field-error">
+                    فضلاً اختر نوع خدمة واحد على الأقل.
+                  </div>
+                </div>
+
+                <!-- المناصب المطلوبة (مطلوب: صف واحد على الأقل بعنوان + عدد) -->
+                <div class="field" data-field="positions" aria-invalid="false">
+                  <div
+                    class="flex items-center justify-between"
+                    style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+                    "
+                  >
+                    <label class="text-lg font-semibold text-primary"
+                      >المناصب المطلوبة *</label
+                    >
+                    <button
+                      type="button"
+                      id="add-position"
+                      class="btn btn-primary"
+                      aria-label="إضافة منصب"
+                    >
+                      + إضافة منصب
+                    </button>
+                  </div>
+                  <div id="positions-wrap" class="space-y-3">
+                    <div class="position-row" data-row>
+                      <input
+                        class="input title"
+                        name="position_title[]"
+                        placeholder="اسم المنصب (مثل: مطور ويب، مصمم جرافيك)"
+                        type="text"
+                        required
+                      />
+                      <input
+                        class="input qty"
+                        name="position_qty[]"
+                        type="number"
+                        inputmode="numeric"
+                        min="1"
+                        value="1"
+                        required
+                      />
+                      <button
+                        type="button"
+                        class="remove-btn"
+                        aria-label="حذف المنصب"
+                        hidden
+                      >
+                        حذف
+                      </button>
+                    </div>
+                  </div>
+                  <template id="position-template">
+                    <div class="position-row" data-row>
+                      <input
+                        class="input title"
+                        name="position_title[]"
+                        placeholder="اسم المنصب"
+                        type="text"
+                        required
+                      />
+                      <input
+                        class="input qty"
+                        name="position_qty[]"
+                        type="number"
+                        inputmode="numeric"
+                        min="1"
+                        value="1"
+                        required
+                      />
+                      <button
+                        type="button"
+                        class="remove-btn"
+                        aria-label="حذف المنصب"
+                      >
+                        حذف
+                      </button>
+                    </div>
+                  </template>
+                  <div class="field-error">
+                    أضف منصبًا واحدًا على الأقل مع تحديد العنوان والعدد (١+).
+                  </div>
+                </div>
+
+                <!-- تفاصيل الطلب (اختياري) -->
+                <div class="field" data-field="details" aria-invalid="false">
+                  <label class="text-lg font-semibold text-primary"
+                    >أضف معلومات طلبك</label
+                  >
+                  <textarea
+                    class="textarea"
+                    name="details"
+                    rows="4"
+                    placeholder="اكتب تفاصيل إضافية عن احتياجاتك، المهارات المطلوبة، طبيعة العمل..."
+                  ></textarea>
+                </div>
+
+                <!-- نموذج عقد العمل (Radio مطلوب) -->
+                <div
+                  class="field"
+                  data-field="contractModel"
+                  aria-invalid="false"
+                >
+                  <label class="text-lg font-semibold text-primary"
+                    >اختر نموذج عقد العمل *</label
+                  >
+                  <div class="space-y-2">
+                    <label
+                      style="
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        cursor: pointer;
+                      "
+                    >
+                      <input
+                        type="radio"
+                        name="contractModel"
+                        value="دوام كامل (45 ساعة/أسبوع)"
+                        required
+                      />
+                      <span>دوام كامل (45 ساعة/أسبوع)</span>
+                    </label>
+                    <label
+                      style="
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        cursor: pointer;
+                      "
+                    >
+                      <input
+                        type="radio"
+                        name="contractModel"
+                        value="دوام جزئي (20 ساعة/أسبوع)"
+                        required
+                      />
+                      <span>دوام جزئي (20 ساعة/أسبوع)</span>
+                    </label>
+                    <label
+                      style="
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        cursor: pointer;
+                      "
+                    >
+                      <input
+                        type="radio"
+                        name="contractModel"
+                        value="مشروع محدد المدة"
+                        required
+                      />
+                      <span>مشروع محدد المدة</span>
+                    </label>
+                    <label
+                      style="
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        cursor: pointer;
+                      "
+                    >
+                      <input
+                        type="radio"
+                        name="contractModel"
+                        value="استشارة متخصصة"
+                        required
+                      />
+                      <span>استشارة متخصصة</span>
+                    </label>
+                  </div>
+                  <div class="field-error">فضلاً اختر نموذج العقد.</div>
+                </div>
+
+                <!-- المدة (أزرار، مطلوب اختيار واحد) -->
+                <div class="field" data-field="duration" aria-invalid="false">
+                  <label class="text-lg font-semibold text-primary"
+                    >اختر المدة *</label
+                  >
+                  <div
+                    class="options-grid"
+                    role="radiogroup"
+                    aria-label="المدة"
+                    data-group="duration"
+                    data-required="true"
+                    data-multiple="false"
+                  >
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="شهر واحد"
+                      aria-checked="false"
+                    >
+                      شهر واحد
+                    </button>
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="3 أشهر"
+                      aria-checked="false"
+                    >
+                      3 أشهر
+                    </button>
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="6 أشهر"
+                      aria-checked="false"
+                    >
+                      6 أشهر
+                    </button>
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="سنة واحدة"
+                      aria-checked="false"
+                    >
+                      سنة واحدة
+                    </button>
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="أكثر من سنة"
+                      aria-checked="false"
+                    >
+                      أكثر من سنة
+                    </button>
+                    <button
+                      type="button"
+                      class="option-btn"
+                      data-value="غير محدد"
+                      aria-checked="false"
+                    >
+                      غير محدد
+                    </button>
+                  </div>
+                  <div class="field-error">فضلاً اختر مدة واحدة.</div>
+                </div>
+
+                <!-- موقع + اسم الشركة (مطلوبان) -->
+                <div class="form-grid">
+                  <div class="field" data-field="location" aria-invalid="false">
+                    <label class="text-lg font-semibold text-primary"
+                      >الموقع *</label
+                    >
+                    <input
+                      class="input"
+                      name="location"
+                      placeholder="المدينة، الدولة"
+                      required
+                    />
+                    <div class="field-error">فضلاً اكتب الموقع.</div>
+                  </div>
+                  <div class="field" data-field="company" aria-invalid="false">
+                    <label class="text-lg font-semibold text-primary"
+                      >اسم الشركة *</label
+                    >
+                    <input
+                      class="input"
+                      name="company"
+                      placeholder="اسم شركتك أو مؤسستك"
+                      required
+                    />
+                    <div class="field-error">فضلاً اكتب اسم الشركة.</div>
+                  </div>
+                </div>
+
+                <!-- كيف سمعت عنا (اختياري) -->
+                <div class="field" data-field="ref" aria-invalid="false">
+                  <label class="text-lg font-semibold text-primary"
+                    >كيف سمعت عنا؟</label
+                  >
+                  <select class="select" name="ref">
+                    <option value="">اختر من القائمة</option>
+                    <option value="محركات البحث (جوجل)">
+                      محركات البحث (جوجل)
+                    </option>
+                    <option value="وسائل التواصل الاجتماعي">
+                      وسائل التواصل الاجتماعي
+                    </option>
+                    <option value="إعلانات مدفوعة">إعلانات مدفوعة</option>
+                    <option value="ترشيح من صديق/زميل">
+                      ترشيح من صديق/زميل
+                    </option>
+                    <option value="مؤتمر أو فعالية">مؤتمر أو فعالية</option>
+                    <option value="مقال أو مدونة">مقال أو مدونة</option>
+                    <option value="أخرى">أخرى</option>
+                  </select>
+                </div>
+
+                <!-- استشارة مجانية (مطلوب) -->
+                <div class="field" data-field="call" aria-invalid="false">
+                  <label
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 0.5rem;
+                      cursor: pointer;
+                    "
+                  >
+                    <input
+                      class="input-checkbox"
+                      type="checkbox"
+                      name="free_call"
+                      required
+                    />
+                    <span class="text-lg font-semibold text-primary"
+                      >أريد استشارة مجانية *</span
+                    >
+                  </label>
+                  <p
+                    class="text-body-small"
+                    style="color: var(--muted); margin-right: 2.2rem"
+                  >
+                    مكالمة استشارية مجانية لمدة 30 دقيقة.
+                  </p>
+                  <div class="field-error">فضلاً وافق على طلب الاستشارة.</div>
+                </div>
+
+                <!-- حقول خفية لتجميع القيم من أزرار الخيارات -->
+                <input type="hidden" name="services_values" />
+                <input type="hidden" name="duration_value" />
+
+                <!-- أزرار -->
+                <div class="actions">
+                  <button class="btn btn-primary sm:basis-2/3" type="submit">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path d="M21.801 10A10 10 0 1 1 17 3.335" />
+                      <path d="m9 11 3 3L22 4" />
+                    </svg>
+                    إرسال طلب الاستشارة
+                  </button>
+                  <button class="btn btn-ghost" type="reset">إلغاء</button>
+                </div>
+
+                <div
+                  id="form-success"
+                  class="form-success"
+                  role="status"
+                  aria-live="polite"
+                >
+                  تم إرسال البيانات بنجاح! سنعاود الاتصال بك قريبًا.
+                </div>
+              </form>
+            </div>
+          </section>
+        </main>
+
+        <footer id="site-footer"></footer>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/boot.js"></script>
+    <script type="module" src="/src/contactform.js"></script>
+  </body>
+</html>

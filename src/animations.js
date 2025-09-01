@@ -49,64 +49,6 @@ window.addEventListener("load", () => {
   AOS.refresh();
 });
 
-// Mobile menu
-
-// const btn = document.getElementById("menuButton");
-// const panel = document.getElementById("mobileMenu");
-
-// if (btn && panel) {
-//   const items = () => panel.querySelectorAll(".mm-item, .space-y-2 a, .mt-4 a");
-
-//   const tl = gsap.timeline({
-//     paused: true,
-//     defaults: { ease: "power2.out" },
-//     onStart() {
-//       panel.classList.remove("hidden");
-//       panel.setAttribute("aria-hidden", "false");
-//     },
-//     onComplete() {},
-//     onReverseComplete() {
-//       panel.classList.add("hidden");
-//       panel.setAttribute("aria-hidden", "true");
-//     },
-//   });
-
-//   tl.from(panel, {
-//     height: 0,
-//     y: -8,
-//     autoAlpha: 0,
-//     duration: 0.28,
-//     clearProps: "height",
-//   });
-
-//   tl.from(
-//     items(),
-//     {
-//       y: 8,
-//       autoAlpha: 0,
-//       duration: 0.18,
-//       stagger: 0.05,
-//       onComplete: function () {
-//         items().forEach((item) => {
-//           gsap.set(item, { autoAlpha: 1, y: 0 });
-//         });
-//       },
-//     },
-//     "-=0.12"
-//   );
-
-//   let open = false;
-
-//   btn.addEventListener("click", () => {
-//     if (tl.isActive()) {
-//       return;
-//     }
-//     open ? tl.reverse() : tl.play(0);
-//     open = !open;
-//     btn.setAttribute("aria-expanded", String(open));
-//   });
-// }
-
 // Animate icons in section two
 
 const imgWithIcons = document.querySelectorAll(".img-with-icons");
@@ -147,15 +89,19 @@ if (imgWithIcons.length > 0) {
 }
 
 // Title animation
-gsap.to(".title", {
-  xPercent: 250,
-  ease: "none",
-  scrollTrigger: {
-    trigger: ".title",
-    start: "top bottom",
-    end: "bottom top",
-    scrub: 2,
-  },
+window.addEventListener("DOMContentLoaded", () => {
+  gsap.utils.toArray(".title-contactus").forEach((el) => {
+    gsap.to(el, {
+      xPercent: 250,
+      ease: "none",
+      scrollTrigger: {
+        trigger: el,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 2,
+      },
+    });
+  });
 });
 
 const gridSize = 20;
