@@ -5,34 +5,35 @@ import "./swiperscripts.js";
 const words = document.querySelectorAll(".word");
 let currentIndex = 0;
 
-function rotateWords() {
-  // Remove active class from current word and add exit animation
-  words[currentIndex].classList.remove("active");
-  words[currentIndex].classList.add("exit");
+if (words && words.length > 0) {
+  function rotateWords() {
+    // Remove active class from current word and add exit animation
+    words[currentIndex].classList.remove("active");
+    words[currentIndex].classList.add("exit");
 
-  // Move to next word
-  currentIndex = (currentIndex + 1) % words.length;
+    // Move to next word
+    currentIndex = (currentIndex + 1) % words.length;
 
-  // After exit animation completes, show next word
-  setTimeout(() => {
-    // Reset all words
-    words.forEach((word) => {
-      word.classList.remove("active", "exit", "enter");
-    });
-
-    // Add enter animation to new word
-    words[currentIndex].classList.add("enter");
-
-    // After a brief delay, make it active
+    // After exit animation completes, show next word
     setTimeout(() => {
-      words[currentIndex].classList.remove("enter");
-      words[currentIndex].classList.add("active");
-    }, 50);
-  }, 400);
-}
+      // Reset all words
+      words.forEach((word) => {
+        word.classList.remove("active", "exit", "enter");
+      });
 
-// Start rotation after initial display
-setInterval(rotateWords, 2000);
+      // Add enter animation to new word
+      words[currentIndex].classList.add("enter");
+
+      // After a brief delay, make it active
+      setTimeout(() => {
+        words[currentIndex].classList.remove("enter");
+        words[currentIndex].classList.add("active");
+      }, 50);
+    }, 400);
+  }
+  // Start rotation after initial display
+  setInterval(rotateWords, 2000);
+}
 
 // Field cards hover effect
 
