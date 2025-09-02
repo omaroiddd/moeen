@@ -25,11 +25,11 @@ export function mountFooter(el) {
                     class="mb-6 text-m lg:text-xl font-medium text-primary uppercase"
                     data-aos="fade-up"
                   >
-                    وظف لشركتك
+                    روابط مهمة
                   </h2>
                   <ul class="text-gray-500 text-m lg:text-xl font-medium">
                     <li class="mb-4" data-aos="fade-up">
-                      <a href="/contact.html">تقدم كموهبة</a>
+                      <a href="/contact.html">تواصل معنا</a>
                     </li>
                   </ul>
                 </div>

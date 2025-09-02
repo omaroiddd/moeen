@@ -102,6 +102,24 @@ window.addEventListener("DOMContentLoaded", () => {
       },
     });
   });
+
+  const windowWidth = window.innerWidth;
+  if (windowWidth > 768) {
+    const el = document.getElementById("about-us");
+    gsap.set(el, { backgroundPositionY: 0 });
+
+    // Start the background centered, then nudge it as the section scrolls
+    gsap.to(el, {
+      backgroundPositionY: 100, // tweak this amount for more/less effect
+      ease: "none",
+      scrollTrigger: {
+        trigger: el,
+        start: "top bottom", // when top of section hits bottom of viewport
+        end: "bottom top", // until bottom of section hits top of viewport
+        scrub: true, // ties the animation to scrollbar
+      },
+    });
+  }
 });
 
 // --- falling of cards

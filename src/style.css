@@ -398,10 +398,9 @@
 
 .field-card img {
   transition: all 0.4s ease-in-out;
-  transform: translateY(20px);
 }
 .field-card.active img {
-  transform: translateY(20px) scale(1.2);
+  transform: scale(1.2);
   background-color: #bdfbbc;
   color: #184f4d;
   border-radius: 12px;
