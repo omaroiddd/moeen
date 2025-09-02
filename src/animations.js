@@ -9,7 +9,6 @@ import { Draggable } from "gsap/Draggable";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
 
 // Loader animation
-
 window.addEventListener("load", function () {
   const loader = document.getElementById("loader-wrapper");
   if (!loader) return;
@@ -50,7 +49,6 @@ window.addEventListener("load", () => {
 });
 
 // Animate icons in section two
-
 const imgWithIcons = document.querySelectorAll(".img-with-icons");
 
 if (imgWithIcons.length > 0) {
@@ -103,20 +101,21 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Parallax background for about us section
+
   const windowWidth = window.innerWidth;
-  if (windowWidth > 768) {
-    const el = document.getElementById("about-us");
+  const el = document.getElementById("about-us");
+  if (windowWidth > 768 && el) {
     gsap.set(el, { backgroundPositionY: 0 });
 
-    // Start the background centered, then nudge it as the section scrolls
     gsap.to(el, {
-      backgroundPositionY: 100, // tweak this amount for more/less effect
+      backgroundPositionY: 100,
       ease: "none",
       scrollTrigger: {
         trigger: el,
-        start: "top bottom", // when top of section hits bottom of viewport
-        end: "bottom top", // until bottom of section hits top of viewport
-        scrub: true, // ties the animation to scrollbar
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
       },
     });
   }
