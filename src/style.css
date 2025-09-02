@@ -79,20 +79,19 @@
   font-display: swap;
 }
 
-
 /* Graphik-Arabic */
 
 /* extra-light */
 @font-face {
   font-family: "Graphik";
-  src: url("/assets/graphik-arabic/GraphikArabic-ExtraLight.woff") format("woff");
+  src: url("/assets/graphik-arabic/GraphikArabic-ExtraLight.woff")
+    format("woff");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
 
-
-/* Thin */ 
+/* Thin */
 @font-face {
   font-family: "Graphik";
   src: url("/assets/graphik-arabic/GraphikArabic-Thin.woff") format("woff");
@@ -100,7 +99,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 
 /* Regular */
 @font-face {
@@ -110,7 +108,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 
 /* semi-bold */
 @font-face {
@@ -130,7 +127,7 @@
   font-display: swap;
 }
 
-/* super */ 
+/* super */
 @font-face {
   font-family: "Graphik";
   src: url("/assets/graphik-arabic/GraphikArabic-Super.woff") format("woff");
@@ -138,7 +135,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 
 @theme {
   --color-primary: #184f4d;
@@ -400,11 +396,11 @@
   color: #fff;
 }
 
-.field-card svg {
+.field-card img {
   transition: all 0.4s ease-in-out;
   transform: translateY(20px);
 }
-.field-card.active svg {
+.field-card.active img {
   transform: translateY(20px) scale(1.2);
   background-color: #bdfbbc;
   color: #184f4d;
@@ -439,10 +435,10 @@
     padding: 16px 14px;
   }
 
-  .field-card svg {
+  .field-card img {
     transform: none;
   }
-  .field-card.active svg {
+  .field-card.active img {
     transform: scale(1.05);
   }
 
@@ -456,7 +452,7 @@
 
   .field-card p,
   .field-card a,
-  .field-card svg {
+  .field-card img {
     transition-duration: 0.25s;
   }
 }
