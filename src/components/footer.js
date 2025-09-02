@@ -22,7 +22,7 @@ export function mountFooter(el) {
               >
                 <div class="border-l-[1px] border-gray-200 pl-6">
                   <h2
-                    class="mb-6 text-m lg:text-xl font-medium text-primary uppercase"
+                    class="mb-6 text-m lg:text-xl font-semibold text-primary uppercase"
                     data-aos="fade-up"
                   >
                     روابط مهمة
