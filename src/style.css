@@ -370,7 +370,7 @@
   overflow: hidden;
   border-radius: 16px;
   width: 100%;
-  padding: 24px 18px;
+  padding: 2rem;
 }
 
 .field-card.active {
