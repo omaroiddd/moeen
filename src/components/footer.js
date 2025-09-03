@@ -68,7 +68,7 @@ export function mountFooter(el) {
               </span>
               <div class="flex mt-4 sm:justify-center sm:mt-0">
                 <a href="https://www.linkedin.com/company/moeen-%D9%85%D8%B9%D9%8A%D9%86
-" class="text-gray-500 hover:text-gray-900">
+" class="text-gray-500 hover:text-gray-900 social-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="w-4 h-4"
@@ -81,7 +81,7 @@ export function mountFooter(el) {
                   </svg>
                   <span class="sr-only">Linkdin</span>
                 </a>
-                <a href="https://x.com/MoeenTalents" class="text-gray-500 hover:text-gray-900 ms-5">
+                <a href="https://x.com/MoeenTalents" class="text-gray-500 hover:text-gray-900 ms-5 social-icon">
   <svg
     xmlns="http://www.w3.org/2000/svg"
                         class="w-4 h-4"

@@ -667,3 +667,11 @@
 .form-success.is-visible {
   display: block;
 }
+
+/** social icons ***/
+
+.social-icon {
+  background: #edf9f3;
+  padding: 15px;
+  border-radius: 15px;
+}
