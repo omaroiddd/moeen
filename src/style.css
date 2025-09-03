@@ -617,6 +617,7 @@
 /* أزرار الإرسال/الإلغاء */
 .actions {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: 0.75rem;
   padding-top: 1rem;
