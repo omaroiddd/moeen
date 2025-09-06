@@ -28,6 +28,39 @@
 
               <!-- الفورم بعد التعديل (id + novalidate) -->
               <form id="contact-form" class="space-y-8" novalidate>
+                <!-- الايميل و رقم الجوال-->
+                <div class="form-grid">
+                  <div class="field" data-field="email" aria-invalid="false">
+                    <label class="text-lg font-semibold text-primary"
+                      >البريد الإلكتروني *</label
+                    >
+                    <input
+                      class="input"
+                      name="email"
+                      type="email"
+                      inputmode="email"
+                      placeholder="ادخل بريدك الإلكتروني"
+                      required
+                    />
+                    <div class="field-error">
+                      فضلاً ادخل بريد إلكتروني صحيح.
+                    </div>
+                  </div>
+                  <div class="field" data-field="phone" aria-invalid="false">
+                    <label class="text-lg font-semibold text-primary"
+                      >رقم الجوال *</label
+                    >
+                    <input
+                      class="input"
+                      name="phone"
+                      type="tel"
+                      inputmode="tel"
+                      placeholder="ادخل رقم جوالك"
+                      required
+                    />
+                    <div class="field-error">فضلاً ادخل رقم جوال صحيح.</div>
+                  </div>
+                </div>
                 <!-- اختر نوع الخدمة (مطلوب: واحد أو أكثر) -->
                 <div class="field" data-field="services" aria-invalid="false">
                   <label class="text-lg font-semibold text-primary"

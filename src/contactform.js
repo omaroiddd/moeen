@@ -1,13 +1,15 @@
 // مساعدات بسيطة
-const $ = (s, r = document) => r.querySelector(s);
-const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const $ = (s, r = document) => r?.querySelector?.(s) || null;
+const $$ = (s, r = document) =>
+  r?.querySelectorAll ? [...r.querySelectorAll(s)] : [];
 
+// عناصر أساسية
 const form = $("#contact-form");
 const successEl = $("#form-success");
 
 // ======= عدّل دول =======
 const SHEET_ENDPOINT =
-  "https://script.google.com/macros/s/AKfycbwKOGiLkrgaias2ea6PtpVW3BSTRgOVjNTmRikYe6au3sKmSHszcfiEciuRpZQd5Agk/exec";
+  "https://script.google.com/macros/s/AKfycbzEqm-3FRwgc3-zB_Pa2D73jiJgO9UCGFWPuWa6QmgpDVD9YmeNE7VRTUHp6ePK4ySg/exec";
 const THANK_YOU_URL = "/thank-you.html"; // أو "/thank-you" حسب مشروعك
 // ========================
 
@@ -49,12 +51,17 @@ function initPositions() {
   const addBtn = $("#add-position");
   const wrap = $("#positions-wrap");
   const tpl = $("#position-template");
+  if (!wrap || !tpl) return; // أمان
 
-  addBtn.addEventListener("click", () => {
-    const node = tpl.content.firstElementChild.cloneNode(true);
-    wrap.appendChild(node);
-    updateRemoveButtons();
-  });
+  if (addBtn) {
+    addBtn.addEventListener("click", () => {
+      const node = tpl.content?.firstElementChild?.cloneNode?.(true);
+      if (node) {
+        wrap.appendChild(node);
+        updateRemoveButtons();
+      }
+    });
+  }
 
   function updateRemoveButtons() {
     const rows = $$("[data-row]", wrap);
@@ -75,8 +82,10 @@ function initPositions() {
     rows.slice(1).forEach((r) => r.remove());
     const first = rows[0] || null;
     if (first) {
-      $(".title", first).value = "";
-      $(".qty", first).value = 1;
+      const t = $(".title", first);
+      const q = $(".qty", first);
+      if (t) t.value = "";
+      if (q) q.value = 1;
     }
     updateRemoveButtons();
   };
@@ -84,17 +93,33 @@ function initPositions() {
   updateRemoveButtons();
 }
 
-// تجميع القيم من المجموعات في الحقول الخفية
+// ====== Helpers: Email & Phone Validation ======
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(email || "").trim());
+}
+
+function isValidPhone(phone) {
+  const s = String(phone || "").trim();
+  const digits = s.replace(/\D/g, "");
+  if (digits.length < 9 || digits.length > 15) return false;
+  return /^[+\d\s\-()]+$/.test(s);
+}
+// ===============================================
+
+// تجميع القيم من المجموعات في الحقول الخفية (root-safe)
 function collectHiddenValues() {
   const servicesGroup = $('[data-group="services"]');
   const selectedServices = $$(".option-btn.is-selected", servicesGroup).map(
-    (b) => b.dataset.value
+    (b) => b?.dataset?.value || ""
   );
-  $('[name="services_values"]').value = selectedServices.join(", ");
+  const servicesInput = $('[name="services_values"]');
+  if (servicesInput) servicesInput.value = selectedServices.join(", ");
 
   const durationGroup = $('[data-group="duration"]');
   const chosen = $(".option-btn.is-selected", durationGroup);
-  $('[name="duration_value"]').value = chosen ? chosen.dataset.value : "";
+  const durationInput = $('[name="duration_value"]');
+  if (durationInput)
+    durationInput.value = chosen ? chosen.dataset.value || "" : "";
 }
 
 // التحقق المخصص
@@ -106,29 +131,40 @@ function validateForm() {
     if (hasError && !firstErrorEl) firstErrorEl = fieldEl;
   };
 
+  // Email
+  const emailField = $('[data-field="email"]');
+  const emailVal = $('[name="email"]')?.value?.trim() || "";
+  setFieldError(emailField, !(emailVal && isValidEmail(emailVal)));
+
+  // Phone
+  const phoneField = $('[data-field="phone"]');
+  const phoneVal = $('[name="phone"]')?.value?.trim() || "";
+  setFieldError(phoneField, !(phoneVal && isValidPhone(phoneVal)));
+
+  // الخدمات (مطلوب واحد+)
   const servicesField = $('[data-field="services"]');
-  const servicesSelected = $$(
-    ".option-btn.is-selected",
-    $('[data-group="services"]')
-  ).length;
+  const servicesRoot = $('[data-group="services"]');
+  const servicesSelected = $$(".option-btn.is-selected", servicesRoot).length;
   setFieldError(servicesField, servicesSelected < 1);
 
+  // المناصب (مطلوب صف واحد على الأقل عنوان + عدد)
   const posField = $('[data-field="positions"]');
   const rows = $$("#positions-wrap [data-row]");
-  let posOK = rows.length >= 1;
-  if (posOK) {
-    posOK = rows.every((row) => {
+  let posOK =
+    rows.length >= 1 &&
+    rows.every((row) => {
       const title = $(".title", row)?.value?.trim();
       const qty = parseInt($(".qty", row)?.value || "0", 10);
-      return title && qty >= 1;
+      return !!title && qty >= 1;
     });
-  }
   setFieldError(posField, !posOK);
 
+  // نموذج العقد (Radio)
   const contractField = $('[data-field="contractModel"]');
   const contractOK = !!$('input[name="contractModel"]:checked');
   setFieldError(contractField, !contractOK);
 
+  // المدة (زر واحد)
   const durationField = $('[data-field="duration"]');
   const durationOK = !!$(
     ".option-btn.is-selected",
@@ -136,19 +172,22 @@ function validateForm() {
   );
   setFieldError(durationField, !durationOK);
 
+  // الموقع + الشركة
   const locField = $('[data-field="location"]');
   const compField = $('[data-field="company"]');
-  const locOK = $('[name="location"]').value.trim().length > 1;
-  const compOK = $('[name="company"]').value.trim().length > 1;
+  const locOK = ($('[name="location"]')?.value || "").trim().length > 1;
+  const compOK = ($('[name="company"]')?.value || "").trim().length > 1;
   setFieldError(locField, !locOK);
   setFieldError(compField, !compOK);
 
+  // مكالمة مجانية
   const callField = $('[data-field="call"]');
-  const callOK = $('[name="free_call"]').checked;
+  const callOK = !!$('[name="free_call"]')?.checked;
   setFieldError(callField, !callOK);
 
-  if (firstErrorEl)
+  if (firstErrorEl) {
     firstErrorEl.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
   return !firstErrorEl;
 }
 
@@ -163,15 +202,17 @@ function buildPayload() {
     .filter((p) => p.title && p.qty >= 1);
 
   return {
-    servicesValues: $('[name="services_values"]').value.trim(),
-    durationValue: $('[name="duration_value"]').value.trim(),
+    email: $('[name="email"]')?.value?.trim() || "",
+    phone: $('[name="phone"]')?.value?.trim() || "",
+    servicesValues: $('[name="services_values"]')?.value?.trim() || "",
+    durationValue: $('[name="duration_value"]')?.value?.trim() || "",
     contractModel: (
       $('input[name="contractModel"]:checked')?.value || ""
     ).trim(),
-    location: $('[name="location"]').value.trim(),
-    company: $('[name="company"]').value.trim(),
+    location: $('[name="location"]')?.value?.trim() || "",
+    company: $('[name="company"]')?.value?.trim() || "",
     ref: ($('[name="ref"]')?.value || "").trim(),
-    freeCall: $('[name="free_call"]').checked,
+    freeCall: !!$('[name="free_call"]')?.checked,
     details: ($('[name="details"]')?.value || "").trim(),
     positions,
     userAgent: navigator.userAgent,
@@ -193,6 +234,7 @@ async function postToSheet(payload, { timeoutMs = 15000 } = {}) {
       signal: ctrl.signal,
     });
     clearTimeout(t);
+    // نحاول نقرأ JSON؛ لو مش متاح نرجع res.ok
     try {
       const data = await res.json();
       return { ok: !!data?.ok, id: data?.id || null };
@@ -205,70 +247,74 @@ async function postToSheet(payload, { timeoutMs = 15000 } = {}) {
   }
 }
 
-// إرسال
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  successEl?.classList.remove("is-visible");
+if (form) {
+  // إرسال
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    successEl?.classList.remove("is-visible");
 
-  collectHiddenValues();
-  if (!validateForm()) return;
+    collectHiddenValues();
+    if (!validateForm()) return;
 
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const origText = submitBtn?.textContent;
-  if (submitBtn) {
-    submitBtn.disabled = true;
-    submitBtn.textContent = "جارٍ الإرسال...";
-  }
-
-  try {
-    const { ok, id } = await postToSheet(buildPayload());
-    if (ok) {
-      // Redirect لصفحة الشكر
-      if (THANK_YOU_URL) {
-        const url = id
-          ? `${THANK_YOU_URL}?id=${encodeURIComponent(id)}`
-          : THANK_YOU_URL;
-        window.location.assign(url);
-        return; // مش هنكمل reset لأن الصفحة هتتغيّر
-      }
-      // بديل لو مفيش صفحة شكر
-      successEl?.classList.add("is-visible");
-      form.reset();
-      $$(".option-btn.is-selected").forEach((b) =>
-        b.classList.remove("is-selected")
-      );
-      $$('.option-btn[aria-pressed="true"]').forEach((b) =>
-        b.setAttribute("aria-pressed", "false")
-      );
-      $$('.option-btn[aria-checked="true"]').forEach((b) =>
-        b.setAttribute("aria-checked", "false")
-      );
-      const wrap = $("#positions-wrap");
-      if (wrap && typeof wrap._resetToSingle === "function")
-        wrap._resetToSingle();
-    } else {
-      alert("حصلت مشكلة أثناء الإرسال. جرّب تاني من فضلك.");
-    }
-  } catch (err) {
-    console.error(err);
-    alert("تعذّر الاتصال بالخادم. تأكّد من رابط الويب وحاول لاحقًا.");
-  } finally {
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const origText = submitBtn?.textContent;
     if (submitBtn) {
-      submitBtn.disabled = false;
-      submitBtn.textContent = origText;
+      submitBtn.disabled = true;
+      submitBtn.classList?.add("is-submitting");
+      submitBtn.textContent = "جارٍ الإرسال...";
     }
-  }
-});
 
-// إزالة الأخطاء فور التفاعل
-form.addEventListener("input", (e) => {
-  const field = e.target.closest("[data-field]");
-  if (field) field.setAttribute("aria-invalid", "false");
-});
-form.addEventListener("change", (e) => {
-  const field = e.target.closest("[data-field]");
-  if (field) field.setAttribute("aria-invalid", "false");
-});
+    try {
+      const { ok, id } = await postToSheet(buildPayload());
+      if (ok) {
+        // Redirect لصفحة الشكر
+        if (THANK_YOU_URL) {
+          const url = id
+            ? `${THANK_YOU_URL}?id=${encodeURIComponent(id)}`
+            : THANK_YOU_URL;
+          window.location.assign(url);
+          return; // الصفحة هتتغيّر
+        }
+        // بديل لو مفيش صفحة شكر
+        successEl?.classList.add("is-visible");
+        form.reset();
+        $$(".option-btn.is-selected").forEach((b) =>
+          b.classList.remove("is-selected")
+        );
+        $$('.option-btn[aria-pressed="true"]').forEach((b) =>
+          b.setAttribute("aria-pressed", "false")
+        );
+        $$('.option-btn[aria-checked="true"]').forEach((b) =>
+          b.setAttribute("aria-checked", "false")
+        );
+        const wrap = $("#positions-wrap");
+        if (wrap && typeof wrap._resetToSingle === "function")
+          wrap._resetToSingle();
+      } else {
+        alert("حصلت مشكلة أثناء الإرسال. جرّب تاني من فضلك.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("تعذّر الاتصال بالخادم. تأكّد من رابط الويب وحاول لاحقًا.");
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.classList?.remove("is-submitting");
+        submitBtn.textContent = origText;
+      }
+    }
+  });
+
+  // إزالة الأخطاء فور التفاعل
+  form.addEventListener("input", (e) => {
+    const field = e.target.closest?.("[data-field]");
+    if (field) field.setAttribute("aria-invalid", "false");
+  });
+  form.addEventListener("change", (e) => {
+    const field = e.target.closest?.("[data-field]");
+    if (field) field.setAttribute("aria-invalid", "false");
+  });
+}
 
 // تهيئة
 initOptionGroups();
