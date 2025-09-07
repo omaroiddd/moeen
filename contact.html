@@ -22,12 +22,27 @@
             <div class="container mx-auto px-4 sm:px-6 md:px-16 py-6 md:py-16">
               <h2 class="section-title text-center">تواصل معنا</h2>
               <p class="section-subtitle text-center text-lg sm:text-xl">
-                يسعدني تلقي رسائلكم واستفساراتكم. لا تترددوا في التواصل معي عبر
+                يسعدنا تلقي رسائلكم واستفساراتكم. لا تترددوا في التواصل معنا عبر
                 النموذج أدناه.
               </p>
 
               <!-- الفورم بعد التعديل (id + novalidate) -->
               <form id="contact-form" class="space-y-8" novalidate>
+                <!-- الاسم -->
+                <div class="field" data-field="name" aria-invalid="false">
+                  <label class="text-lg font-semibold text-primary"
+                    >الاسم الكامل *</label
+                  >
+                  <input
+                    class="input"
+                    name="name"
+                    inputmode="text"
+                    type="text"
+                    placeholder="ادخل اسمك الكامل"
+                    required
+                  />
+                  <div class="field-error">فضلاً ادخل اسمك الكامل.</div>
+                </div>
                 <!-- الايميل و رقم الجوال-->
                 <div class="form-grid">
                   <div class="field" data-field="email" aria-invalid="false">

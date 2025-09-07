@@ -9,7 +9,7 @@ const successEl = $("#form-success");
 
 // ======= عدّل دول =======
 const SHEET_ENDPOINT =
-  "https://script.google.com/macros/s/AKfycbzEqm-3FRwgc3-zB_Pa2D73jiJgO9UCGFWPuWa6QmgpDVD9YmeNE7VRTUHp6ePK4ySg/exec";
+  "https://script.google.com/macros/s/AKfycbxj6qofB3eh2OmdRByQzDX00xhDl0d1_MAV8H8B8pCpAAHHw2tunabGtFUyT-fr6jVu/exec";
 const THANK_YOU_URL = "/thank-you.html"; // أو "/thank-you" حسب مشروعك
 // ========================
 
@@ -93,6 +93,28 @@ function initPositions() {
   updateRemoveButtons();
 }
 
+// ===== name validation =====
+
+function validateName(name) {
+  const trimmed = String(name || "")
+    .trim()
+    .replace(/\s+/g, " ");
+
+  // يمنع أرقام/رموز غريبة
+  if (/[0-9_<>[\]{}@$%^*+=~\\/|]/.test(trimmed)) return false;
+
+  // تقسيم لكلمات غير فاضية
+  const parts = trimmed.split(" ").filter(Boolean);
+
+  // لازم كلمتين على الأقل
+  if (parts.length < 2) return false;
+
+  // كل كلمة: حروف + علامات مركّبة + مدّة + (' . -)
+  const wordRe = /^[\p{L}\p{M}\u0640'.-]{2,}$/u;
+
+  return parts.every((w) => wordRe.test(w));
+}
+
 // ====== Helpers: Email & Phone Validation ======
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(email || "").trim());
@@ -130,6 +152,11 @@ function validateForm() {
     fieldEl.setAttribute("aria-invalid", hasError ? "true" : "false");
     if (hasError && !firstErrorEl) firstErrorEl = fieldEl;
   };
+
+  // الاسم (مطلوب اسم كامل)
+  const nameField = $('[data-field="name"]');
+  const nameVal = ($('[name="name"]')?.value || "").trim();
+  setFieldError(nameField, !validateName(nameVal));
 
   // Email
   const emailField = $('[data-field="email"]');
@@ -202,6 +229,7 @@ function buildPayload() {
     .filter((p) => p.title && p.qty >= 1);
 
   return {
+    name: ($('[name="name"]')?.value || "").trim(),
     email: $('[name="email"]')?.value?.trim() || "",
     phone: $('[name="phone"]')?.value?.trim() || "",
     servicesValues: $('[name="services_values"]')?.value?.trim() || "",
