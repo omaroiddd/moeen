@@ -461,11 +461,7 @@
   display: grid;
   place-items: center;
   user-select: none;
-  cursor: grab;
   will-change: transform;
-}
-.card:active {
-  cursor: grabbing;
 }
 
 .stage:before {
@@ -478,6 +474,48 @@
   top: 64%;
   left: 0;
   border-radius: 500px 0 500px 0;
+}
+
+.card-1 {
+  left: 51px;
+  top: 85px;
+}
+.card-2 {
+  left: 164px;
+  top: 0;
+}
+.card-3 {
+  left: 375px;
+  top: 86px;
+}
+.card-4 {
+  left: 188px;
+  top: 86px;
+}
+.card-5 {
+  left: 296px;
+  top: 0;
+}
+
+@media (max-width: 768px) {
+  .card-1 {
+    left: 51px;
+    top: 85px;
+  }
+  .card-5 {
+    right: 67px;
+    top: 0;
+    left: unset;
+  }
+  .card-3 {
+    bottom: 0;
+    left: 105px;
+    top: unset;
+  }
+  .card-2 {
+    left: 67px;
+    top: 0px;
+  }
 }
 
 .tab-button {
