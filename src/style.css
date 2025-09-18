@@ -460,7 +460,6 @@
   position: absolute;
   display: grid;
   place-items: center;
-  user-select: none;
   will-change: transform;
 }
 

@@ -137,7 +137,7 @@ window.addEventListener("load", function () {
       end: "bottom 40%",
       scrub: 1.5,
       markers: false,
-      yoyo: true,
+      toggleActions: "play reverse play reverse",
       refreshPriority: -1,
       onRefresh: (self) => self.animation && self.animation.invalidate(),
       onComplete: () => ScrollTrigger.refresh(),

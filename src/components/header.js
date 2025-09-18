@@ -22,7 +22,7 @@ export function mountHeader(el) {
                             <a
                   id="ctaBtn"
                   href="/contact.html"
-                  class="inline-flex text-sm md:text-lg items-center justify-center rounded-3xl bg-primary text-secondary px-6 sm:px-10 py-3"
+                  class="inline-flex text-sm md:text-lg items-center justify-center rounded-3xl bg-primary text-secondary px-3 sm:px-10 py-3"
                 >
                   احجز استشارتك الآن
                 </a>
