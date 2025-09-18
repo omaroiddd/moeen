@@ -13,8 +13,8 @@ export function mountHeader(el) {
             <!-- Logo -->
             <a class="block shrink-0" href="/" aria-label="الرئيسية">
               <img
-                src="/assets/لوجو.png"
-                class="h-24 w-auto md:h-24 lg:h-32"
+                src="/assets/Moeen-logo.png"
+                class="w-auto h-18 lg:h-24"
                 alt="الشعار"
               />
             </a>

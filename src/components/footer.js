@@ -11,8 +11,8 @@ export function mountFooter(el) {
                   data-aos="fade-up"
                 >
                   <img
-                    src="/assets/لوجو.png"
-                    class="h-32 me-3"
+                    src="/assets/Moeen-logo.png"
+                    class="h-24 me-3"
                     alt="Moeen Logo"
                   />
                 </a>
@@ -55,7 +55,7 @@ export function mountFooter(el) {
                   </h2>
                   <ul class="text-gray-500 font-medium">
                     <li class="mb-4" data-aos="fade-up">
-                      <a href="https://api.whatsapp.com/send/?phone=966552223746" dir="ltr">+966 55 222 3746</a>
+                      <a href="/contact.html" dir="ltr">+966 55 222 3746</a>
                     </li>
                   </ul>
                 </div>
