@@ -5,6 +5,8 @@ import { gsap } from "gsap";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { Draggable } from "gsap/Draggable";
+import { InertiaPlugin } from "gsap/InertiaPlugin";
 
 // Loader animation
 window.addEventListener("load", function () {
@@ -21,7 +23,7 @@ window.addEventListener("load", function () {
   });
 });
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Draggable, InertiaPlugin);
 
 // Smooth scrolling
 
@@ -119,42 +121,211 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// stage cards animation
-gsap.registerPlugin(ScrollTrigger);
+// --- falling of cards
 
-window.addEventListener("load", function () {
-  gsap.set("#stage .card", {
-    opacity: 0,
-    y: 40,
-    rotate: -4,
-    willChange: "transform, opacity",
-  });
+const initializedStages = new WeakSet();
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#stage",
-      start: "top 80%",
-      end: "bottom 40%",
-      scrub: 1.5,
-      markers: false,
-      toggleActions: "play reverse play reverse",
-      refreshPriority: -1,
-      onRefresh: (self) => self.animation && self.animation.invalidate(),
-      onComplete: () => ScrollTrigger.refresh(),
-    },
-  });
+export function initCards({
+  stageSelector = "#stage",
+  cardSelector = ".card",
+  gridSize = 20,
+  bounceFactor = 0.6,
+  resistance = 350,
+} = {}) {
+  const stage = document.querySelector(stageSelector);
+  if (!stage) return { destroy() {} }; // not on this page → safe no-op
+  if (initializedStages.has(stage)) return { destroy() {} }; // already set up
+  initializedStages.add(stage);
 
-  gsap.utils.toArray("#stage .card").forEach((card, i) => {
-    tl.to(
-      card,
-      {
-        opacity: 1,
-        y: 0,
-        rotate: 0,
-        duration: 0.9,
-        ease: "power2.out",
+  const cards = gsap.utils.toArray(cardSelector);
+  if (!cards.length) return { destroy() {} };
+
+  const snap = (v) => Math.round(v / gridSize) * gridSize;
+
+  const lift = (el, up = true) =>
+    gsap.to(el, {
+      duration: 0.15,
+      scale: up ? 1.06 : 1,
+      ease: "power2.out",
+      overwrite: "auto",
+    });
+
+  function getBoundsFor(card) {
+    const sw = stage.clientWidth,
+      sh = stage.clientHeight;
+    const cw = card.offsetWidth,
+      ch = card.offsetHeight;
+    return { minX: 0, maxX: sw - cw, minY: 0, maxY: sh - ch };
+  }
+
+  function throwWithBounce(card, vx, vy) {
+    InertiaPlugin.track(card, "x,y");
+    const bounds = getBoundsFor(card);
+
+    const snapToGrid = () => {
+      const b = getBoundsFor(card);
+      let x = snap(gsap.getProperty(card, "x"));
+      let y = snap(gsap.getProperty(card, "y"));
+      x = gsap.utils.clamp(b.minX, b.maxX, x);
+      y = gsap.utils.clamp(b.minY, b.maxY, y);
+      gsap.to(card, { x, y, duration: 0.12, ease: "power2.out" });
+    };
+
+    const bounceCheck = () => {
+      let x = gsap.getProperty(card, "x");
+      let y = gsap.getProperty(card, "y");
+
+      if (x > bounds.maxX || x < bounds.minX) {
+        const atRight = x > bounds.maxX;
+        gsap.set(card, { x: atRight ? bounds.maxX : bounds.minX });
+        const curVx = InertiaPlugin.getVelocity(card, "x") || vx || 0;
+        curTween.kill();
+        InertiaPlugin.track(card, "x,y");
+        curTween = gsap.to(card, {
+          ease: "none",
+          inertia: {
+            x: { velocity: -curVx * bounceFactor, resistance },
+            y: {
+              velocity: InertiaPlugin.getVelocity(card, "y") || vy,
+              resistance,
+            },
+          },
+          onUpdate: bounceCheck,
+          onComplete: snapToGrid,
+        });
+        return;
+      }
+
+      if (y > bounds.maxY || y < bounds.minY) {
+        const atBottom = y > bounds.maxY;
+        gsap.set(card, { y: atBottom ? bounds.maxY : bounds.minY });
+        const curVy = InertiaPlugin.getVelocity(card, "y") || vy || 0;
+        curTween.kill();
+        InertiaPlugin.track(card, "x,y");
+        curTween = gsap.to(card, {
+          ease: "none",
+          inertia: {
+            x: {
+              velocity: InertiaPlugin.getVelocity(card, "x") || vx,
+              resistance,
+            },
+            y: { velocity: -curVy * bounceFactor, resistance },
+          },
+          onUpdate: bounceCheck,
+          onComplete: snapToGrid,
+        });
+        return;
+      }
+    };
+
+    let curTween = gsap.to(card, {
+      ease: "none",
+      inertia: {
+        x: { velocity: vx, resistance },
+        y: { velocity: vy, resistance },
       },
-      i * 0.2
-    );
-  });
+      onUpdate: bounceCheck,
+      onComplete: snapToGrid,
+    });
+  }
+
+  function setupCard(card) {
+    const left = parseFloat(card.style.left) || 0;
+    const top = parseFloat(card.style.top) || 0;
+    gsap.set(card, { x: left, y: top });
+    card.style.left = "0px";
+    card.style.top = "0px";
+
+    Draggable.create(card, {
+      type: "x,y",
+      bounds: stage,
+      edgeResistance: 0.85,
+      inertia: true,
+      zIndexBoost: true,
+      liveSnap: { x: snap, y: snap },
+      onPress() {
+        gsap.killTweensOf(card);
+        lift(card, true);
+        InertiaPlugin.track(card, "x,y");
+      },
+      onRelease() {
+        lift(card, false);
+      },
+      onDragEnd() {
+        const inst = Draggable.get(card);
+        const vx = inst?.getVelocity?.("x") ?? 0;
+        const vy = inst?.getVelocity?.("y") ?? 0;
+        if (Math.hypot(vx, vy) > 20) throwWithBounce(card, vx, vy);
+      },
+    });
+  }
+
+  cards.forEach(setupCard);
+
+  // keep inside stage on resize
+  const onResize = () => {
+    cards.forEach((card) => {
+      const b = getBoundsFor(card);
+      const x = gsap.utils.clamp(b.minX, b.maxX, gsap.getProperty(card, "x"));
+      const y = gsap.utils.clamp(b.minY, b.maxY, gsap.getProperty(card, "y"));
+      gsap.set(card, { x, y });
+    });
+  };
+  window.addEventListener("resize", onResize);
+
+  // one-time fall-in when stage enters viewport
+  const io = new IntersectionObserver(
+    (entries, obs) => {
+      const entry = entries[0];
+      if (!entry?.isIntersecting) return;
+      obs.disconnect();
+
+      const dropOffset = stage.clientHeight + 120;
+      const tl = gsap.timeline();
+      cards.forEach((card, i) => {
+        const b = getBoundsFor(card);
+        const finalX = gsap.utils.random(b.minX, b.maxX);
+        const finalY = b.maxY;
+        gsap.set(card, { x: finalX, y: finalY - dropOffset });
+        tl.to(
+          card,
+          {
+            x: finalX,
+            y: finalY,
+            ease: "bounce.out",
+            duration: 1.0,
+            delay: i * 0.06,
+          },
+          0
+        );
+      });
+    },
+    { threshold: 0.15 }
+  );
+  io.observe(stage);
+
+  // expose a cleanup API in case you navigate or re-init
+  function destroy() {
+    window.removeEventListener("resize", onResize);
+    try {
+      io.disconnect();
+    } catch {}
+    // kill draggables & tweens
+    cards.forEach((card) => {
+      const d = Draggable.get(card);
+      d?.kill?.();
+      gsap.killTweensOf(card);
+    });
+    initializedStages.delete(stage);
+  }
+
+  return { destroy };
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const stage = document.querySelector("#stage");
+  if (stage) {
+    initCards();
+  }
 });
+// --- end falling of cards ---
