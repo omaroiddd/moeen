@@ -1,5 +1,6 @@
 import "./animations.js";
 import "./swiperscripts.js";
+import "./tags.js";
 
 // words animation
 const words = document.querySelectorAll(".word");
