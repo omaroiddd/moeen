@@ -7,6 +7,20 @@ const $$ = (s, r = document) =>
 const form = $("#contact-form");
 const successEl = $("#form-success");
 
+const ctaBtn = $("#ctaBtn");
+
+// زرار الهيدر: أظهر نفس رسائل الأخطاء بتاعة الفورم
+ctaBtn?.addEventListener("click", (e) => {
+  e.preventDefault();
+  successEl?.classList.remove("is-visible");
+
+  // لو عندك قيم بتتجمّع في حقول خفية، خلّينا نحدثها برضه
+  collectHiddenValues();
+
+  // دي بتعلّم الحقول الغلط وتسكْرول لأول خطأ
+  const ok = validateForm();
+});
+
 // ======= عدّل دول =======
 const SHEET_ENDPOINT =
   "https://script.google.com/macros/s/AKfycbxj6qofB3eh2OmdRByQzDX00xhDl0d1_MAV8H8B8pCpAAHHw2tunabGtFUyT-fr6jVu/exec";
