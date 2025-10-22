@@ -50,8 +50,8 @@ window.addEventListener("load", () => {
 
 // Animate icons in section two
 const imgWithIcons = document.querySelectorAll(".img-with-icons");
-
-if (imgWithIcons.length > 0) {
+const secTrigger = document.querySelector(".sec-sec");
+if (imgWithIcons.length > 0 && secTrigger) {
   imgWithIcons.forEach((img) => {
     const icons = img.querySelectorAll(".icon-svg");
     if (icons.length > 0) {
@@ -65,7 +65,7 @@ if (imgWithIcons.length > 0) {
       icons.forEach((icon, index) => {
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: ".sec-sec",
+            trigger: secTrigger,
             start: "top 80%",
             end: "bottom 20%",
             toggleActions: "play none none reverse",
