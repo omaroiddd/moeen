@@ -130,3 +130,115 @@ document.addEventListener("DOMContentLoaded", function () {
     cards[0].classList.add("active");
   }
 });
+
+// --- Accordion functionality ---
+
+(function () {
+  const DURATION = 300; // مدة الأنيميشن بالمللي ثانية
+
+  const smoothOpen = (el) => {
+    // تجهيز العنصر للأنيميشن
+    el.classList.remove("hidden");
+    el.style.overflow = "hidden";
+    el.style.height = "0px";
+    el.style.opacity = "0";
+    el.style.transition = `height ${DURATION}ms ease, opacity ${DURATION}ms ease`;
+
+    // قياس الارتفاع الطبيعي وبعدين التحريك ليه
+    const h = el.scrollHeight;
+    requestAnimationFrame(() => {
+      el.style.height = h + "px";
+      el.style.opacity = "1";
+    });
+
+    // تنظيف الـ inline styles بعد الانتهاء
+    const done = (e) => {
+      if (e.propertyName !== "height") return;
+      el.style.height = "";
+      el.style.overflow = "";
+      el.style.transition = "";
+      el.style.opacity = "";
+      el.removeEventListener("transitionend", done);
+    };
+    el.addEventListener("transitionend", done);
+  };
+
+  const instantClose = (el) => {
+    el.classList.add("hidden");
+    el.style.height = "";
+    el.style.overflow = "";
+    el.style.transition = "";
+    el.style.opacity = "";
+  };
+
+  const init = () => {
+    const items = document.querySelectorAll("[data-accordion]");
+    if (!items.length) return;
+
+    // تهيئة: افتح اللي aria-expanded="true" وقفل الباقي
+    items.forEach((item) => {
+      const btn = item.querySelector("button");
+      const content = item.querySelector("[data-accordion-content]");
+      const vLine = item.querySelector(".vertical");
+      const open = btn.getAttribute("aria-expanded") === "true";
+
+      btn.setAttribute("aria-expanded", String(open));
+      if (open) {
+        content.classList.remove("hidden");
+        vLine.classList.add("hidden"); // يخليها علامة −
+      } else {
+        content.classList.add("hidden");
+        vLine.classList.remove("hidden"); // يخليها علامة +
+      }
+
+      // دعم الكيبورد
+      btn.addEventListener("keydown", (e) => {
+        if (e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    });
+
+    // سلوك الأكورديون: قفل فوري للكل، وفتح العنصر الحالي بأنيميشن
+    items.forEach((item) => {
+      const btn = item.querySelector("button");
+      const content = item.querySelector("[data-accordion-content]");
+      const vLine = item.querySelector(".vertical");
+
+      btn.addEventListener("click", () => {
+        const isOpen = btn.getAttribute("aria-expanded") === "true";
+
+        // قفل الكل فورًا
+        items.forEach((other) => {
+          if (other !== item) {
+            const oBtn = other.querySelector("button");
+            const oContent = other.querySelector("[data-accordion-content]");
+            const oV = other.querySelector(".vertical");
+            oBtn.setAttribute("aria-expanded", "false");
+            instantClose(oContent);
+            oV.classList.remove("hidden");
+          }
+        });
+
+        if (isOpen) {
+          // إغلاق فوري للعنصر الحالي
+          btn.setAttribute("aria-expanded", "false");
+          instantClose(content);
+          vLine.classList.remove("hidden");
+        } else {
+          // فتح سلس للعنصر الحالي
+          btn.setAttribute("aria-expanded", "true");
+          smoothOpen(content);
+          vLine.classList.add("hidden");
+        }
+      });
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();

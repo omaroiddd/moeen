@@ -19,6 +19,7 @@
   );
   --linear-gradient-2: linear-gradient(to bottom, #ddfbdc 0%, #ffffff);
   --linear-gradient-3: linear-gradient(to bottom, #effdee 0%, #ffffff);
+  --box-shadow-primary: 0px 32.18px 39.71px 0px rgba(0, 0, 0, 0.05);
 }
 
 /* Tajawal Regular */
