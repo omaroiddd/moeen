@@ -771,3 +771,9 @@
 #ctaBtn {
   cursor: pointer !important;
 }
+
+@media (max-width: 375px) {
+  a#ctaBtn {
+    font-size: 13px !important;
+  }
+}

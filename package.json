@@ -15,7 +15,6 @@
     "@tailwindcss/vite": "^4.1.12",
     "aos": "^2.3.4",
     "gsap": "^3.13.0",
-    "matter-js": "^0.20.0",
     "swiper": "^11.2.10",
     "tailwindcss": "^4.1.12"
   }
