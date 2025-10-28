@@ -8,7 +8,6 @@ export function mountFooter(el) {
                 <a
                   href="/"
                   class="flex items-center"
-                  data-aos="fade-up"
                 >
                   <img
                     src="/assets/Moeen-logo.png"
@@ -23,12 +22,11 @@ export function mountFooter(el) {
                 <div class="border-l-[1px] border-gray-200 pl-6">
                   <h2
                     class="mb-6 text-m lg:text-xl font-semibold text-primary uppercase"
-                    data-aos="fade-up"
                   >
                     روابط مهمة
                   </h2>
                   <ul class="text-gray-500 text-m lg:text-xl font-medium">
-                    <li class="mb-4" data-aos="fade-up">
+                    <li class="mb-4">
                       <a href="/contact.html">تواصل معنا</a>
                     </li>
                   </ul>
@@ -36,12 +34,11 @@ export function mountFooter(el) {
                 <div class="sm:border-l-[1px] sm:border-gray-200 pl-6">
                   <h2
                     class="mb-6 text-m lg:text-xl font-semibold text-primary uppercase"
-                    data-aos="fade-up"
                   >
                     البريد الالكتروني
                   </h2>
                   <ul class="text-gray-500 font-medium">
-                    <li class="mb-4" data-aos="fade-up">
+                    <li class="mb-4">
                       <a href="mailto:moeen@moeen.co">moeen@moeen.co</a>
                     </li>
                   </ul>
@@ -49,12 +46,11 @@ export function mountFooter(el) {
                 <div>
                   <h2
                     class="mb-6 text-m lg:text-xl font-semibold text-primary uppercase"
-                    data-aos="fade-up"
                   >
                     واتساب
                   </h2>
                   <ul class="text-gray-500 font-medium">
-                    <li class="mb-4" data-aos="fade-up">
+                    <li class="mb-4">
                       <a href="/contact.html" dir="ltr">+966 55 222 3746</a>
                     </li>
                   </ul>
