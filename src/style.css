@@ -19,7 +19,11 @@
   );
   --linear-gradient-2: linear-gradient(to bottom, #ddfbdc 0%, #ffffff);
   --linear-gradient-3: linear-gradient(to bottom, #effdee 0%, #ffffff);
-  --radial-gradient: radial-gradient(161.74% 350.87% at 125.63% -45.28%, #4E9682 0%, #184F4D 48.17%);
+  --radial-gradient: radial-gradient(
+    161.74% 350.87% at 125.63% -45.28%,
+    #4e9682 0%,
+    #184f4d 48.17%
+  );
   --box-shadow-primary: 0px 32.18px 39.71px 0px rgba(0, 0, 0, 0.05);
 }
 
@@ -814,10 +818,6 @@
   inset: 0;
   background-color: var(--base);
   border-radius: var(--border_radius);
-  box-shadow: inset 0 0.5px rgba(255, 255, 255, 0.6),
-    inset 0 -1px 2px rgba(0, 0, 0, 0.35),
-    0 4px 10px -4px rgba(0, 0, 0, calc(1 - var(--active))),
-    0 0 0 calc(var(--active) * 0.375rem) var(--accent);
   transition: box-shadow var(--transition), transform var(--transition);
   z-index: 0;
 }
@@ -851,107 +851,60 @@
   transform: scale(1);
 }
 
-/* Rotating border dots - FIXED VERSION */
+/* Rotating border - SINGLE LINE ROTATION */
 #ctaBtn .dots_border {
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  bottom: -3px;
-  border-radius: var(--border_radius);
+  --size_border: calc(100% + 2px);
+
   overflow: hidden;
-  z-index: -1;
-  pointer-events: none;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: var(--size_border);
+  height: var(--size_border);
+  background-color: transparent;
+
+  border-radius: var(--border_radius);
+  z-index: -10;
 }
 
 #ctaBtn .dots_border::before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(
-    from 0deg,
-    var(--accent) 0deg,
-    var(--accent) 270deg,
-    transparent 280deg,
-    var(--accent) 295deg,
-    var(--accent) 305deg,
-    var(--accent) 360deg
-  );
-  animation: rotateBorder 3s linear infinite;
+  transform: translate(-50%, -50%);
+  transform-origin: left;
+  transform: rotate(0deg);
+
+  width: 100%;
+  height: 2rem;
+  background-color: #bdfbbc;
+
+  mask: linear-gradient(#fff 0%, white 120%);
+  animation: rotate 2s linear infinite;
 }
 
-@keyframes rotateBorder {
+@keyframes rotate {
   to {
-    transform: translate(-50%, -50%) rotate(360deg);
+    transform: rotate(360deg);
   }
 }
-
-/* Sparkle icon */
-#ctaBtn .sparkle {
-  position: relative;
-  z-index: 10;
-  width: 1.75rem;
-  height: 1.75rem;
-  flex-shrink: 0;
-}
-
-#ctaBtn .sparkle .path {
-  fill: currentColor;
-  stroke: currentColor;
-  stroke-width: 1;
-  transform-origin: center;
-}
-
-#ctaBtn:is(:hover, :focus-visible) .sparkle .path {
-  animation: path 1.5s linear 0.5s infinite;
-}
-
-#ctaBtn .sparkle .path:nth-child(1) {
-  --scale_path: 1.2;
-}
-
-#ctaBtn .sparkle .path:nth-child(2) {
-  --scale_path: 1.3;
-}
-
-#ctaBtn .sparkle .path:nth-child(3) {
-  --scale_path: 1.4;
-}
-
-@keyframes path {
-  0%,
-  34%,
-  71%,
-  100% {
-    transform: scale(1);
-  }
-  17% {
-    transform: scale(var(--scale_path, 1.2));
-  }
-  49% {
-    transform: scale(var(--scale_path, 1.3));
-  }
-  83% {
-    transform: scale(var(--scale_path, 1.4));
-  }
-}
-
 /* Button text */
 #ctaBtn .text_button {
   position: relative;
   z-index: 10;
   font-size: 1rem;
   font-weight: 500;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     90deg,
     #fff 0%,
     rgba(255, 255, 255, calc(1 - var(--active))) 120%
   );
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
   color: #fff; /* Fallback */
 }
