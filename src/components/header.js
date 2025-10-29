@@ -10,14 +10,14 @@ export function mountHeader(el) {
   el.innerHTML = `
 <!-- Header (RTL) -->
 <div
-  class="container mx-auto px-4 sm:px-6 md:px-16 py-6 md:py-16 flex h-16 sm:h-24 items-center gap-6 md:gap-8 justify-between"
+  class="container mx-auto px-4 sm:px-6 md:px-16 py-6 md:py-16 max-w-[1500px] flex h-16 sm:h-24 items-center gap-6 md:gap-8 justify-between"
   dir="rtl"
 >
   <!-- المجموعة: الشعار + الناف -->
   <div class="flex items-center justify-between gap-4 md:gap-12">
     <!-- Logo -->
     <a class="block shrink-0" href="/" aria-label="الرئيسية">
-      <img src="/assets/Moeen-logo.png" class="site-logo w-auto h-18 lg:h-24" alt="الشعار" />
+      <img src="/assets/Moeen-logo.png" class="site-logo w-auto h-18 lg:h-22" alt="الشعار" />
     </a>
 
     <!-- Desktop Nav -->
