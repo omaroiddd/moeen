@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /public/
+
+Sitemap: https://moeen.co/sitemap.xml
