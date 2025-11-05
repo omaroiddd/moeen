@@ -4,13 +4,13 @@ export function mountHeader(el) {
 
   el.setAttribute(
     "class",
-    "relative top-0 z-50 !bg-[image:var(--linear-gradient)] bg-cover bg-no-repeat backdrop-blur supports-[backdrop-filter]:bg-white/60"
+    "fixed w-full top-0 z-50 !bg-[image:var(--linear-gradient)] bg-cover bg-no-repeat backdrop-blur supports-[backdrop-filter]:bg-white/60"
   );
 
   el.innerHTML = `
 <!-- Header (RTL) -->
 <div
-  class="container mx-auto px-4 sm:px-6 md:px-16 py-6 md:py-16 max-w-[1500px] flex h-16 sm:h-24 items-center gap-6 md:gap-8 justify-between"
+  class="container mx-auto px-4 sm:px-6 md:px-16 py-6 md:py-16 max-w-[1500px] flex h-16 sm:h-20 items-center gap-6 md:gap-8 justify-between"
   dir="rtl"
 >
   <!-- المجموعة: الشعار + الناف -->
@@ -71,9 +71,9 @@ export function mountHeader(el) {
 
   <nav class="flex-1 p-4 bg-secondary" aria-label="قائمة الموبايل">
     <ul class="space-y-2 text-base">
-      <li><a class="m-link block rounded-xl px-3 py-2 hover:bg-gray-100 dark:hover:bg-neutral-800" href="/">الرئيسية</a></li>
-      <li><a class="m-link block rounded-xl px-3 py-2 hover:bg-gray-100 dark:hover:bg-neutral-800" href="/services.html">خدمتنا</a></li>
-      <li><a class="m-link block rounded-xl px-3 py-2 hover:bg-gray-100 dark:hover:bg-neutral-800" href="/pricing.html">تسعير</a></li>
+      <li><a class="m-link block rounded-xl px-3 py-2 hover:bg-gray-100" href="/">الرئيسية</a></li>
+      <li><a class="m-link block rounded-xl px-3 py-2 hover:bg-gray-100" href="/services.html">خدمتنا</a></li>
+      <li><a class="m-link block rounded-xl px-3 py-2 hover:bg-gray-100" href="/pricing.html">تسعير</a></li>
       <li class="pt-2">
         <a href="/contact.html"
            class="m-link block text-center rounded-2xl bg-primary text-secondary px-4 py-3 font-medium">

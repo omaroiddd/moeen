@@ -131,7 +131,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // --- Accordion functionality ---
-
 (function () {
   const DURATION = 300; // مدة الأنيميشن بالمللي ثانية
 
@@ -142,14 +141,12 @@ document.addEventListener("DOMContentLoaded", function () {
     el.style.height = "0px";
     el.style.opacity = "0";
     el.style.transition = `height ${DURATION}ms ease, opacity ${DURATION}ms ease`;
-
     // قياس الارتفاع الطبيعي وبعدين التحريك ليه
     const h = el.scrollHeight;
     requestAnimationFrame(() => {
       el.style.height = h + "px";
       el.style.opacity = "1";
     });
-
     // تنظيف الـ inline styles بعد الانتهاء
     const done = (e) => {
       if (e.propertyName !== "height") return;
@@ -179,15 +176,21 @@ document.addEventListener("DOMContentLoaded", function () {
       const btn = item.querySelector("button");
       const content = item.querySelector("[data-accordion-content]");
       const vLine = item.querySelector(".vertical");
+      const iconWrapper = btn.querySelector("span:first-child"); // الـ span اللي فيه الأيقونة
+      const lines = iconWrapper.querySelectorAll("span"); // خطوط + و -
       const open = btn.getAttribute("aria-expanded") === "true";
 
       btn.setAttribute("aria-expanded", String(open));
       if (open) {
         content.classList.remove("hidden");
         vLine.classList.add("hidden"); // يخليها علامة −
+        iconWrapper.classList.add("bg-third"); // خلفية ملونة
+        lines.forEach((line) => line.classList.add("!bg-primary")); // خطوط بيضاء
       } else {
         content.classList.add("hidden");
         vLine.classList.remove("hidden"); // يخليها علامة +
+        iconWrapper.classList.remove("bg-third");
+        lines.forEach((line) => line.classList.remove("!bg-primary"));
       }
 
       // دعم الكيبورد
@@ -204,6 +207,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const btn = item.querySelector("button");
       const content = item.querySelector("[data-accordion-content]");
       const vLine = item.querySelector(".vertical");
+      const iconWrapper = btn.querySelector("span:first-child");
+      const lines = iconWrapper.querySelectorAll("span");
 
       btn.addEventListener("click", () => {
         const isOpen = btn.getAttribute("aria-expanded") === "true";
@@ -214,9 +219,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const oBtn = other.querySelector("button");
             const oContent = other.querySelector("[data-accordion-content]");
             const oV = other.querySelector(".vertical");
+            const oIconWrapper = oBtn.querySelector("span:first-child");
+            const oLines = oIconWrapper.querySelectorAll("span");
+
             oBtn.setAttribute("aria-expanded", "false");
             instantClose(oContent);
             oV.classList.remove("hidden");
+            oIconWrapper.classList.remove("bg-third"); // إزالة الخلفية
+            oLines.forEach((line) => line.classList.remove("!bg-primary")); // إرجاع اللون الأصلي
           }
         });
 
@@ -225,11 +235,15 @@ document.addEventListener("DOMContentLoaded", function () {
           btn.setAttribute("aria-expanded", "false");
           instantClose(content);
           vLine.classList.remove("hidden");
+          iconWrapper.classList.remove("bg-third");
+          lines.forEach((line) => line.classList.remove("!bg-primary"));
         } else {
           // فتح سلس للعنصر الحالي
           btn.setAttribute("aria-expanded", "true");
           smoothOpen(content);
           vLine.classList.add("hidden");
+          iconWrapper.classList.add("bg-third");
+          lines.forEach((line) => line.classList.add("!bg-primary"));
         }
       });
     });

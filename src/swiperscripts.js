@@ -285,3 +285,15 @@ document.addEventListener("DOMContentLoaded", function () {
     if (cardEl) cardEl.classList.add("active");
   }
 });
+
+// Initialize Swiper for mobile stats carousel
+const statsSwiper = new Swiper(".stats-swiper", {
+  slidesPerView: 1,
+  spaceBetween: 0,
+  centeredSlides: true,
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+});
