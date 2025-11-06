@@ -10,7 +10,7 @@ export function mountFooter(el) {
           </a>
         </div>
         <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 items-center">
-          <div class="border-l border-gray-200 pl-6">
+          <div class="border-r border-gray-200 pr-6">
             <h2 class="mb-6 text-m lg:text-xl font-semibold text-primary uppercase">
               Useful Links
             </h2>
@@ -20,7 +20,7 @@ export function mountFooter(el) {
               </li>
             </ul>
           </div>
-          <div class="sm:border-l sm:border-gray-200 pl-6">
+          <div class="sm:border-r sm:border-gray-200 pr-6">
             <h2 class="mb-6 text-m lg:text-xl font-semibold text-primary uppercase">
               Email
             </h2>

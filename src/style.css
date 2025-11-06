@@ -909,5 +909,15 @@
 }
 
 main {
-  padding-top: 4rem;
+  padding-top: 8rem;
+}
+
+@media (max-width: 767px) {
+  main {
+    padding-top: 4rem;
+  }
+}
+
+*:focus {
+  outline: none !important;
 }
