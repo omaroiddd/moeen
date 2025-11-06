@@ -3,7 +3,8 @@ const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const form = $("#contact-form");
 const successEl = $("#form-success");
 
-const THANK_YOU_URL = "/thank-you.html"; // ← أضف هذا السطر هنا
+const isEnglish = window.location.pathname.startsWith("/en");
+const THANK_YOU_URL = isEnglish ? "/en/thank-you.html" : "/thank-you.html";
 
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(email || "").trim());

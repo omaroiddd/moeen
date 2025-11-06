@@ -62,6 +62,9 @@ export function mountFooter(el) {
               <span class="text-sm text-gray-500 sm:text-center"
                 >© 2025 <a href="/" class="hover:underline">Moeen</a>. جميع الحقوق محفوظة.
               </span>
+
+              <div class="flex items-center gap-6">
+              <a href="#" class="lang-switch text-primary font-semibold hover:underline mt-4 sm:mt-0">EN</a>
               <div class="flex mt-4 sm:justify-center sm:mt-0">
                 <a href="https://www.linkedin.com/company/moeen-%D9%85%D8%B9%D9%8A%D9%86
 " class="text-gray-500 hover:text-gray-900 social-icon">
@@ -90,6 +93,7 @@ export function mountFooter(el) {
                   </svg>
                   <span class="sr-only">Twitter page</span>
                 </a>
+              </div>
               </div>
             </div>
           </div>

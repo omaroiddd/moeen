@@ -515,6 +515,9 @@
   transition: transform 0.1s linear;
 }
 
+[lang="en"] .tab-button::after {
+  transform-origin: left center;
+}
 /*================== Contact Us Section ================= */
 
 .contact-section {

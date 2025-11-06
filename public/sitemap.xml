@@ -3,38 +3,60 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
 >
+
+  <!-- Home -->
   <url>
     <loc>https://moeen.co/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://moeen.co/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moeen.co/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moeen.co/"/>
     <lastmod>2025-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
+  <!-- Services -->
   <url>
-    <loc>https://moeen.co/services.html</loc>
+    <loc>https://moeen.co/services/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://moeen.co/services/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moeen.co/en/services/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moeen.co/services/"/>
     <lastmod>2025-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- Pricing -->
   <url>
-    <loc>https://moeen.co/pricing.html</loc>
+    <loc>https://moeen.co/pricing/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://moeen.co/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moeen.co/en/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moeen.co/pricing/"/>
     <lastmod>2025-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- Contact -->
   <url>
-    <loc>https://moeen.co/contact.html</loc>
+    <loc>https://moeen.co/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://moeen.co/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moeen.co/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moeen.co/contact/"/>
     <lastmod>2025-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
+  <!-- Thank You (noindex but low priority) -->
   <url>
-    <loc>https://moeen.co/thank-you.html</loc>
+    <loc>https://moeen.co/thank-you/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://moeen.co/thank-you/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moeen.co/en/thank-you/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moeen.co/thank-you/"/>
     <lastmod>2025-11-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.2</priority>
   </url>
+
 </urlset>

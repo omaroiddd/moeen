@@ -39,6 +39,9 @@ export function mountHeader(el) {
   <span class="text_button">احجز استشارتك الآن</span>
 </a>
 
+<!-- Language Switch (Desktop) -->
+<a href="#" class="lang-switch text-primary font-semibold hover:underline hidden md:inline-flex">EN</a>
+
   <!-- Mobile: hamburger -->
   <button id="menuBtn" type="button"
           class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border bg-primary border-gray-200"
@@ -79,6 +82,9 @@ export function mountHeader(el) {
            class="m-link block text-center rounded-2xl bg-primary text-secondary px-4 py-3 font-medium">
           احجز استشارتك الآن
         </a>
+      </li>
+     <li>
+<a href="#" class="lang-switch text-primary font-semibold hover:underline">EN</a>
       </li>
     </ul>
   </nav>
