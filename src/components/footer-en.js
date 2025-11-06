@@ -2,7 +2,7 @@ export function mountFooter(el) {
   if (!el) return;
   el.setAttribute("class", "bg-white");
   el.innerHTML = `
-    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <div class="mx-auto w-full max-w-7xl p-4 py-6 lg:py-8">
       <div class="md:flex md:justify-evenly">
         <div class="mb-6 md:mb-0">
           <a href="/en/" class="flex items-center">
@@ -10,7 +10,7 @@ export function mountFooter(el) {
           </a>
         </div>
         <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 items-center">
-          <div class="border-l-[1px] border-gray-200 pl-6">
+          <div class="border-l border-gray-200 pl-6">
             <h2 class="mb-6 text-m lg:text-xl font-semibold text-primary uppercase">
               Useful Links
             </h2>
@@ -20,7 +20,7 @@ export function mountFooter(el) {
               </li>
             </ul>
           </div>
-          <div class="sm:border-l-[1px] sm:border-gray-200 pl-6">
+          <div class="sm:border-l sm:border-gray-200 pl-6">
             <h2 class="mb-6 text-m lg:text-xl font-semibold text-primary uppercase">
               Email
             </h2>

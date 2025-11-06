@@ -60,7 +60,7 @@ export function mountHeader(el) {
 <!-- Mobile Drawer -->
 <aside id="mobileMenu"
        class="fixed top-0 bottom-0 left-0 w-[85%] max-w-sm shadow-2xl -translate-x-full
-              transition-transform duration-300 ease-out md:hidden flex flex-col shadow-lg bg-secondary"
+              transition-transform duration-300 ease-out md:hidden flex flex-col bg-secondary"
        tabindex="-1" aria-hidden="true">
   <div class="flex items-center justify-between p-4 border-b border-gray-100 bg-secondary">
     <span class="font-semibold">Menu</span>
