@@ -36,7 +36,7 @@ export function mountFooter(el) {
             </h2>
             <ul class="text-gray-500 font-medium">
               <li class="mb-4">
-                <a href="/en/contact.html" dir="ltr">+966 55 222 3746</a>
+                <a href="/en/contact.html" dir="ltr">+966 55 222 3246</a>
               </li>
             </ul>
           </div>

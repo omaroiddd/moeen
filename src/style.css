@@ -917,3 +917,12 @@ main {
     padding-top: 4rem;
   }
 }
+
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 640px) {
+    #about-us {
+      background-image: url("/assets/about-mob.jpg");
+      background-attachment: scroll !important;
+    }
+  }
+}

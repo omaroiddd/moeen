@@ -27,10 +27,10 @@ export function mountHeader(el) {
          after:scale-x-0 hover:after:scale-x-100 after:origin-right hover:after:origin-right after:transition-transform">الرئيسية</a>
       <a href="/services.html" class="nav-link relative px-1 py-0.5 text-sm md:text-base transition-colors text-[#5d6481] hover:text-primary
          after:content-[''] after:absolute after:left-1 after:right-1 after:-bottom-0.5 after:h-0.5 after:bg-primary
-         after:scale-x-0 hover:after:scale-x-100 after:origin-right hover:after:origin-right after:transition-transform">خدمتنا</a>
+         after:scale-x-0 hover:after:scale-x-100 after:origin-right hover:after:origin-right after:transition-transform">خدماتنا</a>
       <a href="/pricing.html" class="nav-link relative px-1 py-0.5 text-sm md:text-base transition-colors text-[#5d6481] hover:text-primary
          after:content-[''] after:absolute after:left-1 after:right-1 after:-bottom-0.5 after:h-0.5 after:bg-primary
-         after:scale-x-0 hover:after:scale-x-100 after:origin-right hover:after:origin-right after:transition-transform">تسعير</a>
+         after:scale-x-0 hover:after:scale-x-100 after:origin-right hover:after:origin-right after:transition-transform">الأسعار</a>
     </nav>
   </div>
 
@@ -40,7 +40,10 @@ export function mountHeader(el) {
 </a>
 
 <!-- Language Switch (Desktop) -->
-<a href="#" class="lang-switch text-primary font-semibold hover:underline hidden md:inline-flex">EN</a>
+<a href="#" class="lang-switch text-primary font-semibold hover:underline hidden md:inline-flex md:items-center md:justify-center">
+EN
+<img src="/assets/globe-rotate.gif" alt="Language" class="inline-block w-6 h-6 mr-1"/>
+</a>
 
   <!-- Mobile: hamburger -->
   <button id="menuBtn" type="button"
@@ -75,8 +78,8 @@ export function mountHeader(el) {
   <nav class="flex-1 p-4 bg-secondary" aria-label="قائمة الموبايل">
     <ul class="space-y-2 text-base">
       <li><a class="m-link block rounded-xl px-3 py-2 hover:bg-gray-100" href="/">الرئيسية</a></li>
-      <li><a class="m-link block rounded-xl px-3 py-2 hover:bg-gray-100" href="/services.html">خدمتنا</a></li>
-      <li><a class="m-link block rounded-xl px-3 py-2 hover:bg-gray-100" href="/pricing.html">تسعير</a></li>
+      <li><a class="m-link block rounded-xl px-3 py-2 hover:bg-gray-100" href="/services.html">خدماتنا</a></li>
+      <li><a class="m-link block rounded-xl px-3 py-2 hover:bg-gray-100" href="/pricing.html">الأسعار</a></li>
       <li class="pt-2">
         <a href="/contact.html"
            class="m-link block text-center rounded-2xl bg-primary text-secondary px-4 py-3 font-medium">
@@ -84,7 +87,10 @@ export function mountHeader(el) {
         </a>
       </li>
      <li>
-<a href="#" class="lang-switch text-primary font-semibold hover:underline">EN</a>
+<a href="#" class="lang-switch text-primary font-semibold hover:underline inline-flex items-center justify-center">
+EN
+<img src="/assets/globe-rotate.gif" alt="Language" class="inline-block w-6 h-6 mr-1"/>
+</a>
       </li>
     </ul>
   </nav>

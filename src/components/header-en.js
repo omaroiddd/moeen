@@ -40,7 +40,8 @@ export function mountHeader(el) {
   </a>
 
   <!-- Language Switch (Desktop) -->
-<a href="#" class="lang-switch text-primary font-semibold hover:underline hidden md:inline-flex">العربية</a>
+<a href="#" class="lang-switch text-primary font-semibold hover:underline hidden md:inline-flex md:items-center md:justify-center">
+العربية<img src="/assets/globe-rotate.gif" alt="Language" class="inline-block w-6 h-6 ml-1"/></a>
 
 
   <!-- Mobile: hamburger -->
@@ -85,7 +86,10 @@ export function mountHeader(el) {
         </a>
       </li>
       <li>
-<a href="#" class="lang-switch text-primary font-semibold hover:underline">العربية</a>
+<a href="#" class="lang-switch text-primary font-semibold hover:underline md:inline-flex items-center justify-center">
+العربية
+<img src="/assets/globe-rotate.gif" alt="Language" class="inline-block w-6 h-6 mr-1"/>
+</a>
       </li>
     </ul>
   </nav>
