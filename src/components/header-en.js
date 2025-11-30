@@ -34,7 +34,7 @@ export function mountHeader(el) {
     </nav>
   </div>
 
-  <a id="ctaBtn" href="/en/contact.html" class="ml-auto hidden md:inline-flex">
+  <a id="ctaBtn" href="/en/contact.html" class="cta-btn ml-auto hidden md:inline-flex">
     <div class="dots_border"></div>
     <span class="text_button">Book Your Consultation</span>
   </a>

@@ -785,128 +785,6 @@
     font-size: 13px !important;
   }
 }
-/* === CTA Button Styles === */
-#ctaBtn {
-  /* Custom properties */
-  --base: #184f4d;
-  --accent: #bdfbbc;
-  --border_radius: 9999px;
-  --transition: 0.3s ease-in-out;
-  --active: 0;
-
-  /* Layout */
-  cursor: pointer;
-  position: relative;
-  gap: 0.5rem;
-
-  /* Spacing */
-  padding: 1rem 2rem;
-
-  /* Appearance */
-  background-color: transparent;
-  border: none;
-  border-radius: var(--border_radius);
-  color: #fff;
-  text-decoration: none;
-
-  /* Transform */
-  transform: scale(calc(1 + (var(--active) * 0.1)));
-  transform-origin: center;
-  transition: transform var(--transition);
-
-  /* Isolation for z-index context */
-  isolation: isolate;
-}
-
-/* Background layer */
-#ctaBtn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--base);
-  border-radius: var(--border_radius);
-  transition: box-shadow var(--transition), transform var(--transition);
-  z-index: 0;
-}
-
-/* Glow layer */
-#ctaBtn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--base);
-  background-image: radial-gradient(
-      at 51% 89%,
-      rgba(24, 79, 77, 0.8) 0%,
-      transparent 50%
-    ),
-    radial-gradient(at 100% 100%, rgba(24, 79, 77, 0.8) 0%, transparent 50%),
-    radial-gradient(at 22% 91%, rgba(24, 79, 77, 0.8) 0%, transparent 50%);
-  opacity: var(--active);
-  border-radius: var(--border_radius);
-  transition: opacity var(--transition);
-  z-index: 1;
-}
-
-/* Hover and focus states */
-#ctaBtn:is(:hover, :focus-visible) {
-  --active: 1;
-  outline: none;
-}
-
-#ctaBtn:active {
-  transform: scale(1);
-}
-
-/* Rotating border - SINGLE LINE ROTATION */
-#ctaBtn .dots_border {
-  --size_border: calc(100% + 2px);
-
-  overflow: hidden;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: var(--size_border);
-  height: var(--size_border);
-  background-color: transparent;
-
-  border-radius: var(--border_radius);
-  z-index: -10;
-}
-
-#ctaBtn .dots_border::before {
-  content: "";
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transform-origin: left;
-  transform: rotate(0deg);
-
-  width: 100%;
-  height: 2rem;
-  background-color: #bdfbbc;
-
-  mask: linear-gradient(#fff 0%, white 120%);
-  animation: rotate 2s linear infinite;
-}
-
-@keyframes rotate {
-  to {
-    transform: rotate(360deg);
-  }
-}
-/* Button text */
-#ctaBtn .text_button {
-  position: relative;
-  z-index: 10;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #fff; /* Fallback */
-}
 
 main {
   padding-top: 8rem;
@@ -979,9 +857,12 @@ main {
   will-change: transform;
   animation: marquee var(--marquee-speed) linear infinite;
 }
-
+.logo-row .marquee-track {
+  transform: translateX(32%);
+}
 .logo-row--reverse .marquee-track {
   animation-direction: reverse;
+  transform: translateX(28%);
 }
 
 .logo-pill {
@@ -995,7 +876,7 @@ main {
   background: var(--pill-bg);
   box-shadow: var(--pill-shadow);
   transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-  min-width: 150px;
+  width: 192px;
 }
 
 .logo-pill img {
@@ -1010,31 +891,19 @@ main {
   filter: saturate(1.1);
 }
 
-/* animation definition */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    /* 50% لأننا هنكرّر المحتوى مرّة كمان بالـ JS */
-    transform: translateX(100%);
-  }
-}
-
 /* responsive tweaks */
 @media (max-width: 768px) {
   .logo-pill {
     padding: 0.6rem 1.2rem;
-    min-width: 120px;
   }
   .logo-pill img {
     max-height: 22px;
   }
   :root {
-    --marquee-speed: 60s;
+    --marquee-speed: 70s;
   }
   .logo-row + .logo-row {
-    margin-top: 0.5rem;
+    margin-top: 0.8rem;
   }
 }
 
@@ -1052,6 +921,17 @@ main {
     transform: none;
   }
 }
+
+/* animation definition */
+/* @keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+} */
+
 .trusted {
   position: relative;
   z-index: 2;
@@ -1078,4 +958,35 @@ main {
 
 .trusted:hover::before {
   width: 95% !important;
+}
+
+.cta-btn {
+  border: none;
+  color: #fff;
+  background-image: linear-gradient(30deg, #184f4d, #4a8f7c);
+  border-radius: 20px;
+  background-size: 100% auto;
+  font-family: inherit;
+  font-size: 17px;
+  padding: 0.6em 1.5em;
+}
+.cta-btn:hover {
+  background-position: right center;
+  background-size: 200% auto;
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse512 1.5s infinite;
+}
+
+@keyframes pulse512 {
+  0% {
+    box-shadow: 0 0 0 0 var(--color-third);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+  }
 }

@@ -34,7 +34,7 @@ export function mountHeader(el) {
     </nav>
   </div>
 
-<a id="ctaBtn" href="/contact.html" class="mr-auto hidden md:inline-flex">
+<a id="ctaBtn" href="/contact.html" class="cta-btn mr-auto hidden md:inline-flex">
   <div class="dots_border"></div>
   <span class="text_button">احجز استشارتك الآن</span>
 </a>
