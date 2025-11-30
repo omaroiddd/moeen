@@ -255,3 +255,14 @@ document.addEventListener("DOMContentLoaded", function () {
     init();
   }
 })();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const marqueeTracks = document.querySelectorAll(".marquee-track");
+  if (marqueeTracks.length === 0) return;
+  const repeatCount = 3;
+
+  document.querySelectorAll(".marquee-track").forEach((track) => {
+    const original = track.innerHTML;
+    track.innerHTML = original.repeat(repeatCount);
+  });
+});

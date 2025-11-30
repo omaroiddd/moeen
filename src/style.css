@@ -926,3 +926,156 @@ main {
     }
   }
 }
+/* ====== Logo Marquee Styles ====== */
+:root {
+  --pill-bg: #ffffff;
+  --pill-radius: 20px;
+  --pill-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  --pill-shadow-hover: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --marquee-speed: 80s;
+}
+
+/* ====== Logo Marquee Styles ====== */
+.logo-marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.logo-row + .logo-row {
+  margin-top: 1rem;
+}
+
+/* subtle fade edges */
+.logo-marquee::before,
+.logo-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.logo-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #f5f7fb, transparent);
+}
+.logo-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #f5f7fb, transparent);
+}
+
+.logo-row {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 1rem 0;
+}
+
+.marquee-track {
+  display: inline-flex;
+  gap: 1.25rem;
+  will-change: transform;
+  animation: marquee var(--marquee-speed) linear infinite;
+}
+
+.logo-row--reverse .marquee-track {
+  animation-direction: reverse;
+}
+
+.logo-pill {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.7rem;
+  border: 1px solid #bdfbbc;
+  border-radius: var(--pill-radius);
+  background: var(--pill-bg);
+  box-shadow: var(--pill-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  min-width: 150px;
+}
+
+.logo-pill img {
+  max-height: 28px;
+  width: auto;
+  display: block;
+}
+
+.logo-pill:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: var(--pill-shadow-hover);
+  filter: saturate(1.1);
+}
+
+/* animation definition */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* 50% لأننا هنكرّر المحتوى مرّة كمان بالـ JS */
+    transform: translateX(100%);
+  }
+}
+
+/* responsive tweaks */
+@media (max-width: 768px) {
+  .logo-pill {
+    padding: 0.6rem 1.2rem;
+    min-width: 120px;
+  }
+  .logo-pill img {
+    max-height: 22px;
+  }
+  :root {
+    --marquee-speed: 60s;
+  }
+  .logo-row + .logo-row {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-pill {
+    margin-inline: 0.1rem;
+    gap: 0.5rem;
+  }
+}
+
+/* احترام prefers-reduced-motion (Best Practice) */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    transform: none;
+  }
+}
+.trusted {
+  position: relative;
+  z-index: 2;
+}
+
+.trusted::before {
+  content: "";
+  position: absolute;
+  background: #bdfbbc;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  right: 8px;
+  top: 50%;
+  z-index: -1;
+  transform: translateY(-50%);
+  transition: width 0.5s ease-in-out; /* optional: smooth animation */
+}
+
+.trusted img {
+  position: relative;
+  z-index: 3;
+}
+
+.trusted:hover::before {
+  width: 95% !important;
+}
