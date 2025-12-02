@@ -19,6 +19,7 @@
   );
   --linear-gradient-2: linear-gradient(to bottom, #ddfbdc 0%, #ffffff);
   --linear-gradient-3: linear-gradient(to bottom, #effdee 0%, #ffffff);
+  --linear-gradient-4: linear-gradient(to top, #effdee 0%, #ffffff);
   --radial-gradient: radial-gradient(
     161.74% 350.87% at 125.63% -45.28%,
     #4e9682 0%,
@@ -520,9 +521,6 @@
 }
 /*================== Contact Us Section ================= */
 
-.contact-section {
-  padding: clamp(20px, 4vw, 48px) 0;
-}
 .section-title {
   font-size: clamp(1.4rem, 2.5vw, 2rem);
 }
@@ -687,6 +685,9 @@
   display: block;
 }
 
+[type="submit"] {
+  cursor: pointer;
+}
 /** social icons ***/
 
 .social-icon {
@@ -932,47 +933,15 @@ main {
   }
 } */
 
-.trusted {
-  position: relative;
-  z-index: 2;
-}
-
-.trusted::before {
-  content: "";
-  position: absolute;
-  background: #bdfbbc;
-  width: 40px;
-  height: 40px;
-  border-radius: 9999px;
-  right: 8px;
-  top: 50%;
-  z-index: -1;
-  transform: translateY(-50%);
-  transition: width 0.5s ease-in-out; /* optional: smooth animation */
-}
-
-.trusted img {
-  position: relative;
-  z-index: 3;
-}
-
-.trusted:hover::before {
-  width: 95% !important;
-}
-
 .cta-btn {
   border: none;
   color: #fff;
   background-image: linear-gradient(30deg, #184f4d, #4a8f7c);
-  border-radius: 20px;
+  border-radius: 9999px;
   background-size: 100% auto;
   font-family: inherit;
   font-size: 17px;
   padding: 0.6em 1.5em;
-}
-.cta-btn:hover {
-  background-position: right center;
-  background-size: 200% auto;
   -webkit-animation: pulse 2s infinite;
   animation: pulse512 1.5s infinite;
 }
@@ -988,5 +957,51 @@ main {
 
   100% {
     box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+  }
+}
+
+.work-mode-pill {
+  position: relative;
+  overflow: hidden;
+  /* لو تحب تغيّر اللون، بس حالياً مايل على الأخضر */
+  animation: work-mode-pulse 1.8s ease-out infinite;
+}
+
+.work-mode-dot {
+  position: relative;
+}
+
+.work-mode-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  animation: work-mode-dot-pulse 1.8s ease-out infinite;
+}
+
+@keyframes work-mode-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+@keyframes work-mode-dot-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
   }
 }

@@ -50,128 +50,126 @@
     <link rel="stylesheet" href="/src/style.css" />
   </head>
 
-  <body class="font-tajawal bg-(image:--linear-gradient-3)! contact-page">
+  <body class="font-tajawal contact-page">
     <div id="loader-wrapper"><div class="loader"></div></div>
     <header id="site-header"></header>
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <main>
+          <!-- الهيدر / العنوان -->
           <div
-            class="page-title bg-[url('/assets/Banner-Contact-Us-Mobile.webp')] sm:bg-[url('/assets/Banner-Contact-Us.webp')] bg-contain sm:bg-cover bg-top bg-no-repeat text-center flex items-center h-[210px] sm:h-[400px]"
+            class="page-title bg-[url('/assets/bg-contact.webp')] bg-cover bg-center bg-no-repeat flex items-center h-auto md:h-[350px]"
           >
-            <div class="container mx-auto px-4 sm:px-6 md:px-16 py-6 md:py-16">
-              <h1
-                class="text-xl sm:text-4xl md:text-5xl font-bold text-white font-graphik leading-relaxed"
-              >
-                تواصل معنا
-              </h1>
-              <p
-                class="section-subtitle text-center text-lg sm:text-2xl text-white! font-tajawal"
-              >
-                يرجى ملء النموذج أدناه وسنتواصل معك قريبًا.
-              </p>
+            <div
+              class="container max-w-[1390px] mx-auto px-4 sm:px-6 md:px-16 py-6 md:py-16"
+            >
+              <div class="w-fit ml-auto">
+                <div class="flex flex-row gap-0 justify-start items-center">
+                  <h1
+                    class="text-3xl md:text-5xl lg:text-7xl font-bold text-primary text-right"
+                  >
+                    وظّف خبرات عالمية
+                  </h1>
+                  <img
+                    src="/assets/3dots.gif"
+                    alt="3dots"
+                    class="w-16 md:w-32 h-auto mt-6"
+                  />
+                </div>
+                <h2
+                  class="text-3xl md:text-5xl lg:text-7xl font-bold text-primary text-right mt-2"
+                >
+                  بتكلفة تناسبك
+                </h2>
+              </div>
             </div>
           </div>
-          <section class="contact-section">
-            <div class="container mx-auto px-4 sm:px-6 md:px-16 py-6 md:py-16">
-              <form id="contact-form" class="space-y-8" novalidate>
-                <div class="field" data-field="name" aria-invalid="false">
-                  <label class="text-lg font-semibold text-primary"
-                    >الاسم *</label
-                  >
-                  <input
-                    class="input"
-                    name="name"
-                    type="text"
-                    placeholder="ادخل اسمك الكامل"
-                    required
-                  />
-                  <div class="field-error">فضلاً ادخل اسمك الكامل.</div>
+
+          <!-- السكشن اللي فيها الفورم + المميزات -->
+          <section class="pb-16 pt-4 lg:pt-0">
+            <div
+              class="container max-w-[1390px] mx-auto px-4 sm:px-6 md:px-16 pt-4 md:pt-10"
+            >
+              <div
+                class="flex flex-col lg:flex-row items-start lg:items-stretch gap-8"
+              >
+                <!-- العمود النصي (المميزات) -->
+                <div class="w-full lg:w-2/3 flex flex-col gap-6">
+                  <div class="flex flex-row gap-6">
+                    <img
+                      src="/assets/contact-icon.png"
+                      class="size-14 sm:size-20"
+                      alt="Icon1"
+                    />
+                    <div class="flex-1 flex-col gap-4">
+                      <h3
+                        class="text-primary text-lg md:text-2xl font-medium mb-2"
+                      >
+                        أفضل قيمة مقابل سعر
+                      </h3>
+                      <p class="text-primary text-sm md:text-xl">
+                        استقطب محترفين برواتب تناسب ميزانيتك، مع جودة عمل مضمونة
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-row gap-6">
+                    <img
+                      src="/assets/contact-icon2.png"
+                      class="size-14 sm:size-20"
+                      alt="Icon2"
+                    />
+                    <div class="flex-1 flex-col gap-4">
+                      <h3
+                        class="text-primary text-lg md:text-2xl font-medium mb-2"
+                      >
+                        كسر حدود الجغرافيا
+                      </h3>
+                      <p class="text-primary text-sm md:text-xl">
+                        لا تحصر شركتك في السوق المحلي. وظّف النخبة من أي دولة في
+                        العالم
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-row gap-6">
+                    <img
+                      src="/assets/contact-icon3.png"
+                      class="size-14 sm:size-20"
+                      alt="Icon3"
+                    />
+                    <div class="flex-1 flex-col gap-4">
+                      <h3
+                        class="text-primary text-lg md:text-2xl font-medium mb-2"
+                      >
+                        ضمان استبدال مجاني
+                      </h3>
+                      <p class="text-primary text-sm md:text-xl">
+                        لم يناسبك الموظف؟ نستبدله لك فوراً بدون أي رسوم إضافية
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="field" data-field="phone" aria-invalid="false">
-                  <label class="text-lg font-semibold text-primary"
-                    >رقم الجوال *</label
+                <!-- عمود الفورم (داخل في السكشنين) -->
+                <div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
+                  <div
+                    class="w-full max-w-lg bg-white rounded-[25px] sm:rounded-3xl shadow-[0_32px_84px_0_rgba(0,0,0,0.05)] border-[8px] border-[#1A514F]/[0.025] px-6 sm:px-8 py-6 sm:py-8 mt-0 lg:-mt-78"
                   >
-                  <input
-                    class="input placeholder:text-right"
-                    name="phone"
-                    type="tel"
-                    inputmode="tel"
-                    placeholder="ادخل رقم جوالك"
-                    required
-                  />
-                  <div class="field-error">فضلاً ادخل رقم جوال صحيح.</div>
-                </div>
-
-                <div class="field" data-field="email" aria-invalid="false">
-                  <label class="text-lg font-semibold text-primary"
-                    >البريد الإلكتروني *</label
-                  >
-                  <input
-                    class="input"
-                    name="email"
-                    type="email"
-                    inputmode="email"
-                    placeholder="ادخل بريدك الإلكتروني"
-                    required
-                  />
-                  <div class="field-error">فضلاً ادخل بريد إلكتروني صحيح.</div>
-                </div>
-
-                <div class="field" data-field="position" aria-invalid="false">
-                  <label class="text-lg font-semibold text-primary"
-                    >المنصب *</label
-                  >
-                  <input
-                    class="input"
-                    name="position"
-                    type="text"
-                    placeholder="اكتب منصبك"
-                    required
-                  />
-                  <div class="field-error">فضلاً ادخل المنصب.</div>
-                </div>
-
-                <div class="field" data-field="company" aria-invalid="false">
-                  <label class="text-lg font-semibold text-primary"
-                    >الشركة *</label
-                  >
-                  <input
-                    class="input"
-                    name="company"
-                    type="text"
-                    placeholder="اسم الشركة"
-                    required
-                  />
-                  <div class="field-error">فضلاً ادخل اسم الشركة.</div>
-                </div>
-
-                <div class="actions">
-                  <button class="btn btn-primary sm:basis-2/3" type="submit">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
+                    <h4
+                      class="text-center text-base sm:text-2xl font-bold text-primary mb-1"
                     >
-                      <path d="M21.801 10A10 10 0 1 1 17 3.335" />
-                      <path d="m9 11 3 3L22 4" />
-                    </svg>
-                    إرسال
-                  </button>
+                      اطلب استشارة مجانية لتوظيف فريقك
+                    </h4>
+                    <p
+                      class="text-center text-xs sm:text-sm text-gray-500 mb-6 leading-relaxed"
+                    >
+                      وسيتواصل معك مستشارونا خلال 24 ساعة لفهم احتياجك بدقة
+                    </p>
+                    <div id="contact-form-wrapper"></div>
+                  </div>
                 </div>
-
-                <div
-                  id="form-success"
-                  class="form-success"
-                  role="status"
-                  aria-live="polite"
-                >
-                  تم إرسال البيانات بنجاح! سنعاود الاتصال بك قريبًا.
-                </div>
-              </form>
+              </div>
             </div>
           </section>
         </main>

@@ -50,139 +50,134 @@
     <link rel="stylesheet" href="/src/style.css" />
   </head>
 
-  <body class="font-graphik bg-(image:--linear-gradient-3)! contact-page">
+  <body class="font-graphik contact-page">
     <div id="loader-wrapper"><div class="loader"></div></div>
     <header id="site-header"></header>
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <main>
-          <!-- Hero Banner -->
+          <!-- Header / Title -->
           <div
-            class="page-title bg-[url('/assets/Banner-Contact-Us-Mobile.webp')] sm:bg-[url('/assets/Banner-Contact-Us.webp')] bg-contain sm:bg-cover bg-top bg-no-repeat text-center flex items-center h-[210px] sm:h-[400px]"
+            class="page-title bg-[url('/assets/bg-contact.webp')] bg-cover bg-center bg-no-repeat flex items-center h-auto md:h-[350px]"
+            dir="ltr"
           >
-            <div class="container mx-auto px-4 sm:px-6 md:px-16 py-6 md:py-16">
-              <h1
-                class="text-xl sm:text-4xl md:text-5xl font-bold text-white font-graphik leading-relaxed"
-              >
-                Contact Us
-              </h1>
-              <p
-                class="section-subtitle text-center text-lg sm:text-2xl text-white! font-tajawal"
-              >
-                Please fill out the form below and we’ll get back to you soon.
-              </p>
+            <div
+              class="container max-w-[1390px] mx-auto px-4 sm:px-6 md:px-16 py-6 md:py-16"
+            >
+              <div class="w-fit mr-auto">
+                <div class="flex flex-row gap-0 justify-start items-center">
+                  <h1
+                    class="text-3xl md:text-5xl lg:text-6xl font-bold text-primary text-left"
+                  >
+                    Hire Global Talent
+                  </h1>
+                  <img
+                    src="/assets/3dots.gif"
+                    alt="3dots"
+                    class="w-16 md:w-32 h-auto mt-6"
+                  />
+                </div>
+                <h2
+                  class="text-3xl md:text-5xl lg:text-6xl font-bold text-primary text-left mt-2"
+                >
+                  At a Cost That Fits You
+                </h2>
+              </div>
             </div>
           </div>
 
-          <!-- Contact Form Section -->
-          <section class="contact-section">
-            <div class="container mx-auto px-4 sm:px-6 md:px-16 py-6 md:py-16">
-              <form id="contact-form" class="space-y-8" novalidate>
-                <div class="field" data-field="name" aria-invalid="false">
-                  <label class="text-lg font-semibold text-primary"
-                    >Full Name *</label
-                  >
-                  <input
-                    class="input"
-                    name="name"
-                    type="text"
-                    placeholder="Enter your full name"
-                    required
-                  />
-                  <div class="field-error">Please enter your full name.</div>
-                </div>
+          <!-- Section With Form + Features -->
+          <section class="pb-16 pt-4 lg:pt-0" dir="ltr">
+            <div
+              class="container max-w-[1390px] mx-auto px-4 sm:px-6 md:px-16 pt-4 md:pt-10"
+            >
+              <div
+                class="flex flex-col lg:flex-row items-start lg:items-stretch gap-8"
+              >
+                <!-- Features Column -->
+                <div class="w-full lg:w-2/3 flex flex-col gap-6">
+                  <div class="flex flex-row gap-6">
+                    <img
+                      src="/assets/contact-icon.png"
+                      class="size-14 sm:size-20"
+                      alt="Icon1"
+                    />
+                    <div class="flex-1 flex-col gap-4">
+                      <h3
+                        class="text-primary text-lg md:text-2xl font-medium mb-2"
+                      >
+                        Best Value for Money
+                      </h3>
+                      <p class="text-primary text-sm md:text-xl">
+                        Hire professionals with salaries that match your
+                        budget—without compromising quality.
+                      </p>
+                    </div>
+                  </div>
 
-                <div class="field" data-field="phone" aria-invalid="false">
-                  <label class="text-lg font-semibold text-primary"
-                    >Phone Number *</label
-                  >
-                  <input
-                    class="input placeholder:text-left"
-                    name="phone"
-                    type="tel"
-                    inputmode="tel"
-                    placeholder="Enter your phone number"
-                    required
-                  />
-                  <div class="field-error">
-                    Please enter a valid phone number.
+                  <div class="flex flex-row gap-6">
+                    <img
+                      src="/assets/contact-icon2.png"
+                      class="size-14 sm:size-20"
+                      alt="Icon2"
+                    />
+                    <div class="flex-1 flex-col gap-4">
+                      <h3
+                        class="text-primary text-lg md:text-2xl font-medium mb-2"
+                      >
+                        Break Geographic Barriers
+                      </h3>
+                      <p class="text-primary text-sm md:text-xl">
+                        Don’t limit your company to the local market. Hire top
+                        talent from anywhere in the world.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-row gap-6">
+                    <img
+                      src="/assets/contact-icon3.png"
+                      class="size-14 sm:size-20"
+                      alt="Icon3"
+                    />
+                    <div class="flex-1 flex-col gap-4">
+                      <h3
+                        class="text-primary text-lg md:text-2xl font-medium mb-2"
+                      >
+                        Free Replacement Guarantee
+                      </h3>
+                      <p class="text-primary text-sm md:text-xl">
+                        Not satisfied with the hire? We replace them immediately
+                        with no extra fees.
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div class="field" data-field="email" aria-invalid="false">
-                  <label class="text-lg font-semibold text-primary"
-                    >Email Address *</label
+                <!-- Form Column -->
+                <div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
+                  <div
+                    class="w-full max-w-lg bg-white rounded-[25px] sm:rounded-3xl shadow-[0_32px_84px_0_rgba(0,0,0,0.05)] border-[8px] border-[#1A514F]/[0.025] px-6 sm:px-8 py-6 sm:py-8 mt-0 lg:-mt-78"
                   >
-                  <input
-                    class="input"
-                    name="email"
-                    type="email"
-                    inputmode="email"
-                    placeholder="Enter your email address"
-                    required
-                  />
-                  <div class="field-error">
-                    Please enter a valid email address.
-                  </div>
-                </div>
-
-                <div class="field" data-field="position" aria-invalid="false">
-                  <label class="text-lg font-semibold text-primary"
-                    >Position *</label
-                  >
-                  <input
-                    class="input"
-                    name="position"
-                    type="text"
-                    placeholder="Enter your position"
-                    required
-                  />
-                  <div class="field-error">Please enter your position.</div>
-                </div>
-
-                <div class="field" data-field="company" aria-invalid="false">
-                  <label class="text-lg font-semibold text-primary"
-                    >Company *</label
-                  >
-                  <input
-                    class="input"
-                    name="company"
-                    type="text"
-                    placeholder="Enter your company name"
-                    required
-                  />
-                  <div class="field-error">Please enter your company name.</div>
-                </div>
-
-                <div class="actions">
-                  <button class="btn btn-primary sm:basis-2/3" type="submit">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
+                    <h4
+                      class="text-center text-base sm:text-2xl font-bold text-primary mb-1"
                     >
-                      <path d="M21.801 10A10 10 0 1 1 17 3.335" />
-                      <path d="m9 11 3 3L22 4" />
-                    </svg>
-                    Submit
-                  </button>
+                      Request a Free Hiring Consultation
+                    </h4>
+                    <p
+                      class="text-center text-xs sm:text-sm text-gray-500 mb-6 leading-relaxed"
+                    >
+                      Our consultants will contact you within 24 hours to
+                      understand your needs.
+                    </p>
+                    <div id="contact-form-wrapper"></div>
+                  </div>
                 </div>
-
-                <div
-                  id="form-success"
-                  class="form-success"
-                  role="status"
-                  aria-live="polite"
-                >
-                  Your message has been sent successfully! We’ll get in touch
-                  soon.
-                </div>
-              </form>
+              </div>
             </div>
           </section>
         </main>
+
         <footer id="site-footer"></footer>
       </div>
     </div>
