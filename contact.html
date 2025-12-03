@@ -58,13 +58,13 @@
         <main>
           <!-- الهيدر / العنوان -->
           <div
-            class="page-title bg-[url('/assets/bg-contact.webp')] bg-cover bg-center bg-no-repeat flex items-center h-auto md:h-[350px]"
+            class="page-title bg-[url('/assets/bg-contact.webp')] bg-cover bg-center bg-no-repeat flex items-start sm:items-center h-[350px] md:h-[380px] mt-10 sm:mt-0"
           >
             <div
-              class="container max-w-[1390px] mx-auto px-4 sm:px-6 md:px-16 py-6 md:py-16"
+              class="container max-w-[1500px] mx-auto px-6 md:px-16 py-6 md:py-16"
             >
               <div class="w-fit ml-auto">
-                <div class="flex flex-row gap-0 justify-start items-center">
+                <div class="flex flex-row gap-5 justify-start items-center">
                   <h1
                     class="text-3xl md:text-5xl lg:text-7xl font-bold text-primary text-right"
                   >
@@ -73,28 +73,33 @@
                   <img
                     src="/assets/3dots.gif"
                     alt="3dots"
-                    class="w-16 md:w-32 h-auto mt-6"
+                    class="w-16 md:w-32 h-auto mt-10 hidden sm:block"
                   />
                 </div>
-                <h2
-                  class="text-3xl md:text-5xl lg:text-7xl font-bold text-primary text-right mt-2"
-                >
-                  بتكلفة تناسبك
-                </h2>
+                <div class="flex flex-row gap-5 justify-start items-center">
+                  <h2
+                    class="text-3xl md:text-5xl lg:text-7xl font-bold text-primary text-right mt-2"
+                  >
+                    بتكلفة تناسبك
+                  </h2>
+                  <img
+                    src="/assets/3dots.gif"
+                    alt="3dots"
+                    class="w-16 md:w-32 h-auto mt-4 block sm:hidden"
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- السكشن اللي فيها الفورم + المميزات -->
-          <section class="pb-16 pt-4 lg:pt-0">
-            <div
-              class="container max-w-[1390px] mx-auto px-4 sm:px-6 md:px-16 pt-4 md:pt-10"
-            >
+          <section
+            class="relative pb-16 pt-16 sm:pt-20 lg:pt-24 -mt-10 sm:-mt-14 lg:-mt-20"
+          >
+            <div class="container max-w-[1500px] mx-auto px-6 md:px-16">
               <div
                 class="flex flex-col lg:flex-row items-start lg:items-stretch gap-8"
               >
-                <!-- العمود النصي (المميزات) -->
-                <div class="w-full lg:w-2/3 flex flex-col gap-6">
+                <div class="w-full lg:w-1/2 flex flex-col gap-6 mt-6 lg:mt-10">
                   <div class="flex flex-row gap-6">
                     <img
                       src="/assets/contact-icon.png"
@@ -151,10 +156,12 @@
                   </div>
                 </div>
 
-                <!-- عمود الفورم (داخل في السكشنين) -->
-                <div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
+                <!-- عمود الفورم -->
+                <div
+                  class="order-first sm:order-last w-full lg:w-1/2 flex justify-center lg:justify-end"
+                >
                   <div
-                    class="w-full max-w-lg bg-white rounded-[25px] sm:rounded-3xl shadow-[0_32px_84px_0_rgba(0,0,0,0.05)] border-[8px] border-[#1A514F]/[0.025] px-6 sm:px-8 py-6 sm:py-8 mt-0 lg:-mt-78"
+                    class="w-full max-w-lg bg-white rounded-[25px] sm:rounded-3xl shadow-[0_32px_84px_0_rgba(0,0,0,0.05)] border-[8px] border-[#1A514F]/[0.025] px-4 sm:px-8 py-6 sm:py-8 relative z-10 -mt-60 lg:mt-0 xl:-translate-y-80"
                   >
                     <h4
                       class="text-center text-base sm:text-2xl font-bold text-primary mb-1"

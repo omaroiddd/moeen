@@ -127,9 +127,9 @@ function getContactFormHTML(lang = "ar") {
       novalidate
     >
       <!-- الاسم الأول + الاسم الأخير -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="grid grid-cols-2 gap-4">
         <div class="field" data-field="first_name" aria-invalid="false">
-          <label class="block mb-1 text-sm font-semibold text-primary">
+          <label class="block mb-1 text-xs font-semibold text-primary">
             ${t.first_name_label}
           </label>
           <input
@@ -137,7 +137,7 @@ function getContactFormHTML(lang = "ar") {
             type="text"
             placeholder="${t.first_name_placeholder}"
             required
-            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm ${
+            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs ${
               t.align
             } focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
@@ -147,7 +147,7 @@ function getContactFormHTML(lang = "ar") {
         </div>
 
         <div class="field" data-field="last_name" aria-invalid="false">
-          <label class="block mb-1 text-sm font-semibold text-primary">
+          <label class="block mb-1 text-xs font-semibold text-primary">
             ${t.last_name_label}
           </label>
           <input
@@ -155,7 +155,7 @@ function getContactFormHTML(lang = "ar") {
             type="text"
             placeholder="${t.last_name_placeholder}"
             required
-            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm ${
+            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs ${
               t.align
             } focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
@@ -166,9 +166,9 @@ function getContactFormHTML(lang = "ar") {
       </div>
 
       <!-- الجوال + الإيميل -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="grid grid-cols-2 gap-4">
         <div class="field" data-field="email" aria-invalid="false">
-          <label class="block mb-1 text-sm font-semibold text-primary">
+          <label class="block mb-1 text-xs font-semibold text-primary">
             ${t.email_label}
           </label>
           <input
@@ -177,7 +177,7 @@ function getContactFormHTML(lang = "ar") {
             inputmode="email"
             placeholder="${t.email_placeholder}"
             required
-            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm ${
+            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs ${
               t.align
             } focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
@@ -187,7 +187,7 @@ function getContactFormHTML(lang = "ar") {
         </div>
 
         <div class="field" data-field="phone" aria-invalid="false">
-          <label class="block mb-1 text-sm font-semibold text-primary">
+          <label class="block mb-1 text-xs font-semibold text-primary">
             ${t.phone_label}
           </label>
           <input
@@ -196,7 +196,7 @@ function getContactFormHTML(lang = "ar") {
             inputmode="tel"
             placeholder="${t.phone_placeholder}"
             required
-            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm ${
+            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs ${
               t.align
             } focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
@@ -207,9 +207,9 @@ function getContactFormHTML(lang = "ar") {
       </div>
 
       <!-- المنصب + الشركة -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="grid grid-cols-2 gap-4">
         <div class="field" data-field="company" aria-invalid="false">
-          <label class="block mb-1 text-sm font-semibold text-primary">
+          <label class="block mb-1 text-xs font-semibold text-primary">
             ${t.company_label}
           </label>
           <input
@@ -217,7 +217,7 @@ function getContactFormHTML(lang = "ar") {
             type="text"
             placeholder="${t.company_placeholder}"
             required
-            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm ${
+            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs ${
               t.align
             } focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
@@ -227,7 +227,7 @@ function getContactFormHTML(lang = "ar") {
         </div>
 
         <div class="field" data-field="position" aria-invalid="false">
-          <label class="block mb-1 text-sm font-semibold text-primary">
+          <label class="block mb-1 text-xs font-semibold text-primary">
             ${t.position_label}
           </label>
           <input
@@ -235,7 +235,7 @@ function getContactFormHTML(lang = "ar") {
             type="text"
             placeholder="${t.position_placeholder}"
             required
-            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm ${
+            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs ${
               t.align
             } focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
@@ -248,13 +248,13 @@ function getContactFormHTML(lang = "ar") {
       <!-- اختصاص الموظف + نظام العمل -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div class="field" data-field="specialty" aria-invalid="false">
-          <label class="block mb-1 text-sm font-semibold text-primary">
+          <label class="block mb-1 text-xs font-semibold text-primary">
             ${t.specialty_label}
           </label>
           <select
             name="specialty"
             required
-            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm ${
+            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs ${
               t.align
             } focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           >
@@ -269,12 +269,12 @@ function getContactFormHTML(lang = "ar") {
         </div>
 
         <div class="field" data-field="work_mode" aria-invalid="false">
-          <label class="block mb-1 text-sm font-semibold text-primary">
+          <label class="block mb-1 text-xs font-semibold text-primary">
             ${t.work_mode_label}
           </label>
           <div class="w-full">
             <div
-              class="work-mode-pill w-full inline-flex items-center justify-between rounded-xl border bg-emerald-50 border-emerald-400 px-4 py-3 text-sm font-semibold text-emerald-700"
+              class="work-mode-pill w-full inline-flex items-center justify-between rounded-xl border bg-emerald-50 border-emerald-400 px-4 py-3 text-xs font-semibold text-emerald-700"
             >
               <span>${t.work_mode_value}</span>
               <span
@@ -293,7 +293,7 @@ function getContactFormHTML(lang = "ar") {
       <!-- زر الإرسال -->
       <div class="pt-2">
         <button
-          class="w-full flex items-center justify-center gap-2 rounded-xl bg-primary text-third text-sm font-semibold py-2.5 sm:py-3 hover:bg-primary/90 transition-colors"
+          class="w-full flex items-center justify-center gap-2 rounded-xl bg-primary text-third text-xs font-semibold py-2.5 sm:py-3 hover:bg-primary/90 transition-colors"
           type="submit"
         >
           ${t.submit_text}

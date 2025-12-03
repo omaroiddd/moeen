@@ -78,7 +78,7 @@ export function mountFooter(el, lang = "ar") {
         </div>
       </div>
 
-      <hr class="my-1 sm:my-6 border-gray-200 sm:mx-auto lg:my-8" />
+      <hr class="my-1 sm:my-6 border-primary sm:mx-auto lg:my-8" />
 
       <div class="flex flex-col-reverse sm:flex-row gap-5 items-center sm:justify-between">
         
