@@ -161,7 +161,7 @@ export function mountHeader(el, lang = "ar") {
       ${mobileNavHtml}
       <li class="pt-2">
         <a href="${t.cta.href}"
-           class="m-link block text-center rounded-2xl bg-primary text-secondary px-4 py-3 font-medium">
+           class="m-link block text-center rounded-full bg-primary text-secondary px-4 py-3 font-medium">
           ${t.mobile_cta_label}
         </a>
       </li>
