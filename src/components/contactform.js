@@ -129,7 +129,7 @@ function getContactFormHTML(lang = "ar") {
       <!-- الاسم الأول + الاسم الأخير -->
       <div class="grid grid-cols-2 gap-4">
         <div class="field" data-field="first_name" aria-invalid="false">
-          <label class="block mb-1 text-xs font-semibold text-primary">
+          <label class="block mb-1 text-xs sm:text-[14px] font-semibold text-primary">
             ${t.first_name_label}
           </label>
           <input
@@ -147,7 +147,7 @@ function getContactFormHTML(lang = "ar") {
         </div>
 
         <div class="field" data-field="last_name" aria-invalid="false">
-          <label class="block mb-1 text-xs font-semibold text-primary">
+          <label class="block mb-1 text-xs sm:text-[14px] font-semibold text-primary">
             ${t.last_name_label}
           </label>
           <input
@@ -168,7 +168,7 @@ function getContactFormHTML(lang = "ar") {
       <!-- الجوال + الإيميل -->
       <div class="grid grid-cols-2 gap-4">
         <div class="field" data-field="email" aria-invalid="false">
-          <label class="block mb-1 text-xs font-semibold text-primary">
+          <label class="block mb-1 text-xs sm:text-[14px] font-semibold text-primary">
             ${t.email_label}
           </label>
           <input
@@ -187,7 +187,7 @@ function getContactFormHTML(lang = "ar") {
         </div>
 
         <div class="field" data-field="phone" aria-invalid="false">
-          <label class="block mb-1 text-xs font-semibold text-primary">
+          <label class="block mb-1 text-xs sm:text-[14px] font-semibold text-primary">
             ${t.phone_label}
           </label>
           <input
@@ -209,7 +209,7 @@ function getContactFormHTML(lang = "ar") {
       <!-- المنصب + الشركة -->
       <div class="grid grid-cols-2 gap-4">
         <div class="field" data-field="company" aria-invalid="false">
-          <label class="block mb-1 text-xs font-semibold text-primary">
+          <label class="block mb-1 text-xs sm:text-[14px] font-semibold text-primary">
             ${t.company_label}
           </label>
           <input
@@ -227,7 +227,7 @@ function getContactFormHTML(lang = "ar") {
         </div>
 
         <div class="field" data-field="position" aria-invalid="false">
-          <label class="block mb-1 text-xs font-semibold text-primary">
+          <label class="block mb-1 text-xs sm:text-[14px] font-semibold text-primary">
             ${t.position_label}
           </label>
           <input
@@ -248,7 +248,7 @@ function getContactFormHTML(lang = "ar") {
       <!-- اختصاص الموظف + نظام العمل -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div class="field" data-field="specialty" aria-invalid="false">
-          <label class="block mb-1 text-xs font-semibold text-primary">
+          <label class="block mb-1 text-xs sm:text-[14px] font-semibold text-primary">
             ${t.specialty_label}
           </label>
           <select
@@ -269,7 +269,7 @@ function getContactFormHTML(lang = "ar") {
         </div>
 
         <div class="field" data-field="work_mode" aria-invalid="false">
-          <label class="block mb-1 text-xs font-semibold text-primary">
+          <label class="block mb-1 text-xs sm:text-[14px] font-semibold text-primary">
             ${t.work_mode_label}
           </label>
           <div class="w-full">
