@@ -11,7 +11,16 @@ const HEADER_TEXT = {
     },
     nav: [
       { href: "/", label: "الرئيسية" },
-      { href: "/services.html", label: "خدماتنا" },
+      {
+        href: "/services.html",
+        label: "خدماتنا",
+        submenu: [
+          { href: "/services/customer-service.html", label: "خدمة العملاء" },
+          // { href: "/services/sales.html", label: "المبيعات" },
+          // { href: "/services/technical-support.html", label: "الدعم الفني" },
+          // { href: "/services/consulting.html", label: "الاستشارات" },
+        ],
+      },
       { href: "/pricing.html", label: "الأسعار" },
     ],
     cta: {
@@ -34,7 +43,22 @@ const HEADER_TEXT = {
     },
     nav: [
       { href: "/en/", label: "Home" },
-      { href: "/en/services.html", label: "Services" },
+      {
+        href: "/en/services.html",
+        label: "Services",
+        submenu: [
+          {
+            href: "/en/services/customer-service.html",
+            label: "Customer Service",
+          },
+          // { href: "/en/services/sales.html", label: "Sales" },
+          // {
+          //   href: "/en/services/technical-support.html",
+          //   label: "Technical Support",
+          // },
+          // { href: "/en/services/consulting.html", label: "Consulting" },
+        ],
+      },
       { href: "/en/pricing.html", label: "Pricing" },
     ],
     cta: {
@@ -54,31 +78,99 @@ export function mountHeader(el, lang = "ar") {
   const isRtl = t.dir === "rtl";
 
   const desktopNavHtml = t.nav
-    .map(
-      (item) => `
-      <a href="${
-        item.href
-      }" class="nav-link relative px-1 py-0.5 text-sm md:text-base transition-colors text-[#5d6481] hover:text-primary
-         after:content-[''] after:absolute after:left-1 after:right-1 after:-bottom-0.5 after:h-0.5 after:bg-primary
-         after:scale-x-0 hover:after:scale-x-100 ${
-           isRtl
-             ? "after:origin-right hover:after:origin-right"
-             : "after:origin-left hover:after:origin-left"
-         } after:transition-transform">
-        ${item.label}
-      </a>`
-    )
+    .map((item) => {
+      if (item.submenu) {
+        // Item with submenu
+        const submenuItems = item.submenu
+          .map(
+            (sub) =>
+              `<a href="${sub.href}" class="block px-4 py-2 text-sm text-[#5d6481] hover:bg-gray-50 hover:text-primary transition-colors rounded-lg">
+              ${sub.label}
+            </a>`
+          )
+          .join("");
+
+        return `
+          <div class="nav-item-wrapper relative group">
+            <a href="${
+              item.href
+            }" class="nav-link nav-link-dropdown flex items-center gap-1 px-1 py-0.5 text-sm md:text-base transition-colors text-[#5d6481] hover:text-primary rounded
+               after:content-[''] after:absolute after:left-1 after:right-1 after:-bottom-0.5 after:h-0.5 after:bg-primary
+               after:scale-x-0 group-hover:after:scale-x-100 ${
+                 isRtl
+                   ? "after:origin-right group-hover:after:origin-right"
+                   : "after:origin-left group-hover:after:origin-left"
+               } after:transition-transform">
+              ${item.label}
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </a>
+            
+            <!-- Dropdown Menu -->
+            <div class="submenu absolute ${
+              isRtl ? "right-0" : "left-0"
+            } mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out transform group-hover:translate-y-0 -translate-y-2 z-50">
+              <div class="bg-white rounded-xl shadow-lg border border-gray-100 py-2 backdrop-blur-sm bg-white/95">
+                ${submenuItems}
+              </div>
+            </div>
+          </div>`;
+      } else {
+        // Regular link
+        return `
+          <a href="${
+            item.href
+          }" class="nav-link relative px-1 py-0.5 text-sm md:text-base transition-colors text-[#5d6481] hover:text-primary rounded
+             after:content-[''] after:absolute after:left-1 after:right-1 after:-bottom-0.5 after:h-0.5 after:bg-primary
+             after:scale-x-0 hover:after:scale-x-100 ${
+               isRtl
+                 ? "after:origin-right hover:after:origin-right"
+                 : "after:origin-left hover:after:origin-left"
+             } after:transition-transform">
+            ${item.label}
+          </a>`;
+      }
+    })
     .join("");
 
   const mobileNavHtml = t.nav
-    .map(
-      (item) => `
-      <li>
-        <a class="m-link block rounded-xl px-3 py-2 hover:bg-gray-100" href="${item.href}">
-          ${item.label}
-        </a>
-      </li>`
-    )
+    .map((item) => {
+      if (item.submenu) {
+        const submenuItems = item.submenu
+          .map(
+            (sub) =>
+              `<li><a class="m-link block rounded-xl px-6 py-2 hover:bg-gray-100 text-sm" href="${sub.href}">${sub.label}</a></li>`
+          )
+          .join("");
+
+        return `
+          <li>
+            <a href="${
+              item.href
+            }" class="mobile-dropdown-toggle w-full flex items-center justify-between rounded-xl px-3 py-2 hover:bg-gray-100">
+              ${item.label}
+              <button type="button" class="mobile-dropdown-btn p-1" aria-label="Toggle submenu">
+                <svg class="mobile-dropdown-icon w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+            </a>
+            <ul class="mobile-submenu hidden space-y-1 mt-1 ${
+              isRtl ? "pr-2" : "pl-2"
+            }">
+              ${submenuItems}
+            </ul>
+          </li>`;
+      } else {
+        return `
+          <li>
+            <a class="m-link block rounded-xl px-3 py-2 hover:bg-gray-100" href="${item.href}">
+              ${item.label}
+            </a>
+          </li>`;
+      }
+    })
     .join("");
 
   el.setAttribute(
@@ -94,7 +186,7 @@ export function mountHeader(el, lang = "ar") {
   <!-- Logo + Nav -->
   <div class="flex items-center justify-between gap-4 md:gap-12">
     <!-- Logo -->
-    <a class="block shrink-0" href="${t.logo.href}" aria-label="${
+    <a class="block shrink-0 rounded" href="${t.logo.href}" aria-label="${
     t.logo.ariaLabel
   }">
       <img src="${t.logo.src}" class="site-logo w-auto h-18 lg:h-22" alt="${
@@ -111,13 +203,13 @@ export function mountHeader(el, lang = "ar") {
   <!-- CTA -->
   <a id="ctaBtn" href="${t.cta.href}" class="cta-btn ${
     isRtl ? "mr-auto" : "ml-auto"
-  } hidden md:inline-flex">
+  } hidden md:inline-flex rounded-full">
     <div class="dots_border"></div>
     <span class="text_button">${t.cta.label}</span>
   </a>
 
   <!-- Language Switch (Desktop) -->
-  <a href="#" class="lang-switch text-primary font-semibold hover:underline hidden md:inline-flex md:items-center md:justify-center">
+  <a href="#" class="lang-switch text-primary font-semibold hover:underline hidden md:inline-flex md:items-center md:justify-center rounded">
     ${t.lang_switch}
     <img src="/assets/globe-rotate.gif" alt="Language" class="inline-block w-6 h-6 ${
       isRtl ? "mr-1" : "ml-1"
@@ -142,7 +234,11 @@ export function mountHeader(el, lang = "ar") {
 
 <!-- Mobile Drawer -->
 <aside id="mobileMenu"
-       class="fixed top-0 bottom-0 right-0 w-[85%] max-w-sm shadow-2xl translate-x-full
+       class="fixed top-0 bottom-0 ${
+         isRtl ? "right-0" : "left-0"
+       } w-[85%] max-w-sm shadow-2xl ${
+    isRtl ? "translate-x-full" : "-translate-x-full"
+  }
               transition-transform duration-300 ease-out md:hidden flex flex-col bg-secondary"
        tabindex="-1" aria-hidden="true">
   <div class="flex items-center justify-between p-4 border-b border-gray-100 bg-secondary">
@@ -166,7 +262,7 @@ export function mountHeader(el, lang = "ar") {
         </a>
       </li>
       <li>
-        <a href="#" class="lang-switch text-primary font-semibold hover:underline inline-flex items-center justify-center">
+        <a href="#" class="lang-switch text-primary font-semibold hover:underline inline-flex items-center justify-center rounded">
           ${t.lang_switch}
           <img src="/assets/globe-rotate.gif" alt="Language" class="inline-block w-6 h-6 mr-1"/>
         </a>
@@ -183,7 +279,38 @@ export function mountHeader(el, lang = "ar") {
   `;
 
   wireHeader(el);
+  wireMobileDropdowns(el);
   markActiveDesktopLink(el);
+}
+
+// Mobile submenu functionality
+function wireMobileDropdowns(root) {
+  const dropdownBtns = root.querySelectorAll(".mobile-dropdown-btn");
+
+  dropdownBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // Prevent link navigation
+
+      const listItem = btn.closest("li");
+      const submenu = listItem
+        ? listItem.querySelector(".mobile-submenu")
+        : null;
+      const icon = btn.querySelector(".mobile-dropdown-icon");
+
+      if (submenu) {
+        const isOpen = !submenu.classList.contains("hidden");
+
+        if (isOpen) {
+          submenu.classList.add("hidden");
+          if (icon) icon.style.transform = "rotate(0deg)";
+        } else {
+          submenu.classList.remove("hidden");
+          if (icon) icon.style.transform = "rotate(180deg)";
+        }
+      }
+    });
+  });
 }
 
 // نفس لوجيك الموبايل القديم تقريباً
@@ -210,7 +337,14 @@ function wireHeader(root) {
     if (menuBtn) menuBtn.setAttribute("aria-expanded", "true");
     drawer.setAttribute("aria-hidden", "false");
 
-    drawer.classList.remove("translate-x-full");
+    // Check if RTL or LTR
+    const isRtl = drawer.classList.contains("right-0");
+    if (isRtl) {
+      drawer.classList.remove("translate-x-full");
+    } else {
+      drawer.classList.remove("-translate-x-full");
+    }
+
     overlay.classList.remove("pointer-events-none");
     requestAnimationFrame(() => {
       overlay.style.opacity = "1";
@@ -226,7 +360,14 @@ function wireHeader(root) {
     if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
     drawer.setAttribute("aria-hidden", "true");
 
-    drawer.classList.add("translate-x-full");
+    // Check if RTL or LTR
+    const isRtl = drawer.classList.contains("right-0");
+    if (isRtl) {
+      drawer.classList.add("translate-x-full");
+    } else {
+      drawer.classList.add("-translate-x-full");
+    }
+
     overlay.style.opacity = "0";
     setTimeout(() => overlay.classList.add("pointer-events-none"), 200);
 

@@ -809,8 +809,7 @@ main {
 :root {
   --pill-bg: #ffffff;
   --pill-radius: 20px;
-  --pill-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-  --pill-shadow-hover: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --pill-shadow: 0px 20px 50px 0px rgba(49, 49, 49, 0.05);
   --marquee-speed: 80s;
 }
 
@@ -820,10 +819,6 @@ main {
   overflow: hidden;
   width: 100%;
   margin: 0 auto;
-}
-
-.logo-row + .logo-row {
-  margin-top: 1rem;
 }
 
 /* subtle fade edges */
@@ -837,17 +832,8 @@ main {
   z-index: 2;
   pointer-events: none;
 }
-.logo-marquee::before {
-  left: 0;
-  background: linear-gradient(to right, #f5f7fb, transparent);
-}
-.logo-marquee::after {
-  right: 0;
-  background: linear-gradient(to left, #f5f7fb, transparent);
-}
 
 .logo-row {
-  overflow: hidden;
   white-space: nowrap;
   padding: 1rem 0;
 }
@@ -858,12 +844,20 @@ main {
   will-change: transform;
   animation: marquee var(--marquee-speed) linear infinite;
 }
-.logo-row .marquee-track {
+[lang="ar"] .logo-row .marquee-track {
   transform: translateX(32%);
 }
-.logo-row--reverse .marquee-track {
+[lang="ar"] .logo-row--reverse .marquee-track {
   animation-direction: reverse;
   transform: translateX(28%);
+}
+
+[lang="en"] .logo-row .marquee-track {
+  transform: translateX(-32%);
+}
+[lang="en"] .logo-row--reverse .marquee-track {
+  animation-direction: reverse;
+  transform: translateX(-28%);
 }
 
 .logo-pill {
@@ -877,19 +871,14 @@ main {
   background: var(--pill-bg);
   box-shadow: var(--pill-shadow);
   transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-  width: 192px;
+  width: 261px;
+  min-height: 81px;
 }
 
 .logo-pill img {
   max-height: 28px;
   width: auto;
   display: block;
-}
-
-.logo-pill:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: var(--pill-shadow-hover);
-  filter: saturate(1.1);
 }
 
 /* responsive tweaks */
@@ -902,9 +891,6 @@ main {
   }
   :root {
     --marquee-speed: 70s;
-  }
-  .logo-row + .logo-row {
-    margin-top: 0.8rem;
   }
 }
 

@@ -52,7 +52,7 @@ const CONTACT_FORM_TEXT = {
     work_mode_label: "نظام العمل",
     work_mode_value: "عن بُعد",
 
-    submit_text: "إحجز إجتماعاً",
+    submit_text: "احجز اجتماعاً",
     sending_text: "جارٍ الإرسال...",
     secure_text: "بياناتك محمية ومشفرة 100%",
     success_text: "تم إرسال البيانات بنجاح! سنعاود الاتصال بك قريبًا.",
