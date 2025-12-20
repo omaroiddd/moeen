@@ -20,6 +20,8 @@
   --linear-gradient-2: linear-gradient(to bottom, #ddfbdc 0%, #ffffff);
   --linear-gradient-3: linear-gradient(to bottom, #effdee 0%, #ffffff);
   --linear-gradient-4: linear-gradient(to top, #effdee 0%, #ffffff);
+  --linear-gradient-5: linear-gradient(180deg, #ffffff 71.27%, #f1fdf0 100%);
+
   --radial-gradient: radial-gradient(
     161.74% 350.87% at 125.63% -45.28%,
     #4e9682 0%,
@@ -819,18 +821,14 @@ main {
   overflow: hidden;
   width: 100%;
   margin: 0 auto;
-}
-
-/* subtle fade edges */
-.logo-marquee::before,
-.logo-marquee::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 60px;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
+  padding-bottom: 3rem;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 60px,
+    black calc(100% - 60px),
+    transparent
+  );
 }
 
 .logo-row {
@@ -876,21 +874,35 @@ main {
 }
 
 .logo-pill img {
-  max-height: 28px;
+  max-height: 30px;
   width: auto;
   display: block;
+}
+.dev-logos img {
+  max-height: 45px;
 }
 
 /* responsive tweaks */
 @media (max-width: 768px) {
   .logo-pill {
     padding: 0.6rem 1.2rem;
+    width: 150px;
+    min-height: 60px;
   }
   .logo-pill img {
     max-height: 22px;
   }
   :root {
-    --marquee-speed: 70s;
+    --marquee-speed: 90s;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
   }
 }
 
@@ -910,14 +922,6 @@ main {
 }
 
 /* animation definition */
-/* @keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-} */
 
 .cta-btn {
   border: none;
