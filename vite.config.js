@@ -13,7 +13,23 @@ export default defineConfig({
         contact: resolve(__dirname, "contact.html"),
         thankyou: resolve(__dirname, "thank-you.html"),
 
-        customerservice: resolve(__dirname, "services/customer-service.html"),
+        // customerservice: resolve(__dirname, "services/customer-service.html"),
+        // cybersecurity: resolve(__dirname, "services/cybersecurity.html"),
+        // dataanalysis: resolve(__dirname, "services/data-analysis.html"),
+        // developers: resolve(__dirname, "services/developers.html"),
+        // digitalmarketing: resolve(__dirname, "services/digital-marketing.html"),
+        // estoremanagers: resolve(__dirname, "services/e-store-managers.html"),
+        // financialanalysis: resolve(
+        //   __dirname,
+        //   "services/financial-analysis.html"
+        // ),
+        // graphicdesign: resolve(__dirname, "services/graphic-design.html"),
+        // projectmanagers: resolve(__dirname, "services/project-managers.html"),
+        // salesrepresentative: resolve(
+        //   __dirname,
+        //   "services/sales-representative.html"
+        // ),
+        // videoediting: resolve(__dirname, "services/video-editing.html"),
 
         en_index: resolve(__dirname, "en/index.html"),
         en_contact: resolve(__dirname, "en/contact.html"),
@@ -21,10 +37,10 @@ export default defineConfig({
         en_services: resolve(__dirname, "en/services.html"),
         en_thankyou: resolve(__dirname, "en/thank-you.html"),
 
-        en_customerservice: resolve(
-          __dirname,
-          "en/services/customer-service.html"
-        ),
+        // en_customerservice: resolve(
+        //   __dirname,
+        //   "en/services/customer-service.html"
+        // ),
       },
     },
   },
