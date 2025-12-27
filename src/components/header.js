@@ -59,18 +59,18 @@ const HEADER_TEXT = {
       {
         href: "/en/services.html",
         label: "Services",
-        submenu: [
-          {
-            href: "/en/services/customer-service.html",
-            label: "Customer Service",
-          },
-          // { href: "/en/services/sales.html", label: "Sales" },
-          // {
-          //   href: "/en/services/technical-support.html",
-          //   label: "Technical Support",
-          // },
-          // { href: "/en/services/consulting.html", label: "Consulting" },
-        ],
+        // submenu: [
+        //   {
+        //     href: "/en/services/customer-service.html",
+        //     label: "Customer Service",
+        //   },
+        //   { href: "/en/services/sales.html", label: "Sales" },
+        //   {
+        //     href: "/en/services/technical-support.html",
+        //     label: "Technical Support",
+        //   },
+        //   { href: "/en/services/consulting.html", label: "Consulting" },
+        // ],
       },
       { href: "/en/pricing.html", label: "Pricing" },
     ],

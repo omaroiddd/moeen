@@ -74,9 +74,9 @@ const FOOTER_CONFIG = {
       title: "Quick Links",
       links: [
         { label: "Home", href: "/" },
-        { label: "Services", href: "/services.html" },
-        { label: "Pricing", href: "/pricing.html" },
-        { label: "Book a consultation", href: "/contact.html" },
+        { label: "Services", href: "/en/services.html" },
+        { label: "Pricing", href: "/en/pricing.html" },
+        { label: "Book a consultation", href: "/en/contact.html" },
       ],
     },
 
