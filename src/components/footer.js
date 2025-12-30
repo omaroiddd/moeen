@@ -9,7 +9,7 @@ const FOOTER_CONFIG = {
     logo: {
       src: "/assets/footer-logo.png",
       alt: "Moeen Logo",
-      heightClass: "h-[45.15px] md:h-[73px]",
+      heightClass: "w-auto h-18 lg:h-22",
     },
 
     // ✅ مثل الصورة: 3 أعمدة + بلوك الشعار
@@ -49,8 +49,8 @@ const FOOTER_CONFIG = {
         },
         {
           label: "الواتساب",
-          value: "966552223246+",
-          href: "https://wa.me/966552223246",
+          value: "966552223746+",
+          href: "https://wa.me/966552223746",
         },
       ],
     },
@@ -67,7 +67,7 @@ const FOOTER_CONFIG = {
     logo: {
       src: "/assets/footer-logo.png",
       alt: "Moeen Logo",
-      heightClass: "h-[45.15px] md:h-[73px]",
+      heightClass: "w-auto h-18 lg:h-22",
     },
 
     quickLinks: {

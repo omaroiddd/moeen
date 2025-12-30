@@ -124,7 +124,7 @@ export function mountHeader(el, lang = "ar") {
             <div class="submenu absolute ${
               isRtl ? "right-0" : "left-0"
             } mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out transform group-hover:translate-y-0 -translate-y-2 z-50">
-              <div class="bg-white rounded-xl shadow-lg border border-gray-100 py-2 backdrop-blur-sm bg-white/95">
+              <div class="rounded-xl shadow-lg border border-gray-100 py-2 backdrop-blur-sm bg-white/95">
                 ${submenuItems}
               </div>
             </div>
