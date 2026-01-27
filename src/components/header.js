@@ -188,7 +188,7 @@ export function mountHeader(el, lang = "ar") {
 
   el.setAttribute(
     "class",
-    "fixed w-full top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/40",
+    "fixed w-full top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-secondary/90",
   );
 
   el.innerHTML = `
