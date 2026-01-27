@@ -99,7 +99,7 @@ export function mountHeader(el, lang = "ar") {
             (sub) =>
               `<a href="${sub.href}" class="block px-4 py-2 text-sm text-[#5d6481] hover:bg-gray-50 hover:text-primary transition-colors rounded-lg">
               ${sub.label}
-            </a>`
+            </a>`,
           )
           .join("");
 
@@ -153,7 +153,7 @@ export function mountHeader(el, lang = "ar") {
         const submenuItems = item.submenu
           .map(
             (sub) =>
-              `<li><a class="m-link block rounded-xl px-6 py-2 hover:bg-gray-100 text-sm" href="${sub.href}">${sub.label}</a></li>`
+              `<li><a class="m-link block rounded-xl px-6 py-2 hover:bg-gray-100 text-sm" href="${sub.href}">${sub.label}</a></li>`,
           )
           .join("");
 
@@ -188,7 +188,7 @@ export function mountHeader(el, lang = "ar") {
 
   el.setAttribute(
     "class",
-    "fixed w-full top-0 z-50 !bg-[image:var(--linear-gradient)] bg-cover bg-no-repeat backdrop-blur supports-[backdrop-filter]:bg-white/60"
+    "fixed w-full top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/40",
   );
 
   el.innerHTML = `
@@ -200,11 +200,11 @@ export function mountHeader(el, lang = "ar") {
   <div class="flex items-center justify-between gap-4 md:gap-12">
     <!-- Logo -->
     <a class="block shrink-0 rounded" href="${t.logo.href}" aria-label="${
-    t.logo.ariaLabel
-  }">
+      t.logo.ariaLabel
+    }">
       <img src="${t.logo.src}" class="site-logo w-auto h-18 lg:h-22" alt="${
-    t.logo.alt
-  }" />
+        t.logo.alt
+      }" />
     </a>
 
     <!-- Desktop Nav -->
@@ -250,8 +250,8 @@ export function mountHeader(el, lang = "ar") {
        class="fixed top-0 bottom-0 ${
          isRtl ? "right-0" : "left-0"
        } w-[85%] max-w-sm shadow-2xl ${
-    isRtl ? "translate-x-full" : "-translate-x-full"
-  }
+         isRtl ? "translate-x-full" : "-translate-x-full"
+       }
               transition-transform duration-300 ease-out md:hidden flex flex-col bg-secondary"
        tabindex="-1" aria-hidden="true">
   <div class="flex items-center justify-between p-4 border-b border-gray-100 bg-secondary">
@@ -393,7 +393,7 @@ function wireHeader(root) {
   overlay && overlay.addEventListener("click", closeMenu);
   document.addEventListener(
     "keydown",
-    (e) => e.key === "Escape" && closeMenu()
+    (e) => e.key === "Escape" && closeMenu(),
   );
   links.forEach((a) => a.addEventListener("click", closeMenu));
 
@@ -435,7 +435,7 @@ function markActiveDesktopLink(root) {
         "text-[#6adf73]",
         "after:scale-x-100",
         "after:origin-left",
-        "after:!bg-[#6adf73]"
+        "after:!bg-[#6adf73]",
       );
       a.setAttribute("aria-current", "page");
     } else {
@@ -443,7 +443,7 @@ function markActiveDesktopLink(root) {
         "text-[#6adf73]",
         "after:scale-x-100",
         "after:origin-left",
-        "after:!bg-[#6adf73]"
+        "after:!bg-[#6adf73]",
       );
       a.removeAttribute("aria-current");
     }

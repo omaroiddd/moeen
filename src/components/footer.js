@@ -49,8 +49,8 @@ const FOOTER_CONFIG = {
         },
         {
           label: "الواتساب",
-          value: "966552223746+",
-          href: "https://wa.me/966552223746",
+          value: "966552223246+",
+          href: "https://wa.me/966552223246",
         },
       ],
     },
@@ -106,7 +106,7 @@ const FOOTER_CONFIG = {
         },
         {
           label: "WhatsApp",
-          value: "+966 55 222 3246",
+          value: "+966552223246",
           href: "https://wa.me/966552223246",
         },
       ],

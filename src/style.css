@@ -313,7 +313,8 @@
 }
 .candidate-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+  box-shadow:
+    0 20px 25px -5px rgb(0 0 0 / 0.1),
     0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
@@ -546,7 +547,10 @@
   border-radius: 0.75rem;
   background: #fff;
   text-align: right;
-  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s,
+    box-shadow 0.2s;
   cursor: pointer;
 }
 .option-btn:is(:focus-visible) {
@@ -588,7 +592,9 @@
   border-radius: 0.75rem;
   background: #fff;
   outline: 0;
-  transition: box-shadow 0.2s, border-color 0.2s;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
 }
 /* .input:is(:focus),
 .select:is(:focus),
@@ -655,7 +661,11 @@
   padding-inline: 1rem;
   border-radius: 0.75rem;
   cursor: pointer;
-  transition: filter 0.2s, background-color 0.2s, color 0.2s, border-color 0.2s;
+  transition:
+    filter 0.2s,
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s;
 }
 .btn-primary {
   background: var(--primary);
@@ -811,7 +821,7 @@ main {
 :root {
   --pill-bg: #ffffff;
   --pill-radius: 20px;
-  --pill-shadow: 0px 20px 50px 0px rgba(49, 49, 49, 0.05);
+  --pill-shadow: 0px 20px 50px 0px rgb(49 49 49 / 4%);
   --marquee-speed: 80s;
 }
 
@@ -863,37 +873,24 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.8rem 1.7rem;
-  border: 1px solid #bdfbbc;
-  border-radius: var(--pill-radius);
-  background: var(--pill-bg);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
   box-shadow: var(--pill-shadow);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-  width: 261px;
-  min-height: 81px;
 }
 
 .logo-pill img {
-  max-height: 30px;
-  width: auto;
-  display: block;
-}
-.dev-logos img {
-  max-height: 45px;
+  height: 69px !important;
 }
 
 /* responsive tweaks */
 @media (max-width: 768px) {
-  .logo-pill {
-    padding: 0.6rem 1.2rem;
-    width: 150px;
-    min-height: 60px;
-  }
   .logo-pill img {
-    max-height: 22px;
+    height: 60px !important;
   }
   :root {
-    --marquee-speed: 90s;
+    --marquee-speed: 15s;
   }
 
   @keyframes marquee {
